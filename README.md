@@ -12,11 +12,11 @@
     <img src="https://img.shields.io/github/license/GabrielSchiavo/bookwise?color=blue&style=for-the-badge"/>
 </p>
 
-BookWise visa o controle e cadastro de livros, empréstimos, genêros literários e pessoas de uma biblioteca.
+BookWise visa o controle e cadastro de livros, empréstimos, gêneros literários e pessoas de uma biblioteca.
 
 ## :hammer: Funcionalidades
 - **Cadastro:**
-  - `Cadastro de Gêneros Literários:` cadastro de nome de Genêros Literários.
+  - `Cadastro de Gêneros Literários:` cadastro de nome de Gêneros Literários.
   
   - `Cadastro de Livros:` cadastro com Genêro Literário, ISBN, Título, Autor, Editora, Ano e Imagem da Capa.
   
@@ -43,8 +43,11 @@ BookWise visa o controle e cadastro de livros, empréstimos, genêros literário
   
   - `Status:` os livros e retiradas são organizados por status:
     - **1 - Retirado:** Um livro obtém o status `Retirado` quando um cadastro de retirada é criado para este livro.
+  
     - **2 - Renovado:** Um livro retirado pode ser renovado. Para renovar um livro o cadastro da retirada deve ser atualizado com o status `Renovado`.
+  
     - **3 - Devolvido/Disponível:** Quando um novo livro é cadastrado ou não está retirado ele é marcado automaticamento com o status `Disponível`. Já quendo um livro retirado é devolvido o cadastro da retirada deve ser atualizada como o status `Devolvido` ou excluída para o livro retirado estar disponível para retirada novamente.
+  
     - **4 - Atrasado:** Livros com Datas de Devolução anterios a data do dia atual é marcado automaticamente com status `Atrasado`.
   
 
