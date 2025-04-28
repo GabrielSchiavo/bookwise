@@ -13,7 +13,7 @@ class Livros extends Model
     protected $table = 'livros';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['genero', 'genero_id', 'isbn', 'titulo', 'autor', 'editora', 'ano', 'imgCapa', 'status'];
+    protected $fillable = ['imgCapa', 'titulo', 'autor', 'genero_id', 'genero', 'editora', 'ano', 'isbn', 'status'];
 
     public function genero(): BelongsTo {
         return $this->belongsTo(Genero::class);

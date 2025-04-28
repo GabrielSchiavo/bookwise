@@ -23,7 +23,7 @@
         </a>
         <ul class="side-menu top">
             <li class="@yield('optionSideMenu01')">
-                <a class="option-side-menu" aria-current="page" href="/dashboard">
+                <a class="option-side-menu" aria-current="page" href="/dashboard" title="Dashboard">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-dashboard.svg" alt="Ícone Dashboard">
                     <span class="text text-ellipsis">Dashboard</span>
                 </a>
@@ -31,28 +31,28 @@
         </ul>
         <ul class="side-menu top">
             <li class="@yield('optionSideMenu02')">
-                <a class="option-side-menu" aria-current="page" href="/generos-literarios">
+                <a class="option-side-menu" aria-current="page" href="/generos-literarios" title="Gêneros Literários">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-bookmark.svg" alt="Ícone Gênero Literário">
                     <span class="text text-ellipsis">Gêneros Literários</span>
                 </a>
             </li>
 
             <li class="@yield('optionSideMenu03')">
-                <a class="option-side-menu" aria-current="page" href="/acervo">
+                <a class="option-side-menu" aria-current="page" href="/acervo" title="Acervo">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-books.svg" alt="Ícone Livro">
                     <span class="text text-ellipsis">Acervo</span>
                 </a>
             </li>
 
             <li class="@yield('optionSideMenu04')">
-                <a class="option-side-menu" aria-current="page" href="/pessoas">
+                <a class="option-side-menu" aria-current="page" href="/pessoas" title="Pessoas">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-users.svg" alt="Ícone Usuários">
                     <span class="text text-ellipsis">Pessoas</span>
                 </a>
             </li>
 
             <li class="@yield('optionSideMenu05')">
-                <a class="option-side-menu" aria-current="page" href="/retiradas">
+                <a class="option-side-menu" aria-current="page" href="/retiradas" title="Retiradas/Devoluções">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-calendar.svg" alt="Ícone Retiradas">
                     <span class="text text-ellipsis">Retiradas/Devoluções</span>
                 </a>
@@ -60,28 +60,28 @@
         </ul>
         <ul class="side-menu top">
             <li class="@yield('optionSideMenu06')">
-                <a class="option-side-menu" aria-current="page" href="/generos-literarios/cadastro">
+                <a class="option-side-menu" aria-current="page" href="/generos-literarios/cadastro" title="Cadastro Gêneros">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-add-bookmark.svg" alt="Ícone Cadastro Gênero Literário">
                     <span class="text text-ellipsis">Cadastro Gêneros</span>
                 </a>
             </li>
 
             <li class="@yield('optionSideMenu07')">
-                <a class="option-side-menu" aria-current="page" href="/acervo/cadastro">
+                <a class="option-side-menu" aria-current="page" href="/acervo/cadastro" title="Cadastro Livros">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-add-book.svg" alt="Ícone Cadastro Livros">
                     <span class="text text-ellipsis">Cadastro Livros</span>
                 </a>
             </li>
 
             <li class="@yield('optionSideMenu08')">
-                <a class="option-side-menu" aria-current="page" href="/pessoas/cadastro">
+                <a class="option-side-menu" aria-current="page" href="/pessoas/cadastro" title="Cadastro Pessoas">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-add-user.svg" alt="Ícone Cadastro Usuários">
                     <span class="text text-ellipsis">Cadastro Pessoas</span>
                 </a>
             </li>
 
             <li class="@yield('optionSideMenu09')">
-                <a class="option-side-menu" aria-current="page" href="/retiradas/cadastro">
+                <a class="option-side-menu" aria-current="page" href="/retiradas/cadastro" title="Cadastro Retiradas/Devoluções">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-add-calendar.svg" alt="Ícone Cadastro Retiradas">
                     <span class="text text-ellipsis">Cadastro Retiradas/Devoluções</span>
                 </a>
@@ -115,7 +115,7 @@
             <form class="search-form" action="@yield('searchAction')" method="GET">
                 <div class="search-input-container">
                     <input class="search-input" type="search" name="search" id="search" placeholder="Pesquisar...">
-                    <button type="submit" id="search-btn">
+                    <button type="submit" id="search-btn" title="Pesquisar">
                         <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-search.svg" alt="Ícone Pesquisa">
                     </button>
                 </div>

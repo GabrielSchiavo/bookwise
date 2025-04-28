@@ -13,7 +13,7 @@ class Retirada extends Model
     protected $table = 'retiradas';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['dataRetirada', 'dataDevolucao', 'pessoa', 'livro', 'status', 'livro_id'];
+    protected $fillable = ['dataRetirada', 'dataDevolucao', 'pessoa', 'livro_id', 'livro', 'status'];
 
     public function livros_id(): BelongsTo {
         return $this->belongsTo(Livros::class);
