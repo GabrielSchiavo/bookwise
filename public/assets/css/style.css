@@ -577,6 +577,7 @@ body {
 	background: var(--base-variant);
 	padding: 10px 15px;
 	appearance: none;
+	color: var(--text-color);
 }
 .input-area::placeholder{
 	color: var(--placeholder-text);
