@@ -7,22 +7,22 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('livros', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('imgCapa', 260)->nullable();
-            $table->string('titulo', 250);
-            $table->string('autor', 250);
-            $table->unsignedBigInteger('genero_id');
-            $table->string('genero', 250);
-            $table->string('editora', 250);
-            $table->integer('ano');
+            $table->string('cover_image', 260)->nullable();
+            $table->string('title', 250);
+            $table->string('author', 250);
+            $table->unsignedBigInteger('literary_gender_id');
+            $table->string('literary_gender', 250);
+            $table->string('publisher', 250);
+            $table->integer('year');
             $table->string('isbn',  17)->nullable();
             $table->integer('status');
             $table->timestamps();
         });
 
     }
-
+    
     public function down()
     {
         //

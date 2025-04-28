@@ -13,10 +13,10 @@ active
 @endsection
 
 @section('conteudo')
-@if(!empty($mensagem))
+@if(!empty($message))
     <div class="alert-container">
         <div class="alert alert-success">
-            <p>{!! $mensagem !!}</p>
+            <p>{!! $message !!}</p>
         </div>
     </div>
 @endif
@@ -37,18 +37,18 @@ active
                 </tr>
             </thead>
             <tbody  class="table-content-center">
-                @foreach ($listaPessoas as $pessoas)
+                @foreach ($personsList as $person)
                 <tr>
-                    <td>{{ $pessoas->id }}</td>
-                    <td>{{ $pessoas->nome }}</td>
-                    <td class="phoneMask">{{ $pessoas->telefone }}</td>
-                    <td>{{ $pessoas->email }}</td>
+                    <td>{{ $person->id }}</td>
+                    <td>{{ $person->name_last_name }}</td>
+                    <td class="phoneMask">{{ $person->phone }}</td>
+                    <td>{{ $person->email }}</td>
                     <td>
-                        <form action="/pessoas/{{$pessoas->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                        <form action="/pessoas/{{$person->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/pessoas/{$pessoas->id}/editar")}}" tabindex="0" class="editar" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/pessoas/{$person->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
                                 </a>
                                 <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">

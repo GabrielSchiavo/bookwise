@@ -19,7 +19,7 @@
     <section id="sidebar">
         <a href="/" class="brand">
             <img class="logo-img" src="/assets/images/favicons/bookWise-logo.png" alt="Logo BookWise">
-            <span class="logo-text">Book<span class="text-bold">Wise</span>
+            <span class="logo-text">Book<span class="text-bold-logo">Wise</span>
         </a>
         <ul class="side-menu top">
             <li class="@yield('optionSideMenu01')">

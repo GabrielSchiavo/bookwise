@@ -158,6 +158,30 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        // Campos cadastro livros
+        'literary_gender' => 'Gênero Literário',
+        'isbn' => 'ISBN',
+        'title' => 'Título',
+        'author' => 'Autor',
+        'publisher' => 'Editora',
+        'year' => 'Ano',
+        'cover_image' => 'Capa',
+
+        // Campos cadastro Retiradas
+        'loan_date' => 'Data de Retirada',
+        'return_date' => 'Data de Devolução',
+        'book' => 'Livro',
+        'person' => 'Pessoa',
+        'status' => 'Status',
+
+        // Campos cadastro Gêneros Literários
+        'name' => 'Nome',
+
+        // Campos cadastro Pessoas
+        'name_last_name' => 'Nome e Sobrenome',
+        'phone' => 'Telefone',
+        'email' => 'Email',
+    ],
 
 ];

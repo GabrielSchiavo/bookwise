@@ -7,11 +7,9 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('pessoas', function (Blueprint $table) {
+        Schema::create('literary_genres', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome', 100);
-            $table->string('telefone', 15);
-            $table->string('email', 100);
+            $table->string('name', 250);
             $table->timestamps();
         });
     }

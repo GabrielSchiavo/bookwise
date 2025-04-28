@@ -7,8 +7,8 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::table('retiradas', function (Blueprint $table) {
-            $table->foreign('livro_id')->references('id')->on('livros')->onDelete('set null');
+        Schema::table('books_loans', function (Blueprint $table) {
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('set null');
         });
     }
 

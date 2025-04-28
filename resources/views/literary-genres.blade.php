@@ -13,10 +13,10 @@ active
 @endsection
 
 @section('conteudo')
-@if(!empty($mensagem))
+@if(!empty($message))
     <div class="alert-container">
         <div class="alert alert-success">
-            <p>{!! $mensagem !!}</p>
+            <p>{!! $message !!}</p>
         </div>
     </div>
 @endif
@@ -36,16 +36,16 @@ active
                 </tr>
             </thead>
             <tbody  class="table-content-center">
-                @foreach ($listaGeneros as $generos)
+                @foreach ($listLiteraryGenres as $literaryGenre)
                 <tr>
-                    <td>{{ $generos->id }}</td>
-                    <td>{{ $generos->nome }}</td>
+                    <td>{{ $literaryGenre->id }}</td>
+                    <td>{{ $literaryGenre->name }}</td>
                     <td>
-                        <form action="/generos-literarios/{{$generos->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                        <form action="/generos-literarios/{{$literaryGenre->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/generos-literarios/{$generos->id}/editar")}}" tabindex="0" class="editar" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/generos-literarios/{$literaryGenre->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
                                 </a>
                                 <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">

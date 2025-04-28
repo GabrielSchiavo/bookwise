@@ -1,9 +1,9 @@
 <?php
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GeneroController;
-use App\Http\Controllers\LivrosController;
-use App\Http\Controllers\PessoaController;
-use App\Http\Controllers\RetiradaController;
+use App\Http\Controllers\LiteraryGenreController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\BookLoanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,42 +11,42 @@ Route::get('/', function () {
 });
 
 // Dashboard
-Route::get('/dashboard', [DashboardController::class, 'dashboard']); 
+Route::get('/dashboard', [DashboardController::class, 'listData']); 
 
 // Gênero
-Route::get('/generos-literarios', [GeneroController::class, 'listaGeneros']);
+Route::get('/generos-literarios', [LiteraryGenreController::class, 'listData']);
 
-Route::get('/generos-literarios/cadastro', [GeneroController::class, 'cadastroGenero']);
-Route::post('/generos-literarios/cadastro', [GeneroController::class, 'salvarGenero']);
+Route::get('/generos-literarios/cadastro', [LiteraryGenreController::class, 'formData']);
+Route::post('/generos-literarios/cadastro', [LiteraryGenreController::class, 'saveData']);
 
-Route::get('/generos-literarios/{id}/editar', [GeneroController::class, 'editar']);
-Route::delete('/generos-literarios/{id}/excluir', [GeneroController::class, 'excluir']);
+Route::get('/generos-literarios/{id}/editar', [LiteraryGenreController::class, 'edit']);
+Route::delete('/generos-literarios/{id}/excluir', [LiteraryGenreController::class, 'delete']);
 
 
 // Livros 
-Route::get('/acervo', [LivrosController::class, 'listaLivros']);
+Route::get('/acervo', [BookController::class, 'listData']);
 
-Route::get('/acervo/cadastro', [LivrosController::class, 'cadastroLivros']);
-Route::post('/acervo/cadastro', [LivrosController::class, 'salvarLivros']);
+Route::get('/acervo/cadastro', [BookController::class, 'formData']);
+Route::post('/acervo/cadastro', [BookController::class, 'saveData']);
 
-Route::get('/acervo/{id}/editar', [LivrosController::class, 'editar']);
-Route::delete('/acervo/{id}/excluir', [LivrosController::class, 'excluir']);
+Route::get('/acervo/{id}/editar', [BookController::class, 'edit']);
+Route::delete('/acervo/{id}/excluir', [BookController::class, 'delete']);
 
 
 // Pessoas
-Route::get('/pessoas', [PessoaController::class, 'listaPessoas']);
+Route::get('/pessoas', [PersonController::class, 'listData']);
 
-Route::get('/pessoas/cadastro', [PessoaController::class, 'cadastroPessoas']);
-Route::post('/pessoas/cadastro', [PessoaController::class, 'salvarPessoas']);
+Route::get('/pessoas/cadastro', [PersonController::class, 'formData']);
+Route::post('/pessoas/cadastro', [PersonController::class, 'saveData']);
 
-Route::get('/pessoas/{id}/editar', [PessoaController::class, 'editar']);
-Route::delete('/pessoas/{id}/excluir', [PessoaController::class, 'excluir']);
+Route::get('/pessoas/{id}/editar', [PersonController::class, 'edit']);
+Route::delete('/pessoas/{id}/excluir', [PersonController::class, 'delete']);
 
 // Reservas
-Route::get('/retiradas', [RetiradaController::class, 'listaRetiradas']);
+Route::get('/retiradas', [BookLoanController::class, 'listData']);
 
-Route::get('/retiradas/cadastro', [RetiradaController::class, 'cadastroReservas']);
-Route::post('/retiradas/cadastro', [RetiradaController::class, 'salvarReservas']);
+Route::get('/retiradas/cadastro', [BookLoanController::class, 'formData']);
+Route::post('/retiradas/cadastro', [BookLoanController::class, 'saveData']);
 
-Route::get('/retiradas/{id}/editar', [RetiradaController::class, 'editar']);
-Route::delete('/retiradas/{id}/excluir', [RetiradaController::class, 'excluir']);
+Route::get('/retiradas/{id}/editar', [BookLoanController::class, 'edit']);
+Route::delete('/retiradas/{id}/excluir', [BookLoanController::class, 'delete']);

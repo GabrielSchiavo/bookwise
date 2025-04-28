@@ -7,13 +7,13 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('retiradas', function (Blueprint $table) {
+        Schema::create('books_loans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('dataRetirada');
-            $table->date('dataDevolucao');
-            $table->string('pessoa', 250);
-            $table->unsignedBigInteger('livro_id');
-            $table->string('livro', 250);
+            $table->date('loan_date');
+            $table->date('return_date');
+            $table->string('person', 250);
+            $table->unsignedBigInteger('book_id');
+            $table->string('book', 250);
             $table->integer('status');
             $table->timestamps();
         });

@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Retirada extends Model
+class BookLoan extends Model
 {
     use HasFactory;
 
-    protected $table = 'retiradas';
+    protected $table = 'books_loans';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['dataRetirada', 'dataDevolucao', 'pessoa', 'livro_id', 'livro', 'status'];
+    protected $fillable = ['loan_date', 'return_date', 'person', 'book_id', 'book', 'status'];
 
-    public function livros_id(): BelongsTo {
-        return $this->belongsTo(Livros::class);
+    public function bookId(): BelongsTo {
+        return $this->belongsTo(Book::class);
     }
 }

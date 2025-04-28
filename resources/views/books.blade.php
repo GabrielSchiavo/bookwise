@@ -13,10 +13,10 @@ active
 @endsection
 
 @section('conteudo')
-@if(!empty($mensagem))
+@if(!empty($message))
     <div class="alert-container">
         <div class="alert alert-success">
-            <p>{!! $mensagem !!}</p>
+            <p>{!! $message !!}</p>
         </div>
     </div>
 @endif
@@ -42,51 +42,51 @@ active
                 </tr>
             </thead>
             <tbody class="table-content-center">
-            @foreach ($listaLivros as $livros)
+            @foreach ($booksList as $book)
                 <tr>
-                    <td>{{ $livros->id }}</td>
+                    <td>{{ $book->id }}</td>
                     <td>
-                        @if ($livros->imgCapa == null)
-                            <img class="td-img" src="/assets/images/default/coverNotAvailable.png" alt="Imagem capa do livro genérica">
+                        @if ($book->cover_image == null)
+                            <img class="td-img" src="/assets/images/default/coverNotAvailable.png" alt="Imagem capa do book genérica">
                             
                             @else
-                                <img class="td-img" src="/storage/imgCapa/{{ $livros->imgCapa }}" alt="Imagem capa do livro">
+                                <img class="td-img" src="/storage/cover_images/{{ $book->cover_image }}" alt="Imagem capa do book">
                         @endif
                     </td>
-                    <td>{{ $livros->titulo }}</td>
-                    <td>{{ $livros->autor }}</td>
-                    <td>{{ $livros->genero }}</td>
-                    <td>{{ $livros->editora }}</td>
-                    <td>{{ $livros->ano }}</td>
+                    <td>{{ $book->title }}</td>
+                    <td>{{ $book->author }}</td>
+                    <td>{{ $book->literary_gender }}</td>
+                    <td>{{ $book->publisher }}</td>
+                    <td>{{ $book->year }}</td>
                     <td>
-                        @if ($livros->isbn == null)
+                        @if ($book->isbn == null)
                             N/A
 
                             @else
-                                {{ $livros->isbn }}
+                                {{ $book->isbn }}
                         @endif
                     </td>
                     <td>
-                        @if ($livros->status == 1)
+                        @if ($book->status == 1)
                             <p class="status status-yellow">Retirado</p>
 
-                            @elseif ($livros->status == 2)
+                            @elseif ($book->status == 2)
                                 <p class="status status-orange">Renovado</p>
 
-                            @elseif ($livros->status == 3)
+                            @elseif ($book->status == 3)
                                 <p class="status status-green">Disponível</p> 
 
-                            @elseif ($livros->status == 4)
+                            @elseif ($book->status == 4)
                                 <p class="status status-red">Atrasado</p>
 
                         @endif
                     </td>
                     <td>
-                        <form action="/acervo/{{$livros->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                        <form action="/acervo/{{$book->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/acervo/{$livros->id}/editar")}}" tabindex="0" class="editar" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/acervo/{$book->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
                                 </a>
                                 <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">

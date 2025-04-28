@@ -13,10 +13,10 @@ active
 @endsection
 
 @section('conteudo')
-@if(!empty($mensagem))
+@if(!empty($message))
     <div class="alert-container">
         <div class="alert alert-success">
-            <p>{!! $mensagem !!}</p>
+            <p>{!! $message !!}</p>
         </div>
     </div>
 @endif
@@ -41,14 +41,14 @@ active
                 </tr>
             </thead>
             <tbody  class="table-content-center">
-                @foreach ($listaRetiradas as $retirada)
+                @foreach ( $bookLoanList as $retirada)
                 <tr>
                     <td>{{ $retirada->id }}</td>
-                    <td>{{ \Carbon\Carbon::parse($retirada->dataRetirada)->format('d/m/Y') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($retirada->dataDevolucao)->format('d/m/Y') }}</td>
-                    <td>{{ $retirada->pessoa }}</td>
-                    <td>{{ $retirada->livro_id }}</td>
-                    <td>{{ $retirada->livro }}</td>
+                    <td>{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
+                    <td>{{ $retirada->person }}</td>
+                    <td>{{ $retirada->book_id }}</td>
+                    <td>{{ $retirada->book }}</td>
                     <td>
                         @if ($retirada->status == 1)
                             <p class="status status-yellow">Retirado</p>
@@ -68,7 +68,7 @@ active
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="editar" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
                                 </a>
                                 <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">

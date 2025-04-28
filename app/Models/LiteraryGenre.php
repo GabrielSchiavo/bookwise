@@ -5,16 +5,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Genero extends Model
+class LiteraryGenre extends Model
 {
     use HasFactory;
 
-    protected $table = 'generos';
+    protected $table = 'literary_genres';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['nome'];
+    protected $fillable = ['name'];
 
-    public function livros_id(): HasMany {
-        return $this->hasMany(Livros::class);
+    public function booksIds(): HasMany {
+        return $this->hasMany(Book::class);
     }
 }

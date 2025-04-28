@@ -16,30 +16,30 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // DB::table('pessoas')->insert([
-        //     'nome' => ,
-        //     'telefone' => ,
+        //     'name' => ,
+        //     'phone' => ,
         //     'email' => ,
         // ]);
         // DB::table('generos')->insert([
-        //     'nome' => ,
+        //     'name' => ,
         // ]);
-        // DB::table('livros')->insert([
-        //     'imgCapa' => ,
-        //     'titulo' => ,
-        //     'autor' => ,
-        //     'genero_id' => ,
-        //     'genero' => ,
-        //     'editora' => ,
-        //     'ano' => ,
+        // DB::table('books')->insert([
+        //     'cover_image' => ,
+        //     'title' => ,
+        //     'author' => ,
+        //     'literary_gender_id' => ,
+        //     'literary_gender' => ,
+        //     'publisher' => ,
+        //     'year' => ,
         //     'isbn' => ,
         //     'status' => ,
         // ]);
-        // DB::table('retiradas')->insert([
-        //     'dataRetirada' => ,
-        //     'dataDevolucao' => ,
-        //     'pessoa' => ,
-        //     'livro_id' => ,
-        //     'livro' => ,
+        // DB::table('bookLoan')->insert([
+        //     'loan_date' => ,
+        //     'return_date' => ,
+        //     'person' => ,
+        //     'book_id' => ,
+        //     'book' => ,
         //     'status' => ,
         // ]);
     }

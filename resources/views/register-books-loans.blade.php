@@ -33,26 +33,26 @@
                 <form class="form-body full-width-mobile" action="/retiradas/cadastro" method="POST">
                     @csrf
             
-                    <input type="hidden" name="id"  value="{{isset($retiradas) ? $retiradas->id : old('id')}}" />
-                    <input type="hidden" name="genero_id" value="{{isset($retiradas) ? $retiradas->livro_id : old('livro_id')}}" />
+                    <input type="hidden" name="id"  value="{{isset($bookLoan) ? $bookLoan->id : old('id')}}" />
+                    <input type="hidden" name="literary_gender_id" value="{{isset($bookLoan) ? $bookLoan->book_id : old('book_id')}}" />
                     
                     <div class="input-container">
-                        <label class="input-label" for="formDataRetirada" class="form-label">Data de Retirada <span class="form-require">*</span></label>
-                        <input class="input-area" type="date" id="dataRetirada" name="dataRetirada" value="{{isset($retiradas) ? $retiradas->dataRetirada : old('dataRetirada')}}">
+                        <label class="input-label" for="loan_date" class="form-label">Data de Retirada <span class="form-require">*</span></label>
+                        <input class="input-area cursor-pointer" type="date" id="loan_date" name="loan_date" value="{{isset($bookLoan) ? $bookLoan->loan_date : old('loan_date')}}">
                     </div>
                     <div class="input-container">
-                        <label class="input-label" for="formDataDevolucao" class="form-label">Data de Devolução <span class="form-require">*</span></label>
-                        <input class="input-area" type="date" id="dataDevolucao" name="dataDevolucao" value="{{isset($retiradas) ? $retiradas->dataDevolucao : old('dataDevolucao')}}">
+                        <label class="input-label" for="return_date" class="form-label">Data de Devolução <span class="form-require">*</span></label>
+                        <input class="input-area cursor-pointer" type="date" id="return_date" name="return_date" value="{{isset($bookLoan) ? $bookLoan->return_date : old('return_date')}}">
                     </div>
             
                     <div class="input-container">
-                        <label class="input-label" for="formLivro" class="form-label">Livro <span class="form-require">*</span></label>
+                        <label class="input-label" for="book" class="form-label">Livro <span class="form-require">*</span></label>
                         <div class="select-body">
-                            <select class="input-area cursor-pointer" id="livro" name="livro">
-                                <option value="{{isset($retiradas) ? $retiradas->livro : old('livro')}}" selected>{{isset($retiradas) ? $retiradas->livro : old('livro')}}</option>
-                                @foreach ($listaLivros as $livros)
-                                    @if ($livros->status == 3)
-                                        <option value="{{$livros->titulo}}">{{$livros->id}} - {{$livros->titulo}}</option>
+                            <select class="input-area cursor-pointer" id="book" name="book">
+                                <option value="{{isset($bookLoan) ? $bookLoan->book : old('book')}}" selected>{{isset($bookLoan) ? $bookLoan->book : old('book')}}</option>
+                                @foreach ($booksList as $book)
+                                    @if ($book->status == 3)
+                                        <option value="{{$book->title}}">{{$book->id}} - {{$book->title}}</option>
                                     @endif            
                                 @endforeach
                             </select>
@@ -63,12 +63,12 @@
                     </div>
 
                     <div class="input-container">
-                        <label class="input-label" for="formPessoa" class="form-label">Pessoa <span class="form-require">*</span></label>
+                        <label class="input-label" for="person" class="form-label">Pessoa <span class="form-require">*</span></label>
                         <div class="select-body">
-                            <select class="input-area cursor-pointer" id="pessoa" name="pessoa">
-                                <option value="{{isset($retiradas) ? $retiradas->pessoa : old('pessoa')}}" selected>{{isset($retiradas) ? $retiradas->pessoa : old('pessoa')}}</option>
-                                @foreach ($listaPessoas as $pessoas)            
-                                    <option value="{{$pessoas->nome}}">{{$pessoas->id}} - {{$pessoas->nome}}</option>
+                            <select class="input-area cursor-pointer" id="person" name="person">
+                                <option value="{{isset($bookLoan) ? $bookLoan->person : old('person')}}" selected>{{isset($bookLoan) ? $bookLoan->person : old('person')}}</option>
+                                @foreach ($personsList as $person)            
+                                    <option value="{{$person->name_last_name}}">{{$person->id}} - {{$person->name_last_name}}</option>
                                 @endforeach
                             </select>
                             <div class="select-icon-container">
@@ -78,10 +78,10 @@
                     </div>
                     
                     <div class="input-container">
-                        <label class="input-label" for="formStatus" class="form-label">Status <span class="form-require">*</span></label>
+                        <label class="input-label" for="status" class="form-label">Status <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area cursor-pointer" id="status" name="status">
-                                <option value="{{isset($retiradas) ? $retiradas->status : old('status')}}" selected>{{isset($retiradas) ? $retiradas->status : old('status')}}</option>
+                                <option value="{{isset($bookLoan) ? $bookLoan->status : old('status')}}" selected>{{isset($bookLoan) ? $bookLoan->status : old('status')}}</option>
                                 <option value="1">1 - Retirado</option>
                                 <option value="2">2 - Renovado</option>
                                 <option value="3">3 - Devolvido</option>

@@ -2,69 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Livros;
-use App\Models\Pessoa;
-use App\Models\Retirada;
+use App\Models\Book;
+use App\Models\Person;
+use App\Models\BookLoan;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
-    public function dashboard()
+    public function listData()
     {
-        $listaLivros = Livros::all();
-        $listaPessoas = Pessoa::all();
-        $countLivros = $listaLivros->count();
-        $countPessoas = $listaPessoas->count();
+        $booksList = Book::all();
+        $personsList = Person::all();
+        $bookCount = $booksList->count();
+        $personsCount = $personsList->count();
 
-        $listaLivrosRetirados = Retirada::where([
+        $loanBooksList = BookLoan::where([
             ['status', '>=', 1],
             ['status', '<=', 2],
         ]);
 
         if(request()->has('search')) {
-            $listaLivrosRetirados = $listaLivrosRetirados->where(function($query) {
+            $loanBooksList = $loanBooksList->where(function($query) {
                 $query->where('id', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('pessoa', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('livro', 'ILIKE', '%' . request()->get('search', '') . '%');
+                      ->orWhere('person', 'ILIKE', '%' . request()->get('search', '') . '%')
+                      ->orWhere('book', 'ILIKE', '%' . request()->get('search', '') . '%');
 
-            })->get()->sortBy('dataDevolucao');
+            })->get()->sortBy('return_date');
 
         } else {
-            $listaLivrosRetirados = $listaLivrosRetirados->get()->sortBy('dataDevolucao');
+            $loanBooksList = $loanBooksList->get()->sortBy('return_date');
         }
 
-        $countRetirados = $listaLivrosRetirados->count();
+        $loanBooksCount = $loanBooksList->count();
 
 
         $dateNow = Carbon::now()->toDateString();
-        $listaLivrosAtrasados = Retirada::where([
-            ['dataDevolucao', '<', $dateNow],
+        $lateBooksList = BookLoan::where([
+            ['return_date', '<', $dateNow],
             ['status', '!=', 3],
         ]);
 
         if(request()->has('search')) {
-            $listaLivrosAtrasados = $listaLivrosAtrasados->where(function($query) {
-                $query->where('pessoa', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('livro', 'ILIKE', '%' . request()->get('search', '') . '%')
+            $lateBooksList = $lateBooksList->where(function($query) {
+                $query->where('person', 'ILIKE', '%' . request()->get('search', '') . '%')
+                      ->orWhere('book', 'ILIKE', '%' . request()->get('search', '') . '%')
                       ->orWhere('id', 'ILIKE', '%' . request()->get('search', '') . '%');
 
-            })->get()->sortBy('dataDevolucao');
+            })->get()->sortBy('return_date');
 
         } else {
-            $listaLivrosAtrasados = $listaLivrosAtrasados->get()->sortBy('dataDevolucao');
+            $lateBooksList = $lateBooksList->get()->sortBy('return_date');
         }
 
-        $countAtrasados = $listaLivrosAtrasados->count();
+        $lateBooksCount = $lateBooksList->count();
 
 
 
         return view('dashboard', [
-            'countLivros' => $countLivros,
-            'countPessoas' => $countPessoas,
-            'countRetirados' => $countRetirados,
-            'countAtrasados' => $countAtrasados,
-            'listaLivrosRetirados' => $listaLivrosRetirados,
-            'listaLivrosAtrasados' => $listaLivrosAtrasados,
+            'bookCount' => $bookCount,
+            'personsCount' => $personsCount,
+            'loanBooksCount' => $loanBooksCount,
+            'lateBooksCount' => $lateBooksCount,
+            'loanBooksList' => $loanBooksList,
+            'lateBooksList' => $lateBooksList,
         ]);
     }
 }

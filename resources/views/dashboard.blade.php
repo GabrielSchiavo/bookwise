@@ -23,7 +23,7 @@ active
                 <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-books.svg" alt="Ícone Livros">
             </div>
             <span class="text">
-                <h3>{{ $countLivros }}</h3>
+                <h3>{{ $bookCount }}</h3>
                 <p>Livros</p>
             </span>
         </li>
@@ -32,7 +32,7 @@ active
                 <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-users.svg" alt="Ícone Usuários">
             </div>
             <span class="text">
-                <h3>{{ $countPessoas }}</h3>
+                <h3>{{ $personsCount }}</h3>
                 <p>Pessoas</p>
             </span>
         </li>
@@ -41,7 +41,7 @@ active
                 <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-arrows.svg" alt="Ícone setas">
             </div>
             <span class="text">
-                <h3>{{ $countRetirados }}</h3>
+                <h3>{{ $loanBooksCount }}</h3>
                 <p>Retirados & Renovados</p>
             </span>
         </li>
@@ -50,7 +50,7 @@ active
                 <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-calendar-clock.svg" alt="Ícone calendário relógio">
             </div>
             <span class="text">
-                <h3>{{ $countAtrasados }}</h3>
+                <h3>{{ $lateBooksCount }}</h3>
                 <p>Atrasados</p>
             </span>
         </li>
@@ -76,14 +76,14 @@ active
                         </tr>
                     </thead>
                     <tbody class="table-content-center">
-                        @foreach ($listaLivrosRetirados as $retirada)
+                        @foreach ($loanBooksList as $retirada)
                         <tr>
                             <td>{{ $retirada->id }}</td>
-                            <td>{{ \Carbon\Carbon::parse($retirada->dataRetirada)->format('d/m/Y') }}</td>
-                            <td>{{ \Carbon\Carbon::parse($retirada->dataDevolucao)->format('d/m/Y') }}</td>
-                            <td>{{ $retirada->pessoa }}</td>
-                            <td>{{ $retirada->livro_id }}</td>
-                            <td>{{ $retirada->livro }}</td>
+                            <td>{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
+                            <td>{{ $retirada->person }}</td>
+                            <td>{{ $retirada->book_id }}</td>
+                            <td>{{ $retirada->book }}</td>
                             <td>
                                 @if ($retirada->status == 1)
                                     <p class="status status-yellow">Retirado</p>
@@ -103,7 +103,7 @@ active
                                     @csrf
                                     @method('DELETE')
                                     <div class="btns-actions-container">
-                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="editar" tabindex="0" title="Editar">
+                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
                                             <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
                                         </a>
                                         <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
@@ -135,14 +135,14 @@ active
                         </tr>
                     </thead>
                     <tbody  class="table-content-center">
-                        @foreach ($listaLivrosAtrasados as $retirada)
+                        @foreach ($lateBooksList as $retirada)
                         <tr>
                             <td>{{ $retirada->id }}</td>
-                            <td>{{ \Carbon\Carbon::parse($retirada->dataRetirada)->format('d/m/Y') }}</td>
-                            <td>{{ \Carbon\Carbon::parse($retirada->dataDevolucao)->format('d/m/Y') }}</td>
-                            <td>{{ $retirada->pessoa }}</td>
-                            <td>{{ $retirada->livro_id }}</td>
-                            <td>{{ $retirada->livro }}</td>
+                            <td>{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
+                            <td>{{ $retirada->person }}</td>
+                            <td>{{ $retirada->book_id }}</td>
+                            <td>{{ $retirada->book }}</td>
                             <td>
                                 @if ($retirada->status == 1)
                                     <p class="status status-yellow">Retirado</p>
@@ -162,7 +162,7 @@ active
                                     @csrf
                                     @method('DELETE')
                                     <div class="btns-actions-container">
-                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="editar" tabindex="0" title="Editar">
+                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
                                             <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
                                         </a>
                                         <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">

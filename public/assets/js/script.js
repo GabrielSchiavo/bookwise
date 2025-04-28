@@ -2,16 +2,16 @@
 // Obtem os atributos do SVG para poder estilizar a imagem SVG via CSS
 $("img#svg-change-color").each(function () {
     var $img = $(this);
-    var imgID = $img.attr("id");
+    var imgId = $img.attr("id");
     var imgClass = $img.attr("class");
-    var imgURL = $img.attr("src");
+    var imgUrl = $img.attr("src");
 
-    $.get(imgURL, function (data) {
+    $.get(imgUrl, function (data) {
         // Pega a tag SVG, ignora o resto
         var $svg = $(data).find("svg");
         // Adiciona o ID da imagem substituída ao novo SVG
-        if (typeof imgID !== "undefined") {
-            $svg = $svg.attr("id", imgID);
+        if (typeof imgId !== "undefined") {
+            $svg = $svg.attr("id", imgId);
         }
         // Adiciona as classes da imagem substituída ao novo SVG
         if (typeof imgClass !== "undefined") {
@@ -81,17 +81,17 @@ themeSwitch.addEventListener("click", () => {
 
 // MASK FOR PHONE NUMBER
 $(document).ready(function ($) {
-    $("#telefone").mask("(99) 99999-9999");
+    $("#phone").mask("(99) 99999-9999");
 });
 
 // MASK FOR ISBN NUMBER
-$("#isbnFormat13").click(function () {
+$("#isbn_format_13").click(function () {
     $(document).ready(function ($) {
         $(".isbnMask").mask("999-9-99-999999-9");
     });
 });
 
-$("#isbnFormat10").click(function () {
+$("#isbn_format_10").click(function () {
     $(document).ready(function ($) {
         $(".isbnMask").mask("9-999999-99-9");
     });

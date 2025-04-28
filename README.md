@@ -42,11 +42,11 @@ BookWise visa o controle e cadastro de livros, empréstimos, gêneros literário
   - `Registros:` todos os cadastros são organizados em tabelas.
   
   - `Status:` os livros e retiradas são organizados por status:
-    - **1 - Retirado:** Um livro obtém o status `Retirado` quando um cadastro de retirada é criado para este livro.
+    - **1 - Retirado:** Um book obtém o status `Retirado` quando um cadastro de retirada é criado para este book.
   
-    - **2 - Renovado:** Um livro retirado pode ser renovado. Para renovar um livro o cadastro da retirada deve ser atualizado com o status `Renovado`.
+    - **2 - Renovado:** Um book retirado pode ser renovado. Para renovar um book o cadastro da retirada deve ser atualizado com o status `Renovado`.
   
-    - **3 - Devolvido/Disponível:** Quando um novo livro é cadastrado ou não está retirado ele é marcado automaticamento com o status `Disponível`. Já quendo um livro retirado é devolvido o cadastro da retirada deve ser atualizada como o status `Devolvido` ou excluída para o livro retirado estar disponível para retirada novamente.
+    - **3 - Devolvido/Disponível:** Quando um novo book é cadastrado ou não está retirado ele é marcado automaticamento com o status `Disponível`. Já quendo um book retirado é devolvido o cadastro da retirada deve ser atualizada como o status `Devolvido` ou excluída para o book retirado estar disponível para retirada novamente.
   
     - **4 - Atrasado:** Livros com Datas de Devolução anterios a data do dia atual é marcado automaticamente com status `Atrasado`.
   
@@ -54,7 +54,7 @@ BookWise visa o controle e cadastro de livros, empréstimos, gêneros literário
 ## :film_strip: Galeria
 <p align="center">
   <img src="./public/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
-  <img src="./public/assets/images/screenshots/screenshot-cadastro-livros.png" alt="Screenshot Cadastro de Livros"/>
+  <img src="./public/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
   <img src="./public/assets/images/screenshots/screenshot-acervo.png" alt="Screenshot Acervo"/>
   <img src="./public/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
 </p>

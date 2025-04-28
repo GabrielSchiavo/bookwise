@@ -7,11 +7,10 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('generos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nome', 250);
-            $table->timestamps();
+        Schema::table('books', function (Blueprint $table) {
+            $table->foreign('literary_gender_id')->references('id')->on('literary_genres')->onDelete('set null');
         });
+
     }
 
     public function down()

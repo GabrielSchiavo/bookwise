@@ -32,11 +32,11 @@
                 <form class="form-body full-width-mobile" action="/generos-literarios/cadastro" method="POST">
                     @csrf
             
-                    <input type="hidden" name="id" value="{{isset($generos) ? $generos->id : old('id')}}" />
+                    <input type="hidden" name="id" value="{{isset($literaryGenre) ? $literaryGenre->id : old('id')}}" />
                     
                     <div class="input-container">
-                        <label class="input-label" for="formNome">Nome <span class="form-require">*</span></label>
-                        <input class="input-area" type="text" id="formNome" name="nome" value="{{isset($generos) ? $generos->nome : old('nome')}}" placeholder="Ficção">
+                        <label class="input-label" for="name">Nome <span class="form-require">*</span></label>
+                        <input class="input-area" type="text" id="name" name="name" value="{{isset($literaryGenre) ? $literaryGenre->name : old('name')}}" placeholder="Ficção">
                     </div>
                     
                     <div class="btns-container">
