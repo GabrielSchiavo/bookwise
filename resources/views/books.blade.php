@@ -47,7 +47,7 @@ active
                     <td>{{ $book->id }}</td>
                     <td>
                         @if ($book->cover_image == null)
-                            <img class="td-img" src="/assets/images/default/coverNotAvailable.png" alt="Imagem capa do book genérica">
+                            <img class="td-img" src="/assets/images/default/cover-not-available.png" alt="Imagem capa do book genérica">
                             
                             @else
                                 <img class="td-img" src="/storage/cover_images/{{ $book->cover_image }}" alt="Imagem capa do book">

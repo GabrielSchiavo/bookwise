@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="450" src="./public/assets/images/favicons/bookWise-logo-2.png" alt="Logo BookWise"/>
+    <img width="450" src="./public/assets/images/favicons/bookwise-icon-2.png" alt="Logo BookWise"/>
 </p>
 
 <h1 align="center">
@@ -55,7 +55,7 @@ BookWise visa o controle e cadastro de livros, empréstimos, gêneros literário
 <p align="center">
   <img src="./public/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
   <img src="./public/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
-  <img src="./public/assets/images/screenshots/screenshot-acervo.png" alt="Screenshot Acervo"/>
+  <img src="./public/assets/images/screenshots/screenshot-books-list.png" alt="Screenshot Acervo"/>
   <img src="./public/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
 </p>
 

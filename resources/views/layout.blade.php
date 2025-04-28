@@ -18,7 +18,7 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="/" class="brand">
-            <img class="logo-img" src="/assets/images/favicons/bookWise-logo.png" alt="Logo BookWise">
+            <img class="logo-img" src="/assets/images/favicons/bookwise-icon.png" alt="Logo BookWise">
             <span class="logo-text">Book<span class="text-bold-logo">Wise</span>
         </a>
         <ul class="side-menu top">
