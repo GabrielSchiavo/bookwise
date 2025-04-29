@@ -24,34 +24,34 @@ active
 <div class="data-container">
     <div class="data-content">
         <div class="head">
-            <h3>Pessoas</h3>
+            <h3 tabindex="0">Pessoas</h3>
         </div>
         <table>
             <thead  class="table-content-center">
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                    <th>Email</th>
-                    <th class="th-end">Ações</th>
+                    <th tabindex="0">ID</th>
+                    <th tabindex="0">Nome</th>
+                    <th tabindex="0">Telefone</th>
+                    <th tabindex="0">Email</th>
+                    <th class="th-end" tabindex="0">Ações</th>
                 </tr>
             </thead>
             <tbody  class="table-content-center">
                 @foreach ($personsList as $person)
                 <tr>
-                    <td>{{ $person->id }}</td>
-                    <td>{{ $person->name_last_name }}</td>
-                    <td class="phoneMask">{{ $person->phone }}</td>
-                    <td>{{ $person->email }}</td>
-                    <td>
+                    <td tabindex="0">{{ $person->id }}</td>
+                    <td tabindex="0">{{ $person->name_last_name }}</td>
+                    <td class="phoneMask" tabindex="0">{{ $person->phone }}</td>
+                    <td tabindex="0">{{ $person->email }}</td>
+                    <td tabindex="0">
                         <form action="/pessoas/{{$person->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/pessoas/{$person->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/pessoas/{$person->id}/editar")}}" class="edit" title="Editar" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                 </a>
-                                <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
+                                <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                 </button>
                             </div>

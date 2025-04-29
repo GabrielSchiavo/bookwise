@@ -17,7 +17,7 @@
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <a href="/" class="brand">
+        <a href="/" class="brand" tabindex="-1">
             <img class="logo-img" src="{{ Vite::asset('resources/assets/images/favicons/bookwise-icon.png') }}" alt="Logo BookWise">
             <span class="logo-text">Book<span class="text-bold-logo">Wise</span>
         </a>
@@ -108,7 +108,7 @@
     <section id="content">
         <!-- NAVBAR -->
         <nav>
-            <a id="btn-menu" title="Abrir/Fechar Menu">
+            <a id="btn-menu" title="Abrir/Fechar Menu" tabindex="0">
                 <img id="svg-change-color" class="svg-color svg-icon-size-medium" src="{{ Vite::asset('resources/assets/images/icons/icon-menu.svg') }}" alt="Ícone Menu">
             </a>
 

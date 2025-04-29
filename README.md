@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="450" src="./public/assets/images/favicons/bookwise-icon-2.png" alt="Logo BookWise"/>
+    <img width="450" src="./resources/assets/images/favicons/bookwise-icon-2.png" alt="Logo BookWise"/>
 </p>
 
 <h1 align="center">
@@ -53,10 +53,10 @@ BookWise visa o controle e cadastro de livros, empréstimos, gêneros literário
 
 ## :film_strip: Galeria
 <p align="center">
-  <img src="./public/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
-  <img src="./public/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
-  <img src="./public/assets/images/screenshots/screenshot-books-list.png" alt="Screenshot Acervo"/>
-  <img src="./public/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
+  <img src="./resources/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
+  <img src="./resources/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
+  <img src="./resources/assets/images/screenshots/screenshot-books-list.png" alt="Screenshot Acervo"/>
+  <img src="./resources/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
 </p>
 
 ## :file_folder: Acesso ao projeto
@@ -72,43 +72,68 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 
 `Configurando o projeto:`
 1. Na pasta de instalação do PHP edite o arquivo `php.ini`, neste arquivo descomente as linhas a seguir:
+   
    - extension=fileinfo
    - extension=pdo_pgsql
    - extension=pgsql
    
 2. `Baixar e atualizar dependências:` Na raiz do projeto abra um terminal e execute:
-    ```bash
-    composer update
-    ```
-    ```bash
-    composer install
-    ```
-    ```bash
-    npm update
-    ```
-    ```bash
-    npm install
-    ```
+   
+    - Pacotes PHP:
+      - Atualiza e intalla pacotes para versão mais recente:
+
+      ```bash
+      composer update
+      ```
+
+      - Instala pacotes respeitaremos a versão fornecida:
+  
+      ```bash
+      composer install
+      ```
+
+    - Pacotes JS:
+      - Instala e atualiza pacotes para versão mais recente:
+      ```bash
+      npm update
+      ```
+
+      - Instala pacotes respeitaremos a versão fornecida:
+      ```bash
+      npm install
+      ```
     
 3. Após seguir as etapas anteriores, abra o arquivo `.env`, localizado na raiz do projeto e altere as configurações de `DB_CONNECTION` para as configurações do seu Banco de Dados.
    
 4. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Banco de Dados:
-    ```bash
-    php artisan migrate
-    ```
-    ```bash
-    php artisan storage:link
-    ```
+   
+   - Cria as tebelas e os relacionamentos executando as migrations:
+  
+      ```bash
+      php artisan migrate
+      ```
+
+    - Cria um link simbólico do diretório `storage/app/public` para `public/storage`, tornando esses arquivos acessíveis pela web:
+  
+      ```bash
+      php artisan storage:link
+      ```
 
 5. Agora você deve compilar os assets do projeto. Execute o comando abaixo para compilar os assets ou atualizá-los: (`sempre` que atualizar os arquivos `css` e `js` os assets compilados também devem ser atualizados):
-    ```bash
-    npm run build
-    ```
+   
+   - `Compila` e `atuliza` a compilação dos assets:
+  
+      ```bash
+      npm run build
+      ```
 
 6. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
-    ```bash
-    php artisan serve
-    ```
+  
+   - Inicia o servidor de desenvolvimento local:
+
+      ```bash
+      php artisan serve
+      ```
 
 ## :white_check_mark: Tecnologias utilizadas
 * `PHP - 8.4.5`

@@ -25,31 +25,31 @@ active
 <div class="data-container">
     <div class="data-content">
         <div class="head">
-            <h3>Retiradas/Devoluçaões</h3>
+            <h3 tabindex="0">Retiradas/Devoluçaões</h3>
         </div>
         <table>
             <thead  class="table-content-center">
                 <tr>
-                    <th>ID</th>
-                    <th>Data da Retirada</th>
-                    <th>Data da Devolução</th>
-                    <th>Pessoa</th>
-                    <th>ID Livro</th>
-                    <th>Livro</th>
-                    <th>Status</th>
-                    <th class="th-end">Ações</th>
+                    <th tabindex="0">ID</th>
+                    <th tabindex="0">Data da Retirada</th>
+                    <th tabindex="0">Data da Devolução</th>
+                    <th tabindex="0">Pessoa</th>
+                    <th tabindex="0">ID Livro</th>
+                    <th tabindex="0">Livro</th>
+                    <th tabindex="0">Status</th>
+                    <th class="th-end" tabindex="0">Ações</th>
                 </tr>
             </thead>
             <tbody  class="table-content-center">
                 @foreach ( $bookLoanList as $retirada)
                 <tr>
-                    <td>{{ $retirada->id }}</td>
-                    <td>{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
-                    <td>{{ $retirada->person }}</td>
-                    <td>{{ $retirada->book_id }}</td>
-                    <td>{{ $retirada->book }}</td>
-                    <td>
+                    <td tabindex="0">{{ $retirada->id }}</td>
+                    <td tabindex="0">{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
+                    <td tabindex="0">{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
+                    <td tabindex="0">{{ $retirada->person }}</td>
+                    <td tabindex="0">{{ $retirada->book_id }}</td>
+                    <td tabindex="0">{{ $retirada->book }}</td>
+                    <td tabindex="0">
                         @if ($retirada->status == 1)
                             <p class="status status-yellow">Retirado</p>
 
@@ -68,10 +68,10 @@ active
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" class="edit" title="Editar" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                 </a>
-                                <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
+                                <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                 </button>
                             </div>

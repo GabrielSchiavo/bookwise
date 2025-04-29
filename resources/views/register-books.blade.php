@@ -27,7 +27,7 @@
     <div class="data-container">
         <div class="data-content">
             <div class="head full-width-mobile">
-                <h3>Cadastro de Livros</h3>
+                <h3 tabindex="0">Cadastro de Livros</h3>
             </div>
             <div class="form-container">
                 <form class="form-body full-width-mobile" action="/acervo/cadastro" method="POST" enctype="multipart/form-data">
@@ -37,7 +37,7 @@
                     <input type="hidden" name="literary_gender_id" value="{{isset($book) ? $book->literary_gender_id : old('literary_gender_id')}}" />                
 
                     <div class="input-container">
-                        <label class="input-label" for="literaryGender" class="form-label">Gênero Literário <span class="form-require">*</span></label>
+                        <label class="input-label" for="literaryGender" class="form-label" tabindex="0">Gênero Literário <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area cursor-pointer" id="literaryGender" name="literary_gender">
                                 <option value="{{isset($book) ? $book->literary_gender : old('literary_gender')}}" selected>{{isset($book) ? $book->literary_gender : old('literary_gender')}}</option>
@@ -51,40 +51,40 @@
                         </div>
                     </div>
             
-                    <legend class="input-legend">Formato ISBN:</legend>
+                    <legend class="input-legend" tabindex="0">Formato ISBN:</legend>
                     <div class="input-radio-group">
                         <div class="input-radio-container">
                             <input class="input-radio" type="radio" id="isbn_format_13" name="isbnFormat" value="isbn13"/>
-                            <label class="input-label input-radio-label" for="isbn_format_13">ISBN 13</label>
+                            <label class="input-label input-radio-label" for="isbn_format_13" tabindex="0">ISBN 13</label>
                         </div>
                         <div class="input-radio-container">
                             <input class="input-radio" type="radio" id="isbn_format_10" name="isbnFormat" value="isbn10" />
-                            <label class="input-label input-radio-label" for="isbn_format_10">ISBN 10</label>
+                            <label class="input-label input-radio-label" for="isbn_format_10" tabindex="0">ISBN 10</label>
                         </div>
                     </div>
 
                     <div class="input-container">
-                        <label class="input-label" for="isbn" class="form-label">ISBN</label>
+                        <label class="input-label" for="isbn" class="form-label" tabindex="0">ISBN</label>
                         <input class="input-area isbnMask" type="text" id="isbn" name="isbn" value="{{isset($book) ? $book->isbn : old('isbn')}}" placeholder="Digite o código ISBN">
                     </div>
                    <div class="input-container">
-                        <label class="input-label" for="title" class="form-label">Titulo <span class="form-require">*</span></label>
+                        <label class="input-label" for="title" class="form-label" tabindex="0">Titulo <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="title" name="title" value="{{isset($book) ? $book->title : old('title')}}" placeholder="Digite o título">
                     </div>
                     <div class="input-container">
-                        <label class="input-label" for="author" class="form-label">Autor <span class="form-require">*</span></label>
+                        <label class="input-label" for="author" class="form-label" tabindex="0">Autor <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="author" name="author" value="{{isset($book) ? $book->author : old('author')}}" placeholder="Digite o autor">
                     </div>
                     <div class="input-container">
-                        <label class="input-label" for="publisher" class="form-label">Editora <span class="form-require">*</span></label>
+                        <label class="input-label" for="publisher" class="form-label" tabindex="0">Editora <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="publisher" name="publisher" value="{{isset($book) ? $book->publisher : old('publisher')}}" placeholder="Digite a editora">
                     </div>
                     <div class="input-container">
-                        <label class="input-label" for="year" class="form-label">Ano <span class="form-require">*</span></label>
+                        <label class="input-label" for="year" class="form-label" tabindex="0">Ano <span class="form-require">*</span></label>
                         <input class="input-area" type="number" id="year" name="year" value="{{isset($book) ? $book->year : old('year')}}" placeholder="Digite o ano">
                     </div>
                     <div class="input-container">
-                        <label class="input-label" for="cover_image" class="form-label">Capa:</label>
+                        <label class="input-label" for="cover_image" class="form-label" tabindex="0">Capa:</label>
                         <input class="input-area cursor-pointer input-file-upload" type="file" id="cover_image" name="cover_image" value="{{isset($book) ? $book->cover_image : old('cover_image')}}"  accept="image/*">
                         @if (isset($book) ? $book->cover_image : old('cover_image'))
                             <p class="text"><strong>Imagem atual:</strong> {{ $saveCoverImage }}</p>
@@ -93,8 +93,8 @@
 
                     
                     <div class="btns-container">
-                        <button class="btn btn-primary" type="submit">Salvar</button>
-                        <a class="btn btn-secondary" type="button" href="/acervo">Cancelar</a>
+                        <button class="btn btn-primary" type="submit" tabindex="0">Salvar</button>
+                        <a class="btn btn-secondary" type="button" href="/acervo" tabindex="0">Cancelar</a>
                     </div>
                 </form>
             </div>

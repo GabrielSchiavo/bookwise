@@ -35,13 +35,13 @@
                     <input type="hidden" name="id" value="{{isset($literaryGenre) ? $literaryGenre->id : old('id')}}" />
                     
                     <div class="input-container">
-                        <label class="input-label" for="name">Nome <span class="form-require">*</span></label>
+                        <label class="input-label" for="name" tabindex="0">Nome <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="name" name="name" value="{{isset($literaryGenre) ? $literaryGenre->name : old('name')}}" placeholder="Ficção">
                     </div>
                     
                     <div class="btns-container">
-                        <button class="btn btn-primary" type="submit">Salvar</button>
-                        <a class="btn btn-secondary" type="button" href="/generos-literarios">Cancelar</a>
+                        <button class="btn btn-primary" type="submit" tabindex="0">Salvar</button>
+                        <a class="btn btn-secondary" type="button" href="/generos-literarios" tabindex="0">Cancelar</a>
                     </div>
                 </form>
             </div>

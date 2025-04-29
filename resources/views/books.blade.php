@@ -24,28 +24,28 @@ active
 <div class="data-container">
     <div class="data-content">
         <div class="head">
-            <h3>Acervo</h3>
+            <h3 tabindex="0">Acervo</h3>
         </div>
         <table>
             <thead  class="table-content-center">
                 <tr>
-                    <th>ID</th>
-                    <th>Capa</th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Gênero Literário</th>
-                    <th>Editora</th>
-                    <th>Ano</th>
-                    <th>ISBN</th>
-                    <th>Status</th>
-                    <th>Ações</th>
+                    <th tabindex="0">ID</th>
+                    <th tabindex="0">Capa</th>
+                    <th tabindex="0">Título</th>
+                    <th tabindex="0">Autor</th>
+                    <th tabindex="0">Gênero Literário</th>
+                    <th tabindex="0">Editora</th>
+                    <th tabindex="0">Ano</th>
+                    <th tabindex="0">ISBN</th>
+                    <th tabindex="0">Status</th>
+                    <th tabindex="0">Ações</th>
                 </tr>
             </thead>
             <tbody class="table-content-center">
             @foreach ($booksList as $book)
                 <tr>
-                    <td>{{ $book->id }}</td>
-                    <td>
+                    <td tabindex="0">{{ $book->id }}</td>
+                    <td tabindex="0">
                         @if ($book->cover_image == null)
                             <img class="td-img" src="{{ Vite::asset('resources/assets/images/default/cover-not-available.png') }}" alt="Imagem capa do book genérica">
                             
@@ -53,12 +53,12 @@ active
                                 <img class="td-img" src="/storage/upload/cover_images/{{ $book->cover_image }}" onerror="this.src='{{ Vite::asset('resources/assets/images/default/cover-not-available.png') }}'" alt="Imagem capa do book">
                         @endif
                     </td>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->author }}</td>
-                    <td>{{ $book->literary_gender }}</td>
-                    <td>{{ $book->publisher }}</td>
-                    <td>{{ $book->year }}</td>
-                    <td>
+                    <td tabindex="0">{{ $book->title }}</td>
+                    <td tabindex="0">{{ $book->author }}</td>
+                    <td tabindex="0">{{ $book->literary_gender }}</td>
+                    <td tabindex="0">{{ $book->publisher }}</td>
+                    <td tabindex="0">{{ $book->year }}</td>
+                    <td tabindex="0">
                         @if ($book->isbn == null)
                             N/A
 
@@ -66,7 +66,7 @@ active
                                 {{ $book->isbn }}
                         @endif
                     </td>
-                    <td>
+                    <td tabindex="0">
                         @if ($book->status == 1)
                             <p class="status status-yellow">Retirado</p>
 
@@ -86,10 +86,10 @@ active
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
-                                <a class="btn-actions btn-action-change" href="{{url("/acervo/{$book->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
+                                <a class="btn-actions btn-action-change" href="{{url("/acervo/{$book->id}/editar")}}" class="edit" title="Editar" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                 </a>
-                                <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
+                                <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                 </button>
                             </div>
