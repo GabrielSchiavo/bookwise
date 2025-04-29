@@ -46,7 +46,7 @@
                                 @endforeach
                             </select>
                             <div class="select-icon-container">
-                                <img id="svg-change-color" class="svg-color svg-icon-size" src="/assets/images/icons/icon-chevron-down.svg" alt="Ícone Seta para baixo">
+                                <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-chevron-down.svg') }}" alt="Ícone Seta para baixo">
                             </div>
                         </div>
                     </div>

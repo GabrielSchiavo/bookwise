@@ -1,3 +1,14 @@
+// IMPORT JS LIBRARIES
+import jQuery from 'jquery';
+window.$ = jQuery;
+import 'jquery-mask-plugin';
+
+// IMPORT STATIC ASSETS INTO VITE
+import.meta.glob([
+    '../images/**',
+]);
+
+
 // CHANGE SVG COLOR
 // Obtem os atributos do SVG para poder estilizar a imagem SVG via CSS
 $("img#svg-change-color").each(function () {

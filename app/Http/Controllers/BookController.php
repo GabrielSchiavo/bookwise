@@ -7,22 +7,22 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Throwable;
 
 class BookController extends Controller
 {
     public function listData(Request $request)
     {
-        if(request()->has('search')) {
-            $booksList = Book::where(function($query) {
+        if (request()->has('search')) {
+            $booksList = Book::where(function ($query) {
                 $query->where('id', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('title', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('author', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('literary_gender', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('publisher', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('year', 'ILIKE', '%' . request()->get('search', '') . '%');
-
+                    ->orWhere('title', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('author', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('literary_gender', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('publisher', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('year', 'ILIKE', '%' . request()->get('search', '') . '%');
             })->get()->sortBy('id');
-
         } else {
             $booksList = Book::all()->sortBy('id');
         }
@@ -110,7 +110,7 @@ class BookController extends Controller
             $bookCoverImage = $fileName . '_' . time() . '.' . $extension;
 
             // Upload da Imagem
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $bookCoverImage);
+            $path = $request->file('cover_image')->storeAs('public/upload/cover_images', $bookCoverImage);
         } else {
             $book = Book::find($request->id);
             $bookCoverImage = $book?->cover_image;

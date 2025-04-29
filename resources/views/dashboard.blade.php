@@ -20,7 +20,7 @@ active
     <ul class="box-info">
         <li>
             <div class="dashboard-container-icons">
-                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-books.svg" alt="Ícone Livros">
+                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="{{ Vite::asset('resources/assets/images/icons/icon-books.svg') }}" alt="Ícone Livros">
             </div>
             <span class="text">
                 <h3>{{ $bookCount }}</h3>
@@ -29,7 +29,7 @@ active
         </li>
         <li>
             <div class="dashboard-container-icons">
-                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-users.svg" alt="Ícone Usuários">
+                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="{{ Vite::asset('resources/assets/images/icons/icon-users.svg') }}" alt="Ícone Usuários">
             </div>
             <span class="text">
                 <h3>{{ $personsCount }}</h3>
@@ -38,7 +38,7 @@ active
         </li>
         <li>
             <div class="dashboard-container-icons">
-                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-arrows.svg" alt="Ícone setas">
+                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="{{ Vite::asset('resources/assets/images/icons/icon-arrows.svg') }}" alt="Ícone setas">
             </div>
             <span class="text">
                 <h3>{{ $loanBooksCount }}</h3>
@@ -47,7 +47,7 @@ active
         </li>
         <li>
             <div class="dashboard-container-icons">
-                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="/assets/images/icons/icon-calendar-clock.svg" alt="Ícone calendário relógio">
+                <img id="svg-change-color" class="svg-color svg-icon-size-big" src="{{ Vite::asset('resources/assets/images/icons/icon-calendar-clock.svg') }}" alt="Ícone calendário relógio">
             </div>
             <span class="text">
                 <h3>{{ $lateBooksCount }}</h3>
@@ -104,10 +104,10 @@ active
                                     @method('DELETE')
                                     <div class="btns-actions-container">
                                         <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
-                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
+                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                         </a>
                                         <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
-                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-trash.svg" alt="Ícone Lixeira">
+                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                         </button>
                                     </div>
                                 </form>
@@ -163,10 +163,10 @@ active
                                     @method('DELETE')
                                     <div class="btns-actions-container">
                                         <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
-                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
+                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                         </a>
                                         <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
-                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-trash.svg" alt="Ícone Lixeira">
+                                            <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                         </button>
                                     </div>
                                 </form>

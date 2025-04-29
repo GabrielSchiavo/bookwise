@@ -7,8 +7,8 @@
 </h1>
 
 <p align="left">
-    <!-- <img src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge"/> -->
-    <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge"/>
+    <!-- <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange?style=for-the-badge"/> -->
     <img src="https://img.shields.io/github/license/GabrielSchiavo/bookwise?color=blue&style=for-the-badge"/>
 </p>
 
@@ -100,7 +100,12 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
     php artisan storage:link
     ```
 
-5. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
+5. Agora você deve compilar os assets do projeto. Execute o comando abaixo para compilar os assets ou atualizá-los: (`sempre` que atualizar os arquivos `css` e `js` os assets compilados também devem ser atualizados):
+    ```bash
+    npm run build
+    ```
+
+6. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
     ```bash
     php artisan serve
     ```
@@ -108,6 +113,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 ## :white_check_mark: Tecnologias utilizadas
 * `PHP - 8.4.5`
 * `Laravel - 12.7.1`
+* `Vite - 6.3.3`
 * `Composer - 2.8.6`
 * `Node.js - 22.14.0`
 * `jQuery - 3.7.1`

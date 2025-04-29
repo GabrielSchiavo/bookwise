@@ -47,10 +47,10 @@ active
                     <td>{{ $book->id }}</td>
                     <td>
                         @if ($book->cover_image == null)
-                            <img class="td-img" src="/assets/images/default/cover-not-available.png" alt="Imagem capa do book genérica">
+                            <img class="td-img" src="{{ Vite::asset('resources/assets/images/default/cover-not-available.png') }}" alt="Imagem capa do book genérica">
                             
                             @else
-                                <img class="td-img" src="/storage/cover_images/{{ $book->cover_image }}" alt="Imagem capa do book">
+                                <img class="td-img" src="/storage/upload/cover_images/{{ $book->cover_image }}" onerror="this.src='{{ Vite::asset('resources/assets/images/default/cover-not-available.png') }}'" alt="Imagem capa do book">
                         @endif
                     </td>
                     <td>{{ $book->title }}</td>
@@ -87,10 +87,10 @@ active
                             @method('DELETE')
                             <div class="btns-actions-container">
                                 <a class="btn-actions btn-action-change" href="{{url("/acervo/{$book->id}/editar")}}" tabindex="0" class="edit" tabindex="0" title="Editar">
-                                    <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-pencil.svg" alt="Ícone Lápis">
+                                    <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                 </a>
                                 <button class="btn-actions btn-action-delete" type="submit" tabindex="0" title="Excluir">
-                                    <img id="svg-change-color" class="svg-color svg-icon-size-small" src="/assets/images/icons/icon-trash.svg" alt="Ícone Lixeira">
+                                    <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                 </button>
                             </div>
                         </form>
