@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="450" src="./resources/assets/images/favicons/bookwise-icon-2.png" alt="Logo BookWise"/>
+    <img width="400" src="./resources/assets/images/favicons/bookwise-icon-2.png" alt="Logo BookWise"/>
 </p>
 
 <h1 align="center">
