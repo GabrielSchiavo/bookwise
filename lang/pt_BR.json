@@ -128,6 +128,14 @@
     "Not Modified": "Não Modificado",
     "of": "de",
     "OK": "OK",
+    "Oops! Access Forbidden": "Ops! Acesso Proibido",
+    "Oops! Internal Server Error": "Ops! Erro Interno do Servidor",
+    "Oops! Page Expired": "Ops! Página Expirada",
+    "Oops! Page Not Found": "Ops! Página Não Encontrada",
+    "Oops! Payment Required": "Ops! Pagamento Necessário",
+    "Oops! Service Unavailable": "Ops! Serviço Indisponível",
+    "Oops! Too Many Requests": "Ops! Muitas Solicitações",
+    "Oops! Unauthorized Access": "Ops! Acesso Não Autorizado",
     "Open": "Abrir",
     "Open in a current window": "Abrir em uma janela atual",
     "Open in a new window": "Abrir em uma nova janela",
@@ -135,6 +143,7 @@
     "Open in the topmost frame": "Abra no quadro superior",
     "Open on the website": "Aberto no site",
     "Origin Is Unreachable": "Origem É Inacessível",
+    "Our servers are temporarily down for maintenance. Please check back soon!": "Nossos servidores estão temporariamente em manutenção. Volte em breve!",
     "Page Expired": "Página expirou",
     "Pagination Navigation": "Navegação da Paginação",
     "Partial Content": "Contéudo Parcial",
@@ -182,6 +191,7 @@
     "Showing": "Mostrando",
     "Sign In": "Entrar",
     "Solve": "Resolver",
+    "Something went wrong on our server. Don't worry, our team is already fixing it. Please try again later.": "Algo deu errado no nosso servidor. Não se preocupe, nossa equipe já está resolvendo. Tente novamente mais tarde.",
     "SSL Handshake Failed": "Falha No Handshake SSL",
     "Start": "Começar",
     "Stop": "Parar",
@@ -198,6 +208,7 @@
     "The response is not a view.": "A resposta não é uma visualização.",
     "This action is unauthorized.": "Esta ação não é autorizada.",
     "This password reset link will expire in :count minutes.": "O link de redefinição de senha irá expirar em :count minutos.",
+    "This resource requires a payment to access.": "Este recurso requer pagamento para acesso.",
     "to": "até",
     "Toggle navigation": "Alternar navegação",
     "Too Early": "Muito cedo",
@@ -222,30 +233,13 @@
     "Verify Email Address": "Verifique o endereço de e-mail",
     "View": "Visualizar",
     "View :name": "Ver :name",
+    "We are sorry, but the page you requested was Not Found": "Lamentamos, mas a página solicitada não foi encontrada.",
     "Web Server is Down": "Servidor Web Está Inativo",
     "Whoops!": "Ops!",
     "Yes": "Sim",
     "You are receiving this email because we received a password reset request for your account.": "Você recebeu esse e-mail porque foi solicitado uma redefinição de senha na sua conta.",
-
-
-
-
-    
-    "Oops! Unauthorized Access": "Ops! Acesso Não Autorizado",
     "You do not have permission to view this resource.": "Você não tem permissão para acessar este recurso.",
-    "Oops! Payment Required": "Ops! Pagamento Necessário",
-    "This resource requires a payment to access.": "Este recurso requer pagamento para acesso.",
-    "Oops! Access Forbidden": "Ops! Acesso Proibido",
     "You don't have permission to access this page.": "Você não tem permissão para acessar esta página.",
-    "Oops! Page Not Found": "Ops! Página Não Encontrada",
-    "We are sorry, but the page you requested was Not Found": "Lamentamos, mas a página solicitada não foi encontrada.",
-    "Oops! Page Expired": "Ops! Página Expirada",
-    "Your session has timed out. Please refresh the page and try again.": "Sua sessão expirou. Atualize a página e tente novamente.",
-    "Oops! Too Many Requests": "Ops! Muitas Solicitações",
     "You've sent too many requests in a short time. Please slow down and try again later.": "Você enviou muitas requisições em pouco tempo. Por favor, espere e tente novamente mais tarde.",
-    "Oops! Internal Server Error": "Ops! Erro Interno do Servidor",
-    "Something went wrong on our server. Don't worry, our team is already fixing it. Please try again later.": "Algo deu errado no nosso servidor. Não se preocupe, nossa equipe já está resolvendo. Tente novamente mais tarde.",
-    "Oops! Service Unavailable": "Ops! Serviço Indisponível",
-    "Our servers are temporarily down for maintenance. Please check back soon!": "Nossos servidores estão temporariamente em manutenção. Volte em breve!"
-    
+    "Your session has timed out. Please refresh the page and try again.": "Sua sessão expirou. Atualize a página e tente novamente."
 }
