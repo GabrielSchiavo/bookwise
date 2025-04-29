@@ -82,26 +82,26 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
     - Pacotes PHP:
       - Atualiza e intalla pacotes para versão mais recente:
 
-      ```bash
-      composer update
-      ```
+          ```bash
+          composer update
+          ```
 
       - Instala pacotes respeitaremos a versão fornecida:
   
-      ```bash
-      composer install
-      ```
+          ```bash
+          composer install
+          ```
 
     - Pacotes JS:
       - Instala e atualiza pacotes para versão mais recente:
-      ```bash
-      npm update
-      ```
+          ```bash
+          npm update
+          ```
 
       - Instala pacotes respeitaremos a versão fornecida:
-      ```bash
-      npm install
-      ```
+          ```bash
+          npm install
+          ```
     
 3. Após seguir as etapas anteriores, abra o arquivo `.env`, localizado na raiz do projeto e altere as configurações de `DB_CONNECTION` para as configurações do seu Banco de Dados.
    
