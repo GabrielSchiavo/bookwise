@@ -6,13 +6,15 @@
     BookWise - Gestão de Biblioteca
 </h1>
 
-<p align="left">
+<p align="center">
     <img src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge"/>
     <!-- <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange?style=for-the-badge"/> -->
     <img src="https://img.shields.io/github/license/GabrielSchiavo/bookwise?color=blue&style=for-the-badge"/>
 </p>
 
-BookWise visa o controle e cadastro de livros, empréstimos, gêneros literários e pessoas de uma biblioteca.
+<p align="center">
+    BookWise visa o controle e cadastro de livros, empréstimos, gêneros literários e pessoas de uma biblioteca.
+</p>
 
 ## :hammer: Funcionalidades
 - **Cadastro:**
@@ -53,10 +55,10 @@ BookWise visa o controle e cadastro de livros, empréstimos, gêneros literário
 
 ## :film_strip: Galeria
 <p align="center">
-  <img src="./resources/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
-  <img src="./resources/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
-  <img src="./resources/assets/images/screenshots/screenshot-books-list.png" alt="Screenshot Acervo"/>
-  <img src="./resources/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
+  <img width="1000" src="./resources/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
+  <img width="1000" src="./resources/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
+  <img width="1000" src="./resources/assets/images/screenshots/screenshot-books-list.png" alt="Screenshot Acervo"/>
+  <img width="250" src="./resources/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
 </p>
 
 ## :file_folder: Acesso ao projeto
