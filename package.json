@@ -13,7 +13,9 @@
     },
     "type": "module",
     "dependencies": {
+        "@tailwindcss/vite": "^4.1.4",
         "jquery": "^3.7.1",
-        "jquery-mask-plugin": "^1.14.16"
+        "jquery-mask-plugin": "^1.14.16",
+        "tailwindcss": "^4.1.4"
     }
 }

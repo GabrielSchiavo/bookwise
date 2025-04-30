@@ -41,16 +41,20 @@ active
                     <td tabindex="0">{{ $literaryGenre->id }}</td>
                     <td tabindex="0">{{ $literaryGenre->name }}</td>
                     <td tabindex="0">
-                        <form action="/generos-literarios/{{$literaryGenre->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                        <form action="/generos-literarios/{{$literaryGenre->id}}/excluir" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="btns-actions-container">
                                 <a class="btn-actions btn-action-change" href="{{url("/generos-literarios/{$literaryGenre->id}/editar")}}" class="edit" title="Editar" tabindex="0">
                                     <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                 </a>
-                                <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
-                                    <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
-                                </button>
+                                <flux:modal.trigger name="modal-confirm-delete">
+                                    <a class="btn-actions btn-action-delete" tabindex="0">
+                                        <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
+                                    </a>
+                                </flux:modal.trigger>
+
+                                <x-modal-confirm-delede/>
                             </div>
                         </form>
                     </td>

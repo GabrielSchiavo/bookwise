@@ -121,17 +121,23 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       php artisan storage:link
       ```
 
-5. Agora você deve compilar os assets do projeto. Execute o comando abaixo para compilar os assets ou atualizá-los: (`sempre` que atualizar os arquivos `css` e `js` os assets compilados também devem ser atualizados):
+5. Agora você deve compilar os assets do projeto. Exixtem duas maneiras para compilar os assets:
    
-   - `Compila` e `atuliza` a compilação dos assets:
+   - `Compilar:` compila e agrupa os ativos os deixando prontos para implantação em produção (`não` atualiza os ativos automaticamnete):
   
       ```bash
       npm run build
       ```
+  
+   - `Atualizar em tempo real:` executa o servidor de desenvolvimento local do `Vite`, onde detectará automaticamente as alterações nos arquivos dos ativos e as refletirá instantaneamente em qualquer janela aberta do navegador:
+  
+      ```bash
+      npm run dev
+      ```
 
 6. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
   
-   - Inicia o servidor de desenvolvimento local:
+   - Inicia o servidor de desenvolvimento local do `Laravel`:
 
       ```bash
       php artisan serve
@@ -145,4 +151,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 * `Node.js - 22.14.0`
 * `jQuery - 3.7.1`
 * `jQuery Mask - 1.14.16`
+* `Tailwind CSS - 4.1.4`
+* `Flux - 2.1.5`
+* `Livewere - 3.5.19`
 * `PostgreSQL - 17.4`

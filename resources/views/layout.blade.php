@@ -133,6 +133,7 @@
 
     <!-- JS -->
     @vite(['resources/assets/js/script.js'])
+    @fluxScripts
 </body>
 
 </html>
