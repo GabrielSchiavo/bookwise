@@ -13,7 +13,7 @@
             <flux:spacer />
             
             <flux:modal.close>
-                <flux:button class="btn btn-tertiary btn-tertiary-dark">Cancelar</flux:button>
+                <flux:button class="btn btn-tertiary btn-tertiary-dark"><span>Cancelar</span></flux:button>
             </flux:modal.close>
             
             <flux:button type="submit" class="btn btn-primary btn-danger">Excluir</flux:button>

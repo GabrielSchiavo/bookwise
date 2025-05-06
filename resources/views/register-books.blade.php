@@ -51,8 +51,9 @@
                         </div>
                     </div>
             
-                    <legend class="input-legend" tabindex="0">Formato ISBN:</legend>
                     <div class="input-radio-group">
+                        <legend class="input-legend" tabindex="0">Formato ISBN:</legend>
+                        
                         <div class="input-radio-container">
                             <input class="input-radio" type="radio" id="isbn_format_13" name="isbnFormat" value="isbn13"/>
                             <label class="input-label input-radio-label" for="isbn_format_13" tabindex="0">ISBN 13</label>
@@ -93,8 +94,8 @@
 
                     
                     <div class="btns-container">
-                        <button class="btn btn-primary" type="submit" tabindex="0">Salvar</button>
-                        <a class="btn btn-secondary" type="button" href="/acervo" tabindex="0">Cancelar</a>
+                        <button class="btn btn-primary" type="submit" tabindex="0"><span>Salvar</span></button>
+                        <a class="btn btn-secondary" type="button" href="/acervo" tabindex="0"><span>Cancelar</span></a>
                     </div>
                 </form>
             </div>

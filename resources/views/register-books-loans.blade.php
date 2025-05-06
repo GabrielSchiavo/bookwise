@@ -94,8 +94,8 @@
 
 
                     <div class="btns-container">
-                        <button class="btn btn-primary" type="submit" tabindex="0">Salvar</button>
-                        <a class="btn btn-secondary" type="button" href="/retiradas" tabindex="0">Cancelar</a>
+                        <button class="btn btn-primary" type="submit" tabindex="0"><span>Salvar</span></button>
+                        <a class="btn btn-secondary" type="button" href="/retiradas" tabindex="0"><span>Cancelar</span></a>
                     </div>
                 </form>
             </div>

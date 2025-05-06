@@ -116,9 +116,11 @@
 
             <form class="search-form" action="@yield('searchAction')" method="GET">
                 <div class="search-input-container">
-                    <input class="search-input" type="search" name="search" id="search" placeholder="Pesquisar...">
-                    <button type="submit" id="search-btn" title="Pesquisar">
-                        <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-search.svg') }}" alt="Ícone Pesquisa">
+                    <input class="input-area search-input" type="search" name="search" id="search" placeholder="Pesquisar...">
+                    <button type="submit" id="search-btn" class="btn btn-primary btn-search" title="Pesquisar">
+                        <span>
+                            <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-search.svg') }}" alt="Ícone Pesquisa">
+                        </span>
                     </button>
                 </div>
             </form>
