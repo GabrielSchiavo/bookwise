@@ -17,11 +17,13 @@
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <a href="/" class="brand" tabindex="-1">
-            <img class="logo-img" src="{{ Vite::asset('resources/assets/images/favicons/bookwise-icon.png') }}" alt="Logo BookWise">
-            <span class="logo-text">Book<span class="text-bold-logo">Wise</span>
-        </a>
-        <ul class="side-menu top">
+        <div class="brand-container">
+            <a href="/" class="brand" tabindex="-1">
+                <img class="logo-img" src="{{ Vite::asset('resources/assets/images/favicons/bookwise-icon.png') }}" alt="Logo BookWise">
+                <span class="logo-text">Book<span class="text-bold-logo">Wise</span>
+            </a>
+        </div>
+        <ul class="side-menu accent-color-hover">
             <li class="@yield('optionSideMenu01')">
                 <a class="option-side-menu" aria-current="page" href="/dashboard" title="Dashboard">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-dashboard.svg') }}" alt="Ícone Dashboard">
@@ -29,7 +31,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="side-menu top">
+        <ul class="side-menu accent-color-hover">
             <li class="@yield('optionSideMenu02')">
                 <a class="option-side-menu" aria-current="page" href="/generos-literarios" title="Gêneros Literários">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-bookmark.svg') }}" alt="Ícone Gênero Literário">
@@ -58,7 +60,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="side-menu top">
+        <ul class="side-menu accent-color-hover">
             <li class="@yield('optionSideMenu06')">
                 <a class="option-side-menu" aria-current="page" href="/generos-literarios/cadastro" title="Cadastro Gêneros">
                     <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-add-bookmark.svg') }}" alt="Ícone Cadastro Gênero Literário">
@@ -87,7 +89,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="side-menu top">
+        <ul class="side-menu accent-color-hover end-margin">
             <li>
                 <button class="option-side-menu" id="switch-mode" title="Alterar Tema Claro/Escuro">
                     <div class="switch-mode-option">

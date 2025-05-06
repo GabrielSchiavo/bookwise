@@ -62,6 +62,10 @@ li {
 	--font-size-16: 16px;
 	--font-size-14: 14px;
 
+	--navbar-height: 56px;
+	--sidebar-spacing: 40px;
+	--sidebar-options-height: 48px;
+
 	--base-color: #F9F9F9;
 	--base-variant: #e8e9ed;
 	--text-color: #111528;
@@ -126,6 +130,13 @@ body.dark-mode {
 	--background-hover-color:  color-mix(in oklab, #ffffff 15%,transparent);
 }
 
+body.dark-mode ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+}
+
 body {
 	background: var(--base-variant);
 	overflow-x: hidden;
@@ -166,6 +177,12 @@ body {
 	transition: var(--transition-default);
 	overflow-x: hidden;
 	scrollbar-width: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--sidebar-spacing);
+}
+#sidebar .end-margin {
+	margin-bottom: var(--sidebar-spacing);
 }
 #sidebar::--webkit-scrollbar {
 	display: none;
@@ -173,10 +190,16 @@ body {
 #sidebar.hide {
 	width: 60px;
 }
+#sidebar .brand-container {
+	height: var(--navbar-height);
+	min-height: var(--navbar-height);
+	max-height: var(--navbar-height);
+	display: flex;
+    align-items: center;
+}
 #sidebar .brand {
 	font-size: var(--font-size-24);
 	font-weight: 700;
-	height: 56px;
 	display: flex;
 	align-items: center;
 	color: var(--accent-color);
@@ -191,10 +214,9 @@ body {
 }
 #sidebar .side-menu {
 	width: 100%;
-	margin-top: 48px;
 }
 #sidebar .side-menu li {
-	height: 48px;
+	height: var(--sidebar-options-height);
 	background: transparent;
 	margin-left: 6px;
 	border-radius: 48px 0 0 48px;
@@ -238,7 +260,7 @@ body {
 	white-space: nowrap;
 	overflow-x: hidden;
 }
-#sidebar .side-menu.top li.active .option-side-menu {
+#sidebar .side-menu.accent-color-hover li.active .option-side-menu {
 	color: var(--accent-color);
 }
 #sidebar.hide .side-menu li .option-side-menu {
@@ -248,7 +270,7 @@ body {
 #sidebar .side-menu li .option-side-menu.logout {
 	color: var(--red);
 }
-#sidebar .side-menu.top li .option-side-menu:hover {
+#sidebar .side-menu.accent-color-hover li .option-side-menu:hover {
 	color: var(--accent-color);
 }
 #sidebar .side-menu li .option-side-menu .svg-icon-size {
@@ -279,7 +301,7 @@ body {
 
 /* NAVBAR */
 #content nav {
-	height: 56px;
+	height: var(--navbar-height);
 	background: var(--base-color);
 	padding: 0 24px;
 	display: flex;
@@ -395,7 +417,7 @@ body {
 	width: 100%;
 	padding: 36px 24px;
 	font-family: var(--dm-sans);
-	max-height: calc(100vh - 56px);
+	max-height: calc(100vh - var(--navbar-height));
 	overflow-y: auto;
 }
 #content main .head-title {
