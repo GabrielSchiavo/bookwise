@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\LiteraryGenre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -48,9 +49,14 @@ class LiteraryGenreController extends Controller
     public function delete(Request $request)
     {
         $literaryGenre = LiteraryGenre::find($request->id);
-        $literaryGenre->delete();
+        $bookLiteraryGenre = Book::where('literary_gender_id', '=', $request->id);
 
-        $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> excluido!');
+        if($bookLiteraryGenre != null) {
+            $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> não é possível excluir!');
+        } else {
+            $literaryGenre->delete();
+            $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> excluido!');
+        }
 
         return redirect('/generos-literarios');
     }
@@ -77,10 +83,22 @@ class LiteraryGenreController extends Controller
 
         if ($request->id != null) {
             $literaryGenre = LiteraryGenre::find($request->id);
+            $bookLiteraryGenre = Book::where('literary_gender_id', '=', $request->id);
             $literaryGenre->name = $request->name;
-            $literaryGenre->save();
+            
+            if($bookLiteraryGenre != null) {
+                $literaryGenre->save();
 
-            $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado!');
+                Book::where('literary_gender_id', '=', $request->id)->update([
+                    'literary_gender' => $literaryGenre->name,
+                ]);
+                
+                $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado!');
+            } else {
+                $literaryGenre->save();
+                $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado!');
+            }
+
         } else {
             $literaryGenre = LiteraryGenre::create([
                 'name' => $request->name

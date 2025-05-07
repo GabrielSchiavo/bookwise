@@ -68,28 +68,28 @@ li {
 	--input-btn-height: 36px;
 	--btn-search-widht: 40px;
 
-	--base-color: #F9F9F9;
-	--base-variant: #e8e9ed;
-	--text-color: #111528;
-	--secondary-text : #F7F9F7;
-	--tertiary-text : #111528;
-	--placeholder-text: #757575;
-	--primary-color: #3a435d;
-	--accent-color: #0059CF;
+	--base-color: oklch(96.7% 0.001 286.375);
+	--base-variant: oklch(92% 0.004 286.32);
+	--text-color: oklch(14.1% 0.005 285.823);
+	--secondary-text : oklch(96.7% 0.001 286.375);
+	--tertiary-text : oklch(14.1% 0.005 285.823);
+	--placeholder-text: oklch(55.2% 0.016 285.938);
+	--primary-color: oklch(44.2% 0.017 285.786);
+	--accent-color: oklch(54.6% 0.245 262.881);
 
 	--background-hover-color: color-mix(in oklab, oklch(.274 .006 286.033) 5%,transparent);
 
 	/* Outras cores */
-	--blue: #1F75FE;
-	--light-blue: #CFE8FF;
-	--red: #DB504A;
-	--light-red: #F4C2C2;
-	--yellow: #FFCC33;
-	--light-yellow: #FFF2C6;
-	--orange: #FD7238;
-	--light-orange: #FED8B1;
-	--green: #00A550;
-	--light-green: #D0F0C0;
+	--blue: oklch(62.3% 0.214 259.815);
+	--light-blue: oklch(93.2% 0.032 255.585);
+	--red: oklch(63.7% 0.237 25.331);
+	--light-red: oklch(93.6% 0.032 17.717);
+	--yellow: oklch(79.5% 0.184 86.047);
+	--light-yellow: oklch(97.3% 0.071 103.193);
+	--orange: oklch(70.5% 0.213 47.604);
+	--light-orange: oklch(95.4% 0.038 75.164);
+	--green: oklch(72.3% 0.219 149.579); /* 500 */
+	--light-green: oklch(96.2% 0.044 156.743); /* 100 */
 
 	/* Transition */
 	--transition-default:  all .3s ease;
@@ -120,14 +120,14 @@ html {
 }
 
 body.dark-mode {
-	--base-color: #070b1d;
-	--base-variant: #101425;
-	--text-color: #F7F9F7;
-	--secondary-text : #F7F9F7;
-	--tertiary-text : #111528;
-	--placeholder-text: #757575;
-	--primary-color: #3a435d;
-	--accent-color: #0d75ff;
+	--base-color: oklch(14.1% 0.005 285.823);
+	--base-variant: oklch(21% 0.006 285.885);
+	--text-color: oklch(96.7% 0.001 286.375);
+	--secondary-text : oklch(96.7% 0.001 286.375);
+	--tertiary-text : oklch(14.1% 0.005 285.823);
+	--placeholder-text: oklch(55.2% 0.016 285.938);
+	--primary-color: oklch(44.2% 0.017 285.786); /* 600 */
+	--accent-color: oklch(62.3% 0.214 259.815); /* 500 */
 	
 	--background-hover-color:  color-mix(in oklab, #ffffff 15%,transparent);
 }
@@ -888,9 +888,14 @@ body {
 	white-space: normal;
 }
 
-/* #modal-container ui-close {
-	display: none;
-} */
+.table-placeholder-text {
+	text-align: center;
+	margin-top: 24px;
+    width: 100%;
+    display: block;
+	font-style: italic;
+	color: var(--placeholder-text);
+}
 /* MAIN */
 /* CONTENT */
 

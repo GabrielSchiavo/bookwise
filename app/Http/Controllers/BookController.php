@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LiteraryGenre;
 use App\Models\Book;
+use App\Models\BookLoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -61,9 +62,14 @@ class BookController extends Controller
     public function delete(Request $request)
     {
         $book = Book::find($request->id);
-        $book->delete();
+        $bookLoan = BookLoan::where('book_id', '=', $request->id);
 
-        $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> excluido!');
+        if($bookLoan != null) {
+            $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> não é possível excluir!');
+        } else {
+            $book->delete();
+            $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> excluido!');
+        }
 
         return redirect('/acervo');
     }
@@ -118,6 +124,7 @@ class BookController extends Controller
 
         if ($request->id != null) {
             $book = Book::find($request->id);
+            $bookLoan = BookLoan::where('book_id', '=', $request->id);
             $book->literary_gender = $request->literary_gender;
             $book->literary_gender_id = $literaryGenderId;
             $book->isbn = $request->isbn;
@@ -127,12 +134,20 @@ class BookController extends Controller
             $book->year = $request->year;
             $book->cover_image = $bookCoverImage;
 
-            $book->save();
+            if($bookLoan != null) {
+                $book->save();
 
-            $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> atualizado!');
+                BookLoan::where('book_id', '=', $request->id)->update([
+                    'book' => $book->title,
+                ]);
+                
+                $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> atualizado!');
+            } else {
+                $book->save();
+                $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> atualizado!');
+            }
+
         } else {
-            // $null = 'N/A';
-
             $literaryGenderName = $request->literary_gender;
             $literaryGenderId = LiteraryGenre::where('name', '=', $literaryGenderName)->value('id');
 
