@@ -81,7 +81,7 @@
                         <label class="input-label" for="status" class="form-label" tabindex="0">Status <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area cursor-pointer" id="status" name="status">
-                                <option value="{{isset($bookLoan) ? $bookLoan->status : old('status')}}" selected>{{isset($bookLoan) ? $bookLoan->status : old('status')}}</option>
+                                <option value="{{isset($bookLoan) ? $bookLoan->status : old('status')}}" selected>{{isset($bookLoan) ? $bookLoan->status : old('status') }}</option>
                                 <option value="1">1 - Retirado</option>
                                 <option value="2">2 - Renovado</option>
                                 <option value="3">3 - Devolvido</option>

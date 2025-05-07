@@ -81,6 +81,9 @@ active
                 @endforeach
             </tbody>
         </table>
+        @if (count($bookLoanList) === 0)
+            <span class="text table-placeholder-text">Nada para mostrar... por enquanto!</span>
+        @endif  
     </div>
 </div>
 

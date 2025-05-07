@@ -69,7 +69,7 @@
                         <input class="input-area isbnMask" type="text" id="isbn" name="isbn" value="{{isset($book) ? $book->isbn : old('isbn')}}" placeholder="Digite o código ISBN">
                     </div>
                    <div class="input-container">
-                        <label class="input-label" for="title" class="form-label" tabindex="0">Titulo <span class="form-require">*</span></label>
+                        <label class="input-label" for="title" class="form-label" tabindex="0">Título <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="title" name="title" value="{{isset($book) ? $book->title : old('title')}}" placeholder="Digite o título">
                     </div>
                     <div class="input-container">

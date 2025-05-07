@@ -279,5 +279,30 @@ return [
         'winner'                   => 'ganhador',
         'work'                     => 'trabalho',
         'year'                     => 'ano',
+
+        // Custom attributes
+        //Book Controller
+        'literary_gender'          => 'Gênero Literário',
+        'isbn'                     => 'ISBN',
+        'title'                    => 'Título',
+        'author'                   => 'Autor',
+        'publisher'                => 'Editora',
+        'year'                     => 'Ano',
+        'cover_image'              => 'Capa',
+
+        //Book Loan Controller
+        'loan_date'                => 'Data de Retirada',
+        'return_date'              => 'Data de Devolução',
+        'book'                     => 'Livro',
+        'person'                   => 'Pessoa',
+        'status'                   => 'Status',
+
+        //Literary Genre Controller
+        'name'                     => 'Nome',
+
+        //Person Controller
+        'name_last_name'            => 'Nome e Sobrenome',
+        'phone'                     => 'Telefone',
+        'email'                     => 'Email',
     ],
 ];

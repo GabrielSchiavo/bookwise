@@ -116,6 +116,9 @@ active
                         @endforeach
                     </tbody>
                 </table>
+                @if (count($loanBooksList) === 0)
+                    <span class="text table-placeholder-text">Nada para mostrar... por enquanto!</span>
+                @endif
             </div>
             <div class="data-content">
                 <div class="head">
@@ -175,6 +178,9 @@ active
                         @endforeach
                     </tbody>
                 </table>
+                @if (count($lateBooksList) === 0)
+                    <span class="text table-placeholder-text">Nada para mostrar... por enquanto!</span>
+                @endif
             </div>
         </div>
     </div>

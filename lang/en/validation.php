@@ -289,5 +289,30 @@ return [
         'winner'                   => 'winner',
         'work'                     => 'work',
         'year'                     => 'year',
+        
+        // Custom attributes
+        //Book Controller
+        'literary_gender'          => 'Literary Gender',
+        'isbn'                     => 'ISBN',
+        'title'                    => 'Title',
+        'author'                   => 'Author',
+        'publisher'                => 'Publisher',
+        'year'                     => 'Year',
+        'cover_image'              => 'Cover',
+
+        //Book Loan Controller
+        'loan_date'                => 'Loan Date',
+        'return_date'              => 'Return Date',
+        'book'                     => 'Book',
+        'person'                   => 'Person',
+        'status'                   => 'Status',
+
+        //Literary Genre Controller
+        'name'                     => 'Name',
+
+        //Person Controller
+        'name_last_name'            => 'Name and Last Name',
+        'phone'                     => 'Phone',
+        'email'                     => 'Email',
     ],
 ];
