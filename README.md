@@ -169,12 +169,10 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 ## :white_check_mark: Tecnologias utilizadas
 * `PHP - 8.4.5`
 * `Laravel - 12.7.1`
-* `Vite - 6.3.3`
+* `Vite - 6.3.4`
 * `Composer - 2.8.6`
 * `Node.js - 22.14.0`
 * `jQuery - 3.7.1`
 * `jQuery Mask - 1.14.16`
 * `Tailwind CSS - 4.1.4`
-* `Flux - 2.1.5`
-* `Livewere - 3.5.19`
 * `PostgreSQL - 17.4`

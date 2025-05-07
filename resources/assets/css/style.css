@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import "tailwindcss";
 @source "../../views";
-@import '../../../vendor/livewire/flux/dist/flux.css';
 
 /* Tipo de fonte */
 @font-face {
