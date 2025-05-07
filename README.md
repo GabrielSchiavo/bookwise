@@ -105,9 +105,23 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
           npm install
           ```
     
-3. Após seguir as etapas anteriores, abra o arquivo `.env`, localizado na raiz do projeto e altere as configurações de `DB_CONNECTION` para as configurações do seu Banco de Dados.
+3. Após seguir as etapas anteriores, abra o arquivo `.env.example`, localizado na raiz do projeto e altere as configurações de `DB_CONNECTION` para as configurações do seu Banco de Dados. Após, renomeie o arquivo para `.env`.
    
-4. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Banco de Dados:
+4. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Laravel:
+   
+   - Gera o valor para a variável `APP_KEY` no arquivo `.env`, necessária para execusão do Laravel:
+  
+      ```bash
+      php artisan key:generate
+      ```
+      
+   - Após cada alteração no arquivo `.env` execute o comando abaixo para limpar o cache de configuração do Laravel:
+  
+      ```bash
+      php artisan config:clear
+      ```
+
+5. Ainda na raiz do projeto execute os seguintes comandos para configurar o Banco de Dados:
    
    - Cria as tebelas e os relacionamentos executando as migrations:
   
@@ -121,7 +135,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       php artisan storage:link
       ```
 
-5. Agora você deve compilar os assets do projeto. Exixtem duas maneiras para compilar os assets:
+6. Agora você deve compilar os assets do projeto. Exixtem duas maneiras para compilar os assets:
    
    - `Compilar:` compila e agrupa os ativos os deixando prontos para implantação em produção (`não` atualiza os ativos automaticamnete):
   
@@ -135,12 +149,21 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       npm run dev
       ```
 
-6. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
+7. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
   
    - Inicia o servidor de desenvolvimento local do `Laravel`:
 
       ```bash
       php artisan serve
+      ```
+
+8. Caso coloque este projeto em produção:
+  
+   - No arquivo `.env` altere as variáveis `APP_ENV`, `APP_DEBUG` para:
+
+      ```bash
+      APP_ENV=production 
+      APP_DEBUG=false
       ```
 
 ## :white_check_mark: Tecnologias utilizadas

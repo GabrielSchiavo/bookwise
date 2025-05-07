@@ -1,22 +1,15 @@
-<flux:modal name="modal-confirm-delete" class="min-w-[22rem] modal-container">
-    <div class="space-y-6">
-        <div>
-            <flux:heading class="modal-title">Excluir registro?</flux:heading>
-            
-            <flux:text class="mt-2">
-                <p class="modal-text">Você está prestes a excluir este registro.</p>
-                <p class="modal-text">Esta ação não pode ser revertida.</p>
-            </flux:text>
+<div id="modalConfirmDelete" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modatl-text-container">
+            <h1 class="modal-title" tabindex="0">Excluir registro?</h1>
+            <div>
+                <p class="text modal-text" tabindex="0">Você está prestes a excluir este registro.</p>
+                <p class="text modal-text" tabindex="0">Esta ação não pode ser revertida.</p>
+            </div>
         </div>
-        
-        <div class="btn-container">
-            <flux:spacer />
-            
-            <flux:modal.close>
-                <flux:button class="btn btn-tertiary btn-tertiary-dark"><span>Cancelar</span></flux:button>
-            </flux:modal.close>
-            
-            <flux:button type="submit" class="btn btn-primary btn-danger">Excluir</flux:button>
+        <div class="btns-container btn-modal-container">
+            <button id="btnCancel" class="btn btn-tertiary" title="Cancelar" aria-label="Cancelar exclusão"><span>Cancelar</span></button>
+            <button id="btnConfirm" class="btn btn-danger" title="Excluir" aria-label="Confirmar exclusão"><span>Excluir</span></button>
         </div>
     </div>
-</flux:modal>
+</div>

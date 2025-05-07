@@ -48,7 +48,7 @@
                     <div class="input-container">
                         <label class="input-label" for="book" class="form-label" tabindex="0">Livro <span class="form-require">*</span></label>
                         <div class="select-body">
-                            <select class="input-area cursor-pointer" id="book" name="book">
+                            <select class="input-area select-area cursor-pointer" id="book" name="book">
                                 <option value="{{isset($bookLoan) ? $bookLoan->book : old('book')}}" selected>{{isset($bookLoan) ? $bookLoan->book : old('book')}}</option>
                                 @foreach ($booksList as $book)
                                     @if ($book->status == 3)
@@ -65,7 +65,7 @@
                     <div class="input-container">
                         <label class="input-label" for="person" class="form-label" tabindex="0">Pessoa <span class="form-require">*</span></label>
                         <div class="select-body">
-                            <select class="input-area cursor-pointer" id="person" name="person">
+                            <select class="input-area select-area cursor-pointer" id="person" name="person">
                                 <option value="{{isset($bookLoan) ? $bookLoan->person : old('person')}}" selected>{{isset($bookLoan) ? $bookLoan->person : old('person')}}</option>
                                 @foreach ($personsList as $person)            
                                     <option value="{{$person->name_last_name}}">{{$person->id}} - {{$person->name_last_name}}</option>
@@ -80,7 +80,7 @@
                     <div class="input-container">
                         <label class="input-label" for="status" class="form-label" tabindex="0">Status <span class="form-require">*</span></label>
                         <div class="select-body">
-                            <select class="input-area cursor-pointer" id="status" name="status">
+                            <select class="input-area select-area cursor-pointer" id="status" name="status">
                                 <option value="{{isset($bookLoan) ? $bookLoan->status : old('status')}}" selected>{{isset($bookLoan) ? $bookLoan->status : old('status') }}</option>
                                 <option value="1">1 - Retirado</option>
                                 <option value="2">2 - Renovado</option>

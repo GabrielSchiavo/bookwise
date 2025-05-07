@@ -107,3 +107,30 @@ $("#isbn_format_10").click(function () {
         $(".isbnMask").mask("9-999999-99-9");
     });
 });
+
+// MODAL CONFIRM DELETE
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteForms = document.querySelectorAll('form[action*="excluir"]');
+    const modalConfirmDelete = document.getElementById('modalConfirmDelete');
+    const btnConfirm = document.getElementById('btnConfirm');
+    const btnCancel = document.getElementById('btnCancel');
+
+    deleteForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o envio imediato
+
+            // Mostra o modal
+            modalConfirmDelete.style.display = 'flex';
+
+            // Se clicar em "Sim", envia o formulário
+            btnConfirm.onclick = function() {
+                form.submit();
+            };
+
+            // Se clicar em "Cancelar", fecha o modal
+            btnCancel.onclick = function() {
+                modalConfirmDelete.style.display = 'none';
+            };
+        });
+    });
+});

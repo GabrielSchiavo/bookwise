@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "bookwise/bookwise",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "BookWise - Library Management",
+    "keywords": ["framework", "laravel", "bookwise"],
     "license": "MIT",
     "require": {
         "php": "^8.4.0",

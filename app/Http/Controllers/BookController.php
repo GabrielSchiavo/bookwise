@@ -8,8 +8,6 @@ use App\Models\BookLoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-use Throwable;
 
 class BookController extends Controller
 {
@@ -62,13 +60,13 @@ class BookController extends Controller
     public function delete(Request $request)
     {
         $book = Book::find($request->id);
-        $bookLoan = BookLoan::where('book_id', '=', $request->id);
+        $bookLoan = BookLoan::where('book_id', '=', $request->id)->count();
 
-        if($bookLoan != null) {
-            $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> não é possível excluir!');
+        if($bookLoan != 0) {
+            return Redirect::back()->withInput()->withErrors('Não é possível excluir o Livro de <span class="text-bold">ID ' . $book->id . '</span>, pois ele está vinculado a uma reserva.');
         } else {
             $book->delete();
-            $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> excluido!');
+            $request->session()->put('message', 'Livro de <span class="text-bold">ID ' . $book->id . '</span> excluído com sucesso!');
         }
 
         return redirect('/acervo');
@@ -95,12 +93,13 @@ class BookController extends Controller
             'image' => 'O arquivo no campo <span class="text-bold">:attribute</span> deve ser uma imagem'
         ]);
 
-        $literaryGenderName = $request->literary_gender;
-        $literaryGenderId = LiteraryGenre::where('name', '=', $literaryGenderName)->value('id');
-
         if ($validator->fails()) {
             return Redirect::back()->withInput()->withErrors($validator);
         }
+        
+        $literaryGenderName = $request->literary_gender;
+        $literaryGenderId = LiteraryGenre::where('name', '=', $literaryGenderName)->value('id');
+
 
         if ($request->hasFile('cover_image')) {
             // Obtém o nome de arquivo com a extensão
@@ -141,10 +140,10 @@ class BookController extends Controller
                     'book' => $book->title,
                 ]);
                 
-                $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> atualizado!');
+                $request->session()->put('message', 'Livro de <span class="text-bold">ID ' . $book->id . '</span> atualizado com sucesso!');
             } else {
                 $book->save();
-                $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> atualizado!');
+                $request->session()->put('message', 'Livro de <span class="text-bold">ID ' . $book->id . '</span> atualizado com sucesso!');
             }
 
         } else {
@@ -167,7 +166,7 @@ class BookController extends Controller
                 'status' => $statusLivro,
             ]);
 
-            $request->session()->put('message', 'Livro <span class="text-bold">ID ' . $book->id . '</span> criado!');
+            $request->session()->put('message', 'Livro de <span class="text-bold">ID ' . $book->id . '</span> criado com sucesso!');
         }
 
         return redirect('/acervo');

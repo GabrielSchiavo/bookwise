@@ -90,7 +90,7 @@ class BookLoanController extends Controller
         $bookLoan->delete();
 
         $request->$changeBookStatus;
-        $request->session()->put('message', 'Retirada <span class="text-bold">ID ' . $bookLoan->id . '</span> excluida!');
+        $request->session()->put('message', 'Retirada de <span class="text-bold">ID ' . $bookLoan->id . '</span> excluída com sucesso!');
 
         return redirect('/retiradas');
     }
@@ -105,11 +105,18 @@ class BookLoanController extends Controller
             'status' => 'required',
         ], [
             'required' => 'O campo <span class="text-bold"><span class="text-bold">:attribute</span></span> é obrigatório',
-            'after' => 'A <strong>Data de Devolução</strong> deve ser posterior a <strong>Data de BookLoan</strong>'
+            'after' => 'A <strong>Data de Devolução</strong> deve ser posterior a <strong>Data de Retirada</strong>'
         ]);
 
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+        
         $getBookName = $request->book;
+        $getPersonName = $request->person;
+
         $bookId = Book::where('title', '=', $getBookName)->value('id');
+        $personId = Person::where('name_last_name', '=', $getPersonName)->value('id');
  
         if($request->status != null) {
             $changeBookStatus = Book::where('id', '=', $bookId)->update([
@@ -117,14 +124,12 @@ class BookLoanController extends Controller
             ]);
         }
 
-        if ($validator->fails()) {
-            return Redirect::back()->withInput()->withErrors($validator);
-        }
 
         if ($request->id != null) {
             $bookLoan = BookLoan::find($request->id);
             $bookLoan->loan_date = $request->loan_date;
             $bookLoan->return_date = $request->return_date;
+            $bookLoan->person_id = $personId;
             $bookLoan->person = $request->person;
             $bookLoan->book = $request->book;
             $bookLoan->book_id = $bookId;
@@ -132,18 +137,19 @@ class BookLoanController extends Controller
             $bookLoan->save();
 
             $request->$changeBookStatus;
-            $request->session()->put('message', 'Retirada <span class="text-bold">ID ' . $bookLoan->id . '</span> atualizada!');
+            $request->session()->put('message', 'Retirada de <span class="text-bold">ID ' . $bookLoan->id . '</span> atualizada com sucesso!');
         } else {
             $bookLoan = BookLoan::create([
                 'loan_date' => $request->loan_date,
                 'return_date' => $request->return_date,
+                'person_id' => $personId,
                 'person' => $request->person,
-                'book' => $request->book,
                 'book_id' => $bookId,
+                'book' => $request->book,
                 'status' => $request->status,
             ]);
             $request->$changeBookStatus;
-            $request->session()->put('message', 'Retirada <span class="text-bold">ID ' . $bookLoan->id . '</span> criada!');
+            $request->session()->put('message', 'Retirada de <span class="text-bold">ID ' . $bookLoan->id . '</span> criada com sucesso!');
         }
 
         return redirect('/retiradas');

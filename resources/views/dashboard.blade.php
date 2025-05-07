@@ -68,6 +68,7 @@ active
                             <th tabindex="0">ID</th>
                             <th tabindex="0">Data da Retirada</th>
                             <th tabindex="0">Data da Devolução</th>
+                            <th tabindex="0">ID Pessoa</th>
                             <th tabindex="0" >Pessoa</th>
                             <th tabindex="0">ID Livro</th>
                             <th tabindex="0">Livro</th>
@@ -81,6 +82,7 @@ active
                             <td tabindex="0">{{ $retirada->id }}</td>
                             <td tabindex="0">{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
                             <td tabindex="0">{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
+                            <td tabindex="0">{{ $retirada->person_id }}</td>
                             <td tabindex="0">{{ $retirada->person }}</td>
                             <td tabindex="0">{{ $retirada->book_id }}</td>
                             <td tabindex="0">{{ $retirada->book }}</td>
@@ -99,18 +101,19 @@ active
                                 @endif
                             </td>
                             <td>
-                                <form action="/retiradas/{{$retirada->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                                <form action="/retiradas/{{$retirada->id}}/excluir" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="btns-actions-container">
-                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" class="edit" title="Editar" tabindex="0">
+                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" class="edit" title="Editar" aria-label="Editar retirada" tabindex="0">
                                             <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                         </a>
-                                        <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
+                                        <button class="btn-actions btn-action-delete" type="submit" title="Excluir" aria-label="Excluir retirada" tabindex="0">
                                             <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                         </button>
                                     </div>
                                 </form>
+                                @include('components.modal-confirm-delede')
                             </td>
                         </tr>
                         @endforeach
@@ -130,6 +133,7 @@ active
                             <th tabindex="0">Data da Retirada</th>
                             <th tabindex="0">ID</th>
                             <th tabindex="0">Data da Devolução</th>
+                            <th tabindex="0">ID Pessoa</th>
                             <th tabindex="0">Pessoa</th>
                             <th tabindex="0">ID Livro</th>
                             <th tabindex="0">Livro</th>
@@ -143,6 +147,7 @@ active
                             <td tabindex="0">{{ $retirada->id }}</td>
                             <td tabindex="0">{{ \Carbon\Carbon::parse($retirada->loan_date)->format('d/m/Y') }}</td>
                             <td tabindex="0">{{ \Carbon\Carbon::parse($retirada->return_date)->format('d/m/Y') }}</td>
+                            <td tabindex="0">{{ $retirada->person_id }}</td>
                             <td tabindex="0">{{ $retirada->person }}</td>
                             <td tabindex="0">{{ $retirada->book_id }}</td>
                             <td tabindex="0">{{ $retirada->book }}</td>
@@ -161,18 +166,19 @@ active
                                 @endif
                             </td>
                             <td>
-                                <form action="/retiradas/{{$retirada->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                                <form action="/retiradas/{{$retirada->id}}/excluir" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="btns-actions-container">
-                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" class="edit" title="Editar" tabindex="0">
+                                        <a class="btn-actions btn-action-change" href="{{url("/retiradas/{$retirada->id}/editar")}}" class="edit" title="Editar" aria-label="Editar retirada" tabindex="0">
                                             <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                         </a>
-                                        <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
+                                        <button class="btn-actions btn-action-delete" type="submit" title="Excluir" aria-label="Excluir retirada" tabindex="0">
                                             <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                         </button>
                                     </div>
                                 </form>
+                                @include('components.modal-confirm-delede')
                             </td>
                         </tr>
                         @endforeach

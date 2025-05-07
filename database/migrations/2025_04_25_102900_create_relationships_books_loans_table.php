@@ -9,6 +9,8 @@ return new class extends Migration
     {
         Schema::table('books_loans', function (Blueprint $table) {
             $table->foreign('book_id')->references('id')->on('books')->onDelete('set null');
+
+            $table->foreign('person_id')->references('id')->on('persons')->onDelete('set null');
         });
     }
 

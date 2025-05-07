@@ -20,6 +20,15 @@ active
         </div>
     </div>
 @endif
+@if (count($errors) > 0)
+<div class="alert-container">
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-error">
+            <p>{!! $error !!}</p>
+        </div>
+    @endforeach
+</div>
+@endif
 
 <div class="data-container">
     <div class="data-content">
@@ -82,18 +91,19 @@ active
                             @endif
                         </td>
                         <td>
-                            <form action="/acervo/{{$book->id}}/excluir" method="POST" onsubmit="return confirm('Deseja excluir?')">
+                            <form action="/acervo/{{$book->id}}/excluir" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <div class="btns-actions-container">
-                                    <a class="btn-actions btn-action-change" href="{{url("/acervo/{$book->id}/editar")}}" class="edit" title="Editar" tabindex="0">
+                                    <a class="btn-actions btn-action-change" href="{{url("/acervo/{$book->id}/editar")}}" class="edit" title="Editar" aria-label="Editar livro" tabindex="0">
                                         <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-pencil.svg') }}" alt="Ícone Lápis">
                                     </a>
-                                    <button class="btn-actions btn-action-delete" type="submit" title="Excluir" tabindex="0">
+                                    <button class="btn-actions btn-action-delete" type="submit" title="Excluir" aria-label="Excluir livro" tabindex="0">
                                         <img id="svg-change-color" class="svg-color svg-icon-size-small" src="{{ Vite::asset('resources/assets/images/icons/icon-trash.svg') }}" alt="Ícone Lixeira">
                                     </button>
                                 </div>
                             </form>
+                            @include('components.modal-confirm-delede')
                         </td>
                     </tr>
                 @endforeach

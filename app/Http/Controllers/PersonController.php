@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\BookLoan;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -29,7 +30,7 @@ class PersonController extends Controller
 
         return view('persons', [
             'personsList' => $personsList,
-            'message' => $message
+            'message' => $message,
         ]);
     }
 
@@ -50,9 +51,14 @@ class PersonController extends Controller
     public function delete(Request $request)
     {
         $person = Person::find($request->id);
-        $person->delete();
+        $personLoan = BookLoan::where('person_id', '=', $request->id)->count();
 
-        $request->session()->put('message', 'Pessoa <span class="text-bold">ID ' . $person->id . '</span> excluida!');
+        if($personLoan != 0) {
+            return Redirect::back()->withInput()->withErrors('Não é possível excluir a Pessoa de <span class="text-bold">ID ' . $person->id . '</span>, pois ela está vinculada a uma reserva.');
+        } else {
+            $person->delete();
+            $request->session()->put('message', 'Pessoa de <span class="text-bold">ID ' . $person->id . '</span> excluída com sucesso!');
+        }
 
         return redirect('/pessoas');
     }
@@ -87,12 +93,25 @@ class PersonController extends Controller
 
         if ($request->id != null) {
             $person = Person::find($request->id);
+            $personLoan = BookLoan::where('person_id', '=', $request->id);
             $person->name_last_name = $request->name_last_name;
             $person->phone = $request->phone;
             $person->email = $request->email;
-            $person->save();
 
-            $request->session()->put('message', 'Pessoa <span class="text-bold">ID ' . $person->id . '</span> atualizada!');
+
+            if($personLoan != null) {
+                $person->save();
+
+                BookLoan::where('person_id', '=', $request->id)->update([
+                    'person' => $person->name_last_name,
+                ]);
+                
+                $request->session()->put('message', 'Pessoa de <span class="text-bold">ID ' . $person->id . '</span> atualizada com sucesso!');
+            } else {
+                $person->save();
+                $request->session()->put('message', 'Pessoa de <span class="text-bold">ID ' . $person->id . '</span> atualizada com sucesso!');
+            }
+
         } else {
             $person = Person::create([
                 'name_last_name' => $request->name_last_name,
@@ -100,7 +119,7 @@ class PersonController extends Controller
                 'email' => $request->email,
             ]);
 
-            $request->session()->put('message', 'Pessoa <span class="text-bold">ID ' . $person->id . '</span> criada!');
+            $request->session()->put('message', 'Pessoa de <span class="text-bold">ID ' . $person->id . '</span> criada com sucesso!');
         }
 
         return redirect('/pessoas');

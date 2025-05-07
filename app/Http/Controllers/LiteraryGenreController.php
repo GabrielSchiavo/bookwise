@@ -49,13 +49,13 @@ class LiteraryGenreController extends Controller
     public function delete(Request $request)
     {
         $literaryGenre = LiteraryGenre::find($request->id);
-        $bookLiteraryGenre = Book::where('literary_gender_id', '=', $request->id);
+        $bookLiteraryGenre = Book::where('literary_gender_id', '=', $request->id)->count();
 
-        if($bookLiteraryGenre != null) {
-            $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> não é possível excluir!');
+        if($bookLiteraryGenre != 0) {
+            return Redirect::back()->withInput()->withErrors('Não é possível excluir o Gênero Literário de <span class="text-bold">ID ' . $literaryGenre->id . '</span>, pois ele está vinculado a um livro.');
         } else {
             $literaryGenre->delete();
-            $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> excluido!');
+            $request->session()->put('message', 'Gênero Literário de <span class="text-bold">ID ' . $literaryGenre->id . '</span> excluído com sucesso!');
         }
 
         return redirect('/generos-literarios');
@@ -93,10 +93,10 @@ class LiteraryGenreController extends Controller
                     'literary_gender' => $literaryGenre->name,
                 ]);
                 
-                $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado!');
+                $request->session()->put('message', 'Gênero Literário de <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado com sucesso!');
             } else {
                 $literaryGenre->save();
-                $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado!');
+                $request->session()->put('message', 'Gênero Literário de <span class="text-bold">ID ' . $literaryGenre->id . '</span> atualizado com sucesso!');
             }
 
         } else {
@@ -104,7 +104,7 @@ class LiteraryGenreController extends Controller
                 'name' => $request->name
             ]);
 
-            $request->session()->put('message', 'Gênero <span class="text-bold">ID ' . $literaryGenre->id . '</span> criado!');
+            $request->session()->put('message', 'Gênero Literário de <span class="text-bold">ID ' . $literaryGenre->id . '</span> criado com sucesso!');
         }
 
         return redirect('/generos-literarios');

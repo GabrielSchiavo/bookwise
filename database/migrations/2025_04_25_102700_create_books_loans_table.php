@@ -11,6 +11,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->date('loan_date');
             $table->date('return_date');
+            $table->unsignedBigInteger('person_id');
             $table->string('person', 250);
             $table->unsignedBigInteger('book_id');
             $table->string('book', 250);

@@ -13,9 +13,13 @@ class BookLoan extends Model
     protected $table = 'books_loans';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['loan_date', 'return_date', 'person', 'book_id', 'book', 'status'];
+    protected $fillable = ['loan_date', 'return_date', 'person_id', 'person', 'book_id', 'book', 'status'];
 
     public function bookId(): BelongsTo {
         return $this->belongsTo(Book::class);
+    }
+
+    public function personId(): BelongsTo {
+        return $this->belongsTo(Person::class);
     }
 }
