@@ -40,9 +40,11 @@
                         <label class="input-label" for="literaryGender" class="form-label" tabindex="0">Gênero Literário <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area select-area cursor-pointer" id="literaryGender" name="literary_gender">
-                                <option value="{{isset($book) ? $book->literary_gender : old('literary_gender')}}" selected>{{isset($book) ? $book->literary_gender : old('literary_gender')}}</option>
+                                <option value="" disabled {{ !isset($book->literary_gender) && !old('literary_gender') ? 'selected' : '' }}>Selecione uma opção...</option>
                                 @foreach ($listLiteraryGenres as $literaryGenre)            
-                                    <option value="{{$literaryGenre->name}}">{{$literaryGenre->id}} - {{$literaryGenre->name}}</option>
+                                    <option value="{{ $literaryGenre->name }}"{{ (isset($book) && $book->literary_gender == $literaryGenre->name) || old('literary_gender') == $literaryGenre->name ? 'selected' : '' }}>
+                                        {{ $literaryGenre->id }} - {{ $literaryGenre->name }}
+                                    </option>
                                 @endforeach
                             </select>
                             <div class="select-icon-container">

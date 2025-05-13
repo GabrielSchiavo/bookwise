@@ -38,24 +38,47 @@
                     
                     <div class="input-container">
                         <label class="input-label" for="loan_date" class="form-label" tabindex="0">Data de Retirada <span class="form-require">*</span></label>
-                        <input class="input-area cursor-pointer" type="date" id="loan_date" name="loan_date" value="{{isset($bookLoan) ? $bookLoan->loan_date : old('loan_date')}}">
+                        <input class="input-area input-date cursor-pointer" type="date" id="loan_date" name="loan_date" value="{{isset($bookLoan) ? $bookLoan->loan_date : old('loan_date')}}">
                     </div>
                     <div class="input-container">
                         <label class="input-label" for="return_date" class="form-label" tabindex="0">Data de Devolução <span class="form-require">*</span></label>
-                        <input class="input-area cursor-pointer" type="date" id="return_date" name="return_date" value="{{isset($bookLoan) ? $bookLoan->return_date : old('return_date')}}">
+                        <input class="input-area input-date cursor-pointer" type="date" id="return_date" name="return_date" value="{{isset($bookLoan) ? $bookLoan->return_date : old('return_date')}}">
                     </div>
             
                     <div class="input-container">
                         <label class="input-label" for="book" class="form-label" tabindex="0">Livro <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area select-area cursor-pointer" id="book" name="book">
+                                <option value="" disabled {{ !isset($bookLoan->book) && !old('book') ? 'selected' : '' }}>
+                                    Selecione uma opção...
+                                </option>
+                                
+                                @if(isset($bookLoan) && $bookLoan->book)
+                                    @if($selectedBook)
+                                        <option value="{{ $selectedBook->title }}" selected>
+                                            {{ $selectedBook->id }} - {{ $selectedBook->title }}
+                                        </option>
+                                    @endif
+                                @endif
+                                
+                                @foreach ($booksList as $book)
+                                    @if ($book->status == 3 && (!isset($bookLoan) || $bookLoan->book != $book->title))
+                                        <option value="{{ $book->title }}"
+                                            {{ old('book') == $book->title ? 'selected' : '' }}>
+                                            {{ $book->id }} - {{ $book->title }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
+
+                            {{-- <select class="input-area select-area cursor-pointer" id="book" name="book">
                                 <option value="{{isset($bookLoan) ? $bookLoan->book : old('book')}}" selected>{{isset($bookLoan) ? $bookLoan->book : old('book')}}</option>
                                 @foreach ($booksList as $book)
                                     @if ($book->status == 3)
                                         <option value="{{$book->title}}">{{$book->id}} - {{$book->title}}</option>
                                     @endif            
                                 @endforeach
-                            </select>
+                            </select> --}}
                             <div class="select-icon-container">
                                 <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-chevron-down.svg') }}" alt="Ícone Seta para baixo">
                             </div>
@@ -66,9 +89,14 @@
                         <label class="input-label" for="person" class="form-label" tabindex="0">Pessoa <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area select-area cursor-pointer" id="person" name="person">
-                                <option value="{{isset($bookLoan) ? $bookLoan->person : old('person')}}" selected>{{isset($bookLoan) ? $bookLoan->person : old('person')}}</option>
-                                @foreach ($personsList as $person)            
-                                    <option value="{{$person->name_last_name}}">{{$person->id}} - {{$person->name_last_name}}</option>
+                                <option value="" disabled {{ !isset($bookLoan->person) && !old('person') ? 'selected' : '' }}>
+                                    Selecione uma opção...
+                                </option>
+                                @foreach ($personsList as $person)
+                                    <option value="{{ $person->name_last_name }}"
+                                        {{ (isset($bookLoan) && $bookLoan->person == $person->name_last_name) || old('person') == $person->name_last_name ? 'selected' : '' }}>
+                                        {{ $person->id }} - {{ $person->name_last_name }}
+                                    </option>
                                 @endforeach
                             </select>
                             <div class="select-icon-container">
@@ -80,11 +108,13 @@
                     <div class="input-container">
                         <label class="input-label" for="status" class="form-label" tabindex="0">Status <span class="form-require">*</span></label>
                         <div class="select-body">
-                            <select class="input-area select-area cursor-pointer" id="status" name="status">
-                                <option value="{{isset($bookLoan) ? $bookLoan->status : old('status')}}" selected>{{isset($bookLoan) ? $bookLoan->status : old('status') }}</option>
-                                <option value="1">1 - Retirado</option>
-                                <option value="2">2 - Renovado</option>
-                                <option value="3">3 - Devolvido</option>
+                           <select class="input-area select-area cursor-pointer" id="status" name="status">
+                                <option value="" disabled selected hidden>{{ $selectedText }}</option>
+                                @foreach($statusOptions as $value => $text)
+                                    <option value="{{ $value }}" {{ $selectedValue == $value ? 'selected' : '' }}>
+                                        {{ $text }}
+                                    </option>
+                                @endforeach
                             </select>
                             <div class="select-icon-container">
                                 <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-chevron-down.svg') }}" alt="Ícone Seta para baixo">

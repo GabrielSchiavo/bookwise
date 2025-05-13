@@ -609,6 +609,9 @@ body {
 .input-area::placeholder{
 	color: var(--placeholder-text);
 }
+.input-date {
+	display: block;
+}
 .select-area {
 	padding-right: calc(var(--spacing-input-btn-x) * 2 + var(--icon-size-default));
 	text-overflow: ellipsis;

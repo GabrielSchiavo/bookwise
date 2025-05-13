@@ -59,9 +59,21 @@ class BookLoanController extends Controller
     {
         $personsList = Person::all()->sortBy('id');
         $booksList = Book::all()->sortBy('id');
+
+        $statusOptions = [
+            1 => '1 - Retirado',
+            2 => '2 - Renovado', 
+            3 => '3 - Devolvido'
+        ];                     
+        $selectedValue = $bookLoan->status ?? old('status');
+        $selectedText = $selectedValue ? $statusOptions[$selectedValue] : 'Selecione uma opção...';
+
         return view('register-books-loans', [
             'personsList' => $personsList,
-            'booksList' => $booksList
+            'booksList' => $booksList,
+            'selectedText' => $selectedText,
+            'statusOptions' => $statusOptions,
+            'selectedValue' => $selectedValue,
         ]);
     }
 
@@ -71,10 +83,25 @@ class BookLoanController extends Controller
         $personsList = Person::all()->sortBy('id');
         $booksList = Book::all()->sortBy('id');
 
+        $selectedBook = collect($booksList)->firstWhere('title', $bookLoan->book);
+
+        $statusOptions = [
+            1 => '1 - Retirado',
+            2 => '2 - Renovado', 
+            3 => '3 - Devolvido'
+        ];                     
+        $selectedValue = $bookLoan->status ?? old('status');
+        $selectedText = $selectedValue ? $statusOptions[$selectedValue] : 'Selecione uma opção...';
+
         return view('register-books-loans', [
             'bookLoan' => $bookLoan,
             'personsList' => $personsList,
-            'booksList' => $booksList
+            'booksList' => $booksList,
+            
+            'selectedBook' => $selectedBook,
+            'selectedText' => $selectedText,
+            'statusOptions' => $statusOptions,
+            'selectedValue' => $selectedValue,
         ]);
     }
 
@@ -124,9 +151,12 @@ class BookLoanController extends Controller
             ]);
         }
 
-
         if ($request->id != null) {
+            $booksList = Book::all()->sortBy('id');
             $bookLoan = BookLoan::find($request->id);
+
+            $selectedBook = collect($booksList)->firstWhere('title', $bookLoan->book);
+
             $bookLoan->loan_date = $request->loan_date;
             $bookLoan->return_date = $request->return_date;
             $bookLoan->person_id = $personId;
@@ -136,7 +166,15 @@ class BookLoanController extends Controller
             $bookLoan->status = $request->status;
             $bookLoan->save();
 
+
+            if ($selectedBook->id != $bookId) {
+                $updateStatusBookLoan = Book::where('id', '=', $selectedBook->id)->update([
+                    'status' => 3,
+                ]);
+            }
+            
             $request->$changeBookStatus;
+            $request->$updateStatusBookLoan;
             $request->session()->put('message', 'Retirada de <span class="text-bold">ID ' . $bookLoan->id . '</span> atualizada com sucesso!');
         } else {
             $bookLoan = BookLoan::create([
