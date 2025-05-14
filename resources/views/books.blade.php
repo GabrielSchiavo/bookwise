@@ -76,16 +76,16 @@ active
                             @endif
                         </td>
                         <td tabindex="0">
-                            @if ($book->status == 1)
+                            @if ($book->status == 'RETIRADO')
                                 <p class="status status-yellow">Retirado</p>
 
-                                @elseif ($book->status == 2)
+                                @elseif ($book->status == 'RENOVADO')
                                     <p class="status status-orange">Renovado</p>
 
-                                @elseif ($book->status == 3)
+                                @elseif ($book->status == 'DISPONIVEL')
                                     <p class="status status-green">Disponível</p> 
 
-                                @elseif ($book->status == 4)
+                                @elseif ($book->status == 'ATRASADO')
                                     <p class="status status-red">Atrasado</p>
 
                             @endif

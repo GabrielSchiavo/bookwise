@@ -617,6 +617,14 @@ body {
 	text-overflow: ellipsis;
 	display: block;
 }
+.select-area:has(.option-empty:checked) {
+	color: var(--placeholder-text) !important;
+}
+
+option {
+	color: var(--text-color) !important;
+}
+
 .input-file-upload {
 	padding: 0;
 	padding-inline-end: 15px !important;

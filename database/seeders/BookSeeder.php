@@ -20,7 +20,7 @@ class BookSeeder extends Seeder
             'publisher' => 'Aleph',
             'year' => 2017,
             'isbn' => '978-8-57-657313-5',
-            'status' => 4,
+            'status' => 'ATRASADO',
             'created_at' => '2025-04-28 19:06:10',
 		    'updated_at' => '2025-04-28 19:09:58',
         ]);
@@ -34,7 +34,7 @@ class BookSeeder extends Seeder
             'publisher' => 'HarperCollins',
             'year' => 2019,
             'isbn' => '8-595084-75-0',
-            'status' => '1',
+            'status' => 'RETIRADO',
             'created_at' => '2025-04-28 19:07:05',
 		    'updated_at' => '2025-04-28 19:09:12',
         ]);
@@ -48,7 +48,7 @@ class BookSeeder extends Seeder
             'publisher' => 'Aleph',
             'year' => 2016,
             'isbn' => '978-8-57-657300-5',
-            'status' => 2,
+            'status' => 'RENOVADO',
             'created_at' => '2025-04-28 19:08:03',
 		    'updated_at' => '2025-04-28 19:09:57',
         ]);
@@ -62,7 +62,7 @@ class BookSeeder extends Seeder
             'publisher' => 'Biblioteca Azul',
             'year' => 2012,
             'isbn' => '8-525052-24-8',
-            'status' => 3,
+            'status' => 'DISPONIVEL',
             'created_at' => '2025-04-28 19:08:47',
 		    'updated_at' => '2025-04-28 19:08:47',
         ]);

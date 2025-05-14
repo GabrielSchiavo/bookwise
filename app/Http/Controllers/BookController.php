@@ -151,7 +151,7 @@ class BookController extends Controller
             $literaryGenderId = LiteraryGenre::where('name', '=', $literaryGenderName)->value('id');
 
             if ($request->status == null) {
-                $statusLivro = 3;
+                $statusLivro = 'DISPONIVEL';
             }
 
             $book = Book::create([

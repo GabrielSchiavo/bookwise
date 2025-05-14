@@ -17,8 +17,8 @@ class DashboardController extends Controller
         $personsCount = $personsList->count();
 
         $loanBooksList = BookLoan::where([
-            ['status', '>=', 1],
-            ['status', '<=', 2],
+            ['status', '==', 'RETIRADO'],
+            ['status', '==', 'RENOVADO'],
         ]);
 
         if(request()->has('search')) {
@@ -39,7 +39,7 @@ class DashboardController extends Controller
         $dateNow = Carbon::now()->toDateString();
         $lateBooksList = BookLoan::where([
             ['return_date', '<', $dateNow],
-            ['status', '!=', 3],
+            ['status', '!=', 'DISPONIVEL'],
         ]);
 
         if(request()->has('search')) {

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('publisher', 250);
             $table->integer('year');
             $table->string('isbn',  17)->nullable();
-            $table->integer('status');
+            $table->enum('status', ['RETIRADO', 'RENOVADO', 'DISPONIVEL', 'ATRASADO']);
             $table->timestamps();
         });
 

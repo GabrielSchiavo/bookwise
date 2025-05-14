@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('person', 250);
             $table->unsignedBigInteger('book_id');
             $table->string('book', 250);
-            $table->integer('status');
+            $table->enum('status', ['RETIRADO', 'RENOVADO', 'DISPONIVEL', 'ATRASADO']);
             $table->timestamps();
         });
     }

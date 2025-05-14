@@ -17,7 +17,7 @@ class BookLoanSeeder extends Seeder
             'person' => 'José Silva',
             'book_id' => 2,
             'book' => 'O Senhor dos Anéis: A Sociedade do Anel',
-            'status' => 1,
+            'status' => 'RETIRADO',
             'created_at' => '2025-04-28 19:09:12',
 		    'updated_at' => '2025-04-28 19:09:12',
         ]);
@@ -28,7 +28,7 @@ class BookLoanSeeder extends Seeder
             'person' => 'João Santos',
             'book_id' => 1,
             'book' => 'Duna',
-            'status' => 4,
+            'status' => 'ATRASADO',
             'created_at' => '2025-04-28 19:09:34',
 		    'updated_at' => '2025-04-28 19:09:58',
         ]);
@@ -39,7 +39,7 @@ class BookLoanSeeder extends Seeder
             'person' => 'Maria Soares',
             'book_id' => 3,
             'book' => 'Neuromancer',
-            'status' => 2,
+            'status' => 'RENOVADO',
             'created_at' => '2025-04-28 19:09:57',
 		    'updated_at' => '2025-04-28 19:09:57',
         ]);

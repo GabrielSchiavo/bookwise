@@ -49,7 +49,7 @@
                         <label class="input-label" for="book" class="form-label" tabindex="0">Livro <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area select-area cursor-pointer" id="book" name="book">
-                                <option value="" disabled {{ !isset($bookLoan->book) && !old('book') ? 'selected' : '' }}>
+                                <option class="option-empty" value="" {{ !isset($bookLoan->book) && !old('book') ? 'selected' : '' }} disabled hidden>
                                     Selecione uma opção...
                                 </option>
                                 
@@ -62,7 +62,7 @@
                                 @endif
                                 
                                 @foreach ($booksList as $book)
-                                    @if ($book->status == 3 && (!isset($bookLoan) || $bookLoan->book != $book->title))
+                                    @if ($book->status == 'DISPONIVEL' && (!isset($bookLoan) || $bookLoan->book != $book->title))
                                         <option value="{{ $book->title }}"
                                             {{ old('book') == $book->title ? 'selected' : '' }}>
                                             {{ $book->id }} - {{ $book->title }}
@@ -70,15 +70,6 @@
                                     @endif
                                 @endforeach
                             </select>
-
-                            {{-- <select class="input-area select-area cursor-pointer" id="book" name="book">
-                                <option value="{{isset($bookLoan) ? $bookLoan->book : old('book')}}" selected>{{isset($bookLoan) ? $bookLoan->book : old('book')}}</option>
-                                @foreach ($booksList as $book)
-                                    @if ($book->status == 3)
-                                        <option value="{{$book->title}}">{{$book->id}} - {{$book->title}}</option>
-                                    @endif            
-                                @endforeach
-                            </select> --}}
                             <div class="select-icon-container">
                                 <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-chevron-down.svg') }}" alt="Ícone Seta para baixo">
                             </div>
@@ -89,7 +80,7 @@
                         <label class="input-label" for="person" class="form-label" tabindex="0">Pessoa <span class="form-require">*</span></label>
                         <div class="select-body">
                             <select class="input-area select-area cursor-pointer" id="person" name="person">
-                                <option value="" disabled {{ !isset($bookLoan->person) && !old('person') ? 'selected' : '' }}>
+                                <option class="option-empty" value="" {{ !isset($bookLoan->person) && !old('person') ? 'selected' : '' }} disabled hidden>
                                     Selecione uma opção...
                                 </option>
                                 @foreach ($personsList as $person)
@@ -108,13 +99,12 @@
                     <div class="input-container">
                         <label class="input-label" for="status" class="form-label" tabindex="0">Status <span class="form-require">*</span></label>
                         <div class="select-body">
-                           <select class="input-area select-area cursor-pointer" id="status" name="status">
-                                <option value="" disabled selected hidden>{{ $selectedText }}</option>
-                                @foreach($statusOptions as $value => $text)
-                                    <option value="{{ $value }}" {{ $selectedValue == $value ? 'selected' : '' }}>
-                                        {{ $text }}
-                                    </option>
-                                @endforeach
+                            <select class="input-area select-area cursor-pointer" id="status" name="status">
+                                <option class="option-empty" value="" {{ !isset($bookLoan) && is_null(old('status')) ? 'selected' : '' }} disabled hidden>Selecione uma opção...</option>
+                                <option value="RETIRADO" {{ (isset($bookLoan) && $bookLoan->status == 'RETIRADO') || old('status') == 'RETIRADO' ? 'selected' : '' }}>1 - Retirado</option>
+                                <option value="RENOVADO" {{ (isset($bookLoan) && $bookLoan->status == 'RENOVADO') || old('status') == 'RENOVADO' ? 'selected' : '' }}>2 - Renovado</option>
+                                <option value="DISPONIVEL" {{ (isset($bookLoan) && $bookLoan->status == 'DISPONIVEL') || old('status') == 'DISPONIVEL' ? 'selected' : '' }}>3 - Devolvido</option>
+                                <option value="ATRASADO" {{ (isset($bookLoan) && $bookLoan->status == 'ATRASADO') || old('status') == 'ATRASADO' ? 'selected' : '' }}>4 - Atrasado</option>
                             </select>
                             <div class="select-icon-container">
                                 <img id="svg-change-color" class="svg-color svg-icon-size" src="{{ Vite::asset('resources/assets/images/icons/icon-chevron-down.svg') }}" alt="Ícone Seta para baixo">

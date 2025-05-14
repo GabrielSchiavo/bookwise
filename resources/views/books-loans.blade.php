@@ -61,16 +61,16 @@ active
                     <td tabindex="0">{{ $retirada->book_id }}</td>
                     <td tabindex="0">{{ $retirada->book }}</td>
                     <td tabindex="0">
-                        @if ($retirada->status == 1)
+                        @if ($retirada->status == 'RETIRADO')
                             <p class="status status-yellow">Retirado</p>
 
-                            @elseif ($retirada->status == 2)
+                            @elseif ($retirada->status == 'RENOVADO')
                                 <p class="status status-orange">Renovado</p>
 
-                            @elseif ($retirada->status == 3)
+                            @elseif ($retirada->status == 'DISPONIVEL')
                                 <p class="status status-green">Devolvido</p>
 
-                            @elseif ($retirada->status == 4)
+                            @elseif ($retirada->status == 'ATRASADO')
                                 <p class="status status-red">Atrasado</p>
                         @endif
                     </td>
