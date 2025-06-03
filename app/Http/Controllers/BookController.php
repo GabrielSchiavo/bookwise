@@ -17,6 +17,8 @@ class BookController extends Controller
             $booksList = Book::where(function ($query) {
                 $query->where('id', 'ILIKE', '%' . request()->get('search', '') . '%')
                     ->orWhere('title', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('series', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('volume', 'ILIKE', '%' . request()->get('search', '') . '%')
                     ->orWhere('author', 'ILIKE', '%' . request()->get('search', '') . '%')
                     ->orWhere('literary_gender', 'ILIKE', '%' . request()->get('search', '') . '%')
                     ->orWhere('publisher', 'ILIKE', '%' . request()->get('search', '') . '%')
@@ -79,6 +81,8 @@ class BookController extends Controller
             'literary_gender' => 'required',
             'isbn' => 'nullable|regex:/^(?=(?:[^0-9]*[0-9]){10}(?:(?:[^0-9]*[0-9]){3})?$)[\\d-]+$/|max:17', // ISBN-10
             'title' => 'required|min:1|max:250',
+            'series' => 'nullable|min:1|max:250',
+            'volume' => 'nullable|doesnt_start_with:-',
             'author' => 'required|min:1|max:250',
             'publisher' => 'required|min:1|max:250',
             'year' => 'required|size:4|doesnt_start_with:-',
@@ -128,6 +132,8 @@ class BookController extends Controller
             $book->literary_gender_id = $literaryGenderId;
             $book->isbn = $request->isbn;
             $book->title = $request->title;
+            $book->series = $request->series;
+            $book->volume = $request->volume;
             $book->author = $request->author;
             $book->publisher = $request->publisher;
             $book->year = $request->year;
@@ -159,6 +165,8 @@ class BookController extends Controller
                 'literary_gender_id' => $literaryGenderId,
                 'isbn' => $request->isbn,
                 'title' => $request->title,
+                'series' => $request->series,
+                'volume' => $request->volume,
                 'author' => $request->author,
                 'publisher' => $request->publisher,
                 'year' => $request->year,

@@ -13,7 +13,7 @@ class Book extends Model
     protected $table = 'books';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['cover_image', 'title', 'author', 'literary_gender_id', 'literary_gender', 'publisher', 'year', 'isbn', 'status'];
+    protected $fillable = ['cover_image', 'title', 'series', 'volume', 'author', 'literary_gender_id', 'literary_gender', 'publisher', 'year', 'isbn', 'status'];
 
     public function literaryGenderId(): BelongsTo {
         return $this->belongsTo(LiteraryGenre::class);

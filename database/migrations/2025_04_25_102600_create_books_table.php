@@ -11,6 +11,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('cover_image', 260)->nullable();
             $table->string('title', 250);
+            $table->string('series', 250)->nullable();
+            $table->string('volume', 250)->nullable();
             $table->string('author', 250);
             $table->unsignedBigInteger('literary_gender_id');
             $table->string('literary_gender', 250);

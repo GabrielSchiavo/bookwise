@@ -41,6 +41,8 @@ active
                     <th tabindex="0">ID</th>
                     <th tabindex="0">Capa</th>
                     <th tabindex="0">Título</th>
+                    <th tabindex="0">Série</th>
+                    <th tabindex="0">Volume</th>
                     <th tabindex="0">Autor</th>
                     <th tabindex="0">Gênero Literário</th>
                     <th tabindex="0">Editora</th>
@@ -54,7 +56,7 @@ active
                 @foreach ($booksList as $book)
                     <tr>
                         <td tabindex="0">{{ $book->id }}</td>
-                        <td tabindex="0">
+                        <td class="table-content-center" tabindex="0">
                             @if ($book->cover_image == null)
                                 <img class="td-img" src="{{ Vite::asset('resources/assets/images/default/cover-not-available.png') }}" alt="Imagem capa do book genérica">
                                 
@@ -63,13 +65,29 @@ active
                             @endif
                         </td>
                         <td tabindex="0">{{ $book->title }}</td>
+                        <td tabindex="0">
+                            @if ($book->series == null)
+                                -
+
+                                @else
+                                    {{ $book->series }}
+                            @endif
+                        </td>
+                        <td tabindex="0">
+                            @if ($book->volume == null)
+                                -
+
+                                @else
+                                    {{ $book->volume }}
+                            @endif
+                        </td>
                         <td tabindex="0">{{ $book->author }}</td>
                         <td tabindex="0">{{ $book->literary_gender }}</td>
                         <td tabindex="0">{{ $book->publisher }}</td>
                         <td tabindex="0">{{ $book->year }}</td>
                         <td tabindex="0">
                             @if ($book->isbn == null)
-                                N/A
+                                -
 
                                 @else
                                     {{ $book->isbn }}

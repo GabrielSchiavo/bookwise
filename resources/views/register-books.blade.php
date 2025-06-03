@@ -74,6 +74,14 @@
                         <label class="input-label" for="title" class="form-label" tabindex="0">Título <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="title" name="title" value="{{isset($book) ? $book->title : old('title')}}" placeholder="Digite o título">
                     </div>
+                   <div class="input-container">
+                        <label class="input-label" for="series" class="form-label" tabindex="0">Série</label>
+                        <input class="input-area" type="text" id="series" name="series" value="{{isset($book) ? $book->series : old('series')}}" placeholder="Digite a série">
+                    </div>
+                    <div class="input-container">
+                        <label class="input-label" for="volume" class="form-label" tabindex="0">Volume</label>
+                        <input class="input-area" type="number" id="volume" name="volume" value="{{isset($book) ? $book->volume : old('volume')}}" placeholder="Digite o volume">
+                    </div>
                     <div class="input-container">
                         <label class="input-label" for="author" class="form-label" tabindex="0">Autor <span class="form-require">*</span></label>
                         <input class="input-area" type="text" id="author" name="author" value="{{isset($book) ? $book->author : old('author')}}" placeholder="Digite o autor">

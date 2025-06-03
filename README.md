@@ -20,7 +20,7 @@
 - **Cadastro:**
   - `Cadastro de Gêneros Literários:` cadastro de nome de Gêneros Literários.
   
-  - `Cadastro de Livros:` cadastro com Genêro Literário, ISBN, Título, Autor, Editora, Ano e Imagem da Capa.
+  - `Cadastro de Livros:` cadastro com Genêro Literário, ISBN, Título, Série, Volume, Autor, Editora, Ano e Imagem da Capa.
   
   - `Cadastro de Pessoas:` cadastro com Nome e Sobrenome, Telefone e Email.
   
@@ -55,10 +55,10 @@
 
 ## :film_strip: Galeria
 <p align="center">
-  <img width="1000" src="./resources/assets/images/screenshots/screenshot-dashboard.png" alt="Screenshot Dashboard"/>
-  <img width="1000" src="./resources/assets/images/screenshots/screenshot-register-books.png" alt="Screenshot Cadastro de Livros"/>
-  <img width="1000" src="./resources/assets/images/screenshots/screenshot-books-list.png" alt="Screenshot Acervo"/>
-  <img width="250" src="./resources/assets/images/screenshots/screenshot-dashboard-mobile.png" alt="Screenshot Dashboard Mobile"/>
+  <img width="1000" src="./resources/assets/images/screenshots/screenshot-1.png" alt="Screenshot Dashboard"/>
+  <img width="1000" src="./resources/assets/images/screenshots/screenshot-2.png" alt="Screenshot Cadastro de Livros"/>
+  <img width="1000" src="./resources/assets/images/screenshots/screenshot-3.png" alt="Screenshot Acervo"/>
+  <img width="250" src="./resources/assets/images/screenshots/screenshot-4.png" alt="Screenshot Dashboard Mobile"/>
 </p>
 
 ## :file_folder: Acesso ao projeto

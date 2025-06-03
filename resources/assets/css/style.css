@@ -817,9 +817,11 @@ option {
 }
 .table-content-center {
 	text-align: center !important;
+	justify-items: center !important;
 }
 .table-content-center th {
 	text-align: center !important;
+	justify-items: center !important;
 }
 .logo-text {
 	font-family: var(--sansation);

@@ -244,6 +244,8 @@ return [
         'promo_code'               => 'Código promocional',
         'province'                 => 'província',
         'publisher'                => 'Editora',
+        'series'                   => 'Série',
+        'volume'                   => 'Volume',
         'quantity'                 => 'quantidade',
         'reason'                   => 'razão',
         'recaptcha_response_field' => 'campo de resposta recaptcha',
