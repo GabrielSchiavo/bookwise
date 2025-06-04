@@ -201,6 +201,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       APP_ENV=production 
       APP_DEBUG=false
       ```
+  
 ## :white_check_mark: Tecnologias utilizadas
 * `PHP - 8.4.5`
 * `Laravel - 12.7.1`

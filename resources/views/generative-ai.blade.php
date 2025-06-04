@@ -73,7 +73,7 @@
                     <div class="synopsis-wrapper">
                         <div class="synopsis-content">
                             <div class="synopsis-body">
-                                <p id="synopsisText"><x-bladewind::spinner  />Clique em "Gerar" para criar uma sinopse.</p>
+                                <p id="synopsisText">Clique em "Gerar" para criar uma sinopse.</p>
                             </div>
                         </div>
                         <div class="btns-container space-between">
