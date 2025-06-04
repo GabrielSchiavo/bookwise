@@ -77,7 +77,7 @@
                             </td>
                             <td tabindex="0">
                                 @if ($book->volume == null)
-                                    -
+                                    Único
                                 @else
                                     {{ $book->volume }}
                                 @endif
@@ -123,7 +123,7 @@
                                                 alt="Ícone Lixeira">
                                         </button>
                                         <a class="btn-actions btn-action-gradient"
-                                            href="{{ url("/acervo/{$book->id}/ia/sinopse") }}" title="IA"
+                                            href="{{ url("/acervo/{$book->id}/ia/sinopse") }}" title="BlurbAI"
                                             aria-label="ia" tabindex="0">
                                             <span class="spacing-btn-action-gradient">
                                                 <img id="svg-change-color" class="svg-color svg-icon-size-small"

@@ -31,8 +31,8 @@
   
   - `Exclusão:` cadastros podem ser excluidos.
   
-- **IA Generativa:**
-  - `Sinopse:` utilizando a IA da OpenAI é possível gerar Sinopses dos livros cadastrados.
+- **IA Generativa - BlurbAI:**
+  - `BlurbAI:` utilizando o Ollama para executar e interagir com grandes modelos de linguagem foi criado a BlurbAI uma IA com a função de gerar breves sinopses dos livros a partir dos seus Títulos, Volumes e Autores.
   
 - **Visualização:**
   - `Dashboard:` tela inicial em formato Dashboard, onde pode ser visualizado o total de livros e pessoas cadastrados. Também é exibidos quantos livros estão retirados e atrasados juntamente com seus registros.
@@ -74,6 +74,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 * Composer >=2.8.6
 * Node.js >=22.14.0
 * PostgreSQL >=17.4
+* Ollama >=0.9.0
 
 `Configurando o projeto:`
 1. Na pasta de instalação do PHP edite o arquivo `php.ini`, neste arquivo descomente as linhas a seguir:
@@ -108,18 +109,41 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
           npm install
           ```
     
-3. Localize o arquivo `.env.example` na raiz e siga as próximas etapas:
+3. Instalar `Ollama`:
+    - Utilizando `Docker`:
+      - Baixe a imagem oficial do Ollama no Docker Hub. E crie um container.
+  
+      - Abra o terminal do Docker no caontainer do Ollama e execute:
+  
+        - Para `instalar` um modelo de linguagem:
+          ```bash
+          ollama pull <nomeDoModelo>
+          ```
+
+        - Para `excluir` um modelo de linguagem:
+          ```bash
+          ollama rm <nomeDoModelo>
+          ```
+
+        - `Listar` modelos de linguagem instalados:
+          ```bash
+          ollama list
+          ```
+
+      - Para verificar se o servidor do Ollama está ativo acesse a URL do servidor. URL padrão: http://localhost:11434/
+  
+    - Documentação oficial do Olamma: https://github.com/ollama/ollama
+  
+4. Localize o arquivo `.env.example` na raiz e siga as próximas etapas:
     - Altere o nome do arquivo `.env.example` para `.env`;
   
     - Configurar `Banco de Dados`:
         - No arquivo `.env` encontre as váriaveis `DB_...`. Altere seus valores para as suas respectivas configurações de Banco de Dados.
   
-    - Configurar `API OpenAI`:
-        - No arquivo `.env` encontre a váriavel `OPENAI_API_KEY`. Altere seu valor para a sua respectiva API key da OpenAI. As API keys da OpenAI podem ser geradas aqui: https://platform.openai.com/api-keys
-
-        - No arquivo `.env` encontre a váriavel `OPENAI_ORGANIZATION`. Altere seu valor para o seu respectivo Organization ID da OpenAI. O Organization ID da OpenAI pode ser encontrado aqui: https://platform.openai.com/settings/organization/general
+    - Configurar `Ollama`:
+        - No arquivo `.env` é possivel encontrar as variáveis `OLLAMA_...` com suas definições padrões. Caso esteja usando configurações para o Ollama diferentes das padrões altere as variáveis `OLLAMA_...` e altere seus valores para as suas respectivas configurações.
    
-4. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Laravel:
+5. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Laravel:
    
    - Gera o valor para a variável `APP_KEY` no arquivo `.env`, necessária para execusão do Laravel:
   
@@ -133,7 +157,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       php artisan config:clear
       ```
 
-5. Ainda na raiz do projeto execute os seguintes comandos para configurar o Banco de Dados:
+6. Ainda na raiz do projeto execute os seguintes comandos para configurar o Banco de Dados:
    
    - Cria as tebelas e os relacionamentos executando as migrations:
   
@@ -147,7 +171,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       php artisan storage:link
       ```
 
-6. Agora você deve compilar os assets do projeto. Exixtem duas maneiras para compilar os assets:
+7. Agora você deve compilar os assets do projeto. Exixtem duas maneiras para compilar os assets:
    
    - `Compilar:` compila e agrupa os ativos os deixando prontos para implantação em produção (`não` atualiza os ativos automaticamnete):
   
@@ -161,7 +185,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       npm run dev
       ```
 
-7. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
+8. Para executar o projeto, execute o comando a seguir em um terminal na raiz do projeto:
   
    - Inicia o servidor de desenvolvimento local do `Laravel`:
 
@@ -169,7 +193,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       php artisan serve
       ```
 
-8. Caso coloque este projeto em produção:
+9.  Caso coloque este projeto em produção:
   
    - No arquivo `.env` altere as variáveis `APP_ENV`, `APP_DEBUG` para:
 
@@ -177,7 +201,6 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       APP_ENV=production 
       APP_DEBUG=false
       ```
-
 ## :white_check_mark: Tecnologias utilizadas
 * `PHP - 8.4.5`
 * `Laravel - 12.7.1`
@@ -188,3 +211,4 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 * `jQuery Mask - 1.14.16`
 * `Tailwind CSS - 4.1.4`
 * `PostgreSQL - 17.4`
+* `Ollama - 0.9.0`

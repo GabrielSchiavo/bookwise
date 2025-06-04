@@ -62,6 +62,8 @@ li {
     --font-size-16: 16px;
     --font-size-14: 14px;
 
+    --font-weight-default: 600;
+
     --navbar-height: 56px;
     --spacing-sidebar: 40px;
     --spacing-default: 24px;
@@ -73,7 +75,7 @@ li {
     --spacing-input-btn-x: 15px;
     --spacing-input-y: 10px;
     --td-cover-image-width: 135px;
-	--spacing-btn-action: 8px;
+    --spacing-btn-action: 8px;
 
     --gap-label: 0.3rem;
     --gap-default: 0.5rem;
@@ -119,9 +121,9 @@ li {
 
     /* Gradientes */
     --gradient-btn: linear-gradient(
-        90deg,
-        hsla(197, 100%, 63%, 1) 0%,
-        hsla(294, 100%, 55%, 1) 100%
+        120deg,
+        hsla(280, 84%, 41%, 1) 0%,
+        hsla(218, 97%, 56%, 1) 100%
     );
 
     /* Transition */
@@ -131,21 +133,6 @@ li {
 /* Barra de rolagem */
 ::-webkit-scrollbar {
     width: 2px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: var(--base-color);
-    border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--accent-color);
-    border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--green);
-    transition: var(--transition-default);
 }
 
 html {
@@ -159,8 +146,8 @@ body.dark-mode {
     --secondary-text: oklch(96.7% 0.001 286.375);
     --tertiary-text: oklch(14.1% 0.005 285.823);
     --placeholder-text: oklch(55.2% 0.016 285.938);
-    --primary-color: oklch(44.2% 0.017 285.786); /* 600 */
-    --accent-color: oklch(62.3% 0.214 259.815); /* 500 */
+    --primary-color: oklch(44.2% 0.017 285.786);
+    --accent-color: oklch(0.5676 0.2366 262.881);
 
     --background-hover-color: color-mix(in oklab, #ffffff 15%, transparent);
 }
@@ -236,7 +223,7 @@ body {
 }
 #sidebar .brand {
     font-size: var(--font-size-24);
-    font-weight: 700;
+    font-weight: var(--font-weight-default);
     display: flex;
     align-items: center;
     color: var(--accent-color);
@@ -435,7 +422,7 @@ body {
 }
 #content main .head-title .left h1 {
     font-size: var(--font-size-36);
-    font-weight: 600;
+    font-weight: var(--font-weight-default);
     margin-bottom: 10px;
     color: var(--text-color);
 }
@@ -491,12 +478,12 @@ body {
 }
 #content main .box-info li .text h3 {
     font-size: var(--font-size-24);
-    font-weight: 600;
+    font-weight: var(--font-weight-default);
     color: var(--text-color);
 }
 #content .head .text {
     font-size: var(--font-size-24);
-    font-weight: 600;
+    font-weight: var(--font-weight-default);
     color: var(--text-color);
 }
 #content main .box-info li .text p {
@@ -519,10 +506,16 @@ body {
 #content main .data-container .head h3 {
     margin-right: auto;
     font-size: var(--font-size-24);
-    font-weight: 600;
+    font-weight: var(--font-weight-default);
 }
 #content main .data-container .head .bx {
     cursor: pointer;
+}
+
+.head-with-btn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-btns-mobile);
 }
 
 #content main .data-container .data-content {
@@ -586,7 +579,7 @@ body {
     gap: var(--gap-label);
 }
 .input-label {
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
     display: flex;
     align-items: center;
     gap: var(--gap-label);
@@ -664,7 +657,7 @@ option {
 
 .input-legend {
     font-size: var(--font-size-16);
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
 }
 .input-radio-group {
     display: flex;
@@ -777,19 +770,23 @@ option {
 .btn-gradient {
     color: var(--text-color);
 
-	border-radius: var(--border-radius-default);
-	border: solid 1px transparent;
-	background-image: linear-gradient(var(--base-color), var(--base-color)), var(--gradient-btn);
-	background-origin: border-box;
-	background-clip: content-box, border-box;
-	padding: 0;
+    border-radius: var(--border-radius-default);
+    border: solid 1px transparent;
+    background-image: linear-gradient(var(--base-color), var(--base-color)),
+        var(--gradient-btn);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 0;
 }
 .btn-gradient:hover {
-	color: var(--secondary-text);
-	background-image: var(--gradient-btn), var(--gradient-btn);
+    color: var(--secondary-text);
+    background-image: var(--gradient-btn), var(--gradient-btn);
 }
 .spacing-btn-gradient {
-	padding: 0 var(--spacing-input-btn-x);
+    padding: 0 var(--spacing-input-btn-x);
+}
+.btn-fit-content {
+    width: fit-content !important;
 }
 
 .btns-actions-container {
@@ -818,31 +815,32 @@ option {
     color: var(--red);
 }
 .btn-action-change:hover {
-	transition: var(--transition-default);
+    transition: var(--transition-default);
     background: var(--accent-color);
     color: var(--secondary-text) !important;
 }
 .btn-action-delete:hover {
-	transition: var(--transition-default);
+    transition: var(--transition-default);
     background: var(--red);
     color: var(--secondary-text) !important;
 }
 .btn-action-gradient {
     color: var(--text-color);
 
-	border-radius: var(--border-radius-default);
-	border: solid 1px transparent;
-	background-image: linear-gradient(var(--base-color), var(--base-color)), var(--gradient-btn);
-	background-origin: border-box;
-	background-clip: content-box, border-box;
-	padding: 0;
+    border-radius: var(--border-radius-default);
+    border: solid 1px transparent;
+    background-image: linear-gradient(var(--base-color), var(--base-color)),
+        var(--gradient-btn);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 0;
 }
 .btn-action-gradient:hover {
-	color: var(--secondary-text);
-	background-image: var(--gradient-btn), var(--gradient-btn);
+    color: var(--secondary-text);
+    background-image: var(--gradient-btn), var(--gradient-btn);
 }
 .spacing-btn-action-gradient {
-	padding: var(--spacing-btn-action);
+    padding: var(--spacing-btn-action);
 }
 
 .td-end {
@@ -913,7 +911,7 @@ option {
     display: inline;
     padding: 3px 13px;
     border-radius: 50px;
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
     font-size: var(--font-size-14);
     color: var(--tertiary-text);
 }
@@ -930,11 +928,11 @@ option {
     background: var(--light-red);
 }
 .text-bold {
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
 }
 .text-bold-logo {
     font-family: var(--sansation-bold);
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
 }
 
 .table-placeholder-text {
@@ -977,7 +975,7 @@ option {
 }
 .book-info-text {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
 }
 .book-info-text-italic {
     font-weight: normal;
@@ -989,8 +987,7 @@ option {
 }
 .synopsis-header {
     font-size: var(--font-size-24);
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: var(--font-weight-default);
 }
 .body-container {
     width: 50%;
@@ -1040,7 +1037,7 @@ option {
 }
 .modal-title {
     font-size: var(--font-size-16);
-    font-weight: bold;
+    font-weight: var(--font-weight-default);
     white-space: normal;
 }
 .modatl-text-container {

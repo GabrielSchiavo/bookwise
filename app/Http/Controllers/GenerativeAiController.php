@@ -3,52 +3,53 @@
 namespace App\Http\Controllers;
 
 use OpenAI\Laravel\Facades\OpenAI;
-
+use ArdaGnsrn\Ollama\Ollama;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
 class GenerativeAiController extends Controller
 {
-    // public function getSynopsis(Request $request)
-    // {
-    //     $book = Book::find($request->id);
-    //     $title = $book->title;
-    //     $author = $book->author;
-    //     $volume = $book->volume;
-
-
-    //     $prompt = "Me forneça uma sinopse breve do livro '$title', volume $volume escrito por $author.";
-
-    //     $client = \OpenAI::factory()
-    //         ->withApiKey(config('app.openai_api_key'))
-    //         ->withOrganization(config('app.openai_organization'))
-    //         ->withHttpClient(new \GuzzleHttp\Client([
-    //             'verify' => storage_path('certs/cacert.pem'),
-    //         ]))
-    //         ->make();
-
-    //     $response = $client->chat()->create([
-    //         'model' => 'gpt-3.5-turbo',
-    //         'messages' => [
-    //             ['role' => 'system', 'content' => 'Você é um assistente especializado em livros.'],
-    //             ['role' => 'user', 'content' => $prompt],
-    //         ],
-    //     ]);
-
-    //     $synopsisResponse = $response->choices[0]->message->content;
-
-    //     return view('generative-ai', [
-    //         'book' => $book,
-    //         'synopsisResponse' => $synopsisResponse,
-    //     ]);
-    // }
-
-    public function getSynopsis(Request $request)
+    public function showSynopsis(Request $request)
     {
         $book = Book::find($request->id);
 
+        // Se for uma requisição AJAX (quando clicar no botão), retorna apenas a sinopse
+        if ($request->ajax()) {
+            return response()->json([
+                'synopsis' => $this->generateSynopsis($book)
+            ]);
+        }
+
+        // Se for acesso normal, mostra a página com a primeira sinopse
+        $synopsisResponse = $this->generateSynopsis($book);
+
         return view('generative-ai', [
             'book' => $book,
+            'synopsisResponse' => $synopsisResponse,
         ]);
+    }
+
+    protected function generateSynopsis(Book $book)
+    {
+        $title = $book->title;
+        $author = $book->author;
+        $volume = $book->volume;
+
+        $prompt = "Forneça-me uma breve sinopse do livro '$title', volume $volume escrito por $author.";
+
+        $client = Ollama::client(config('ollama.ollama_api_base_url'));
+
+        $response = $client->chat()->create([
+            'model' => config('ollama.ollama_default_model'),
+            // 'options' => [
+            //     'num_predict' => 200,
+            // ],
+            'messages' => [
+                ['role' => 'system', 'content' => 'You are a book expert assistant.'],
+                ['role' => 'user', 'content' => $prompt],
+            ],
+        ]);
+
+        return $response->message->content;
     }
 }

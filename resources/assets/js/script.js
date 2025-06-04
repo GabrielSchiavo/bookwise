@@ -135,27 +135,85 @@ document.addEventListener("DOMContentLoaded", function () {
 // COPY TEXT TO CLIPBOARD
 document.getElementById("btnCopy").addEventListener("click", function () {
     // Obter o texto do elemento
-    const textForCopy =
-        document.getElementById("textForCopy").innerText;
+    const synopsisText = document.getElementById("synopsisText").innerText;
 
     // Usar a API moderna do Clipboard
     navigator.clipboard
-        .writeText(textForCopy)
+        .writeText(synopsisText)
         .then(() => {
             // Feedback visual - você pode personalizar isso
             const btnCopy = document.getElementById("btnCopy");
             const textBtnCopy = document.getElementById("textBtnCopy");
-            const originalText = textBtnCopy.innerHTML;
+            const originalTextBtnCopy = textBtnCopy.innerHTML;
 
             // Mudar temporariamente o texto do botão
             textBtnCopy.innerHTML = `Copiado!`;
 
             // Voltar ao estado original após 2 segundos
             setTimeout(() => {
-                textBtnCopy.innerHTML = originalText;
+                textBtnCopy.innerHTML = originalTextBtnCopy;
             }, 2000);
         })
         .catch((err) => {
             console.error("Erro ao copiar texto: ", err);
         });
+});
+
+// REGENERATE SYNOPSIS
+document.addEventListener('DOMContentLoaded', function() {
+    const regenerateBtn = document.getElementById('regenerateBtn');
+    if (!regenerateBtn) return;
+
+    const textBtnRegenerate = document.getElementById('textBtnRegenerate');
+    const bookInfo = document.getElementById('bookInfo');
+    
+    if (!textBtnRegenerate || !bookInfo) return;
+    
+    const bookId = bookInfo.dataset.bookId;
+    const originalTextBtnRegenerate = textBtnRegenerate.innerHTML;
+
+    const synopsisText = document.getElementById('synopsisText');
+
+    regenerateBtn.addEventListener('click', function() {
+        // Disable button and show loading
+        regenerateBtn.disabled = true;
+        textBtnRegenerate.innerHTML = "Gerando...";
+        synopsisText.innerText = "Gerando sinopse... Por favor aguarde...";
+
+        // Make AJAX request
+        fetch(`/acervo/${bookId}/ia/sinopse`, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update synopsis
+            if (synopsisText && data.synopsis) {
+                synopsisText.innerText = data.synopsis;
+            }
+
+            // Show success and reset button
+            textBtnRegenerate.innerHTML = "Sucesso!";
+            setTimeout(() => {
+                textBtnRegenerate.innerHTML = originalTextBtnRegenerate;
+                regenerateBtn.disabled = false;
+            }, 2000);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            synopsisText.innerText = "Erro ao gerar sinopse! Tente novamente mais tarde.";
+            textBtnRegenerate.innerHTML = "Erro ao gerar!";
+            setTimeout(() => {
+                textBtnRegenerate.innerHTML = originalTextBtnRegenerate;
+                regenerateBtn.disabled = false;
+            }, 2000);
+        });
+    });
 });

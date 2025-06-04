@@ -35,7 +35,8 @@ Route::get('/acervo/{id}/editar', [BookController::class, 'edit']);
 Route::delete('/acervo/{id}/excluir', [BookController::class, 'delete']);
 
 // IA
-Route::get('/acervo/{id}/ia/sinopse', [GenerativeAiController::class, 'getSynopsis']);
+Route::get('/acervo/{id}/ia/sinopse', [GenerativeAiController::class, 'showSynopsis']);
+    
 
 
 // Pessoas

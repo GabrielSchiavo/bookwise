@@ -4,24 +4,7 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
-    /* |--------------------------------------------------------------------------
-    | OpenAI API Configuration
-    |--------------------------------------------------------------------------
-    |
-    | This section contains the configuration for the OpenAI API integration.
-    | You can set your API key and organization ID here. Make sure to keep
-    | your API key secure and do not expose it in public repositories.
-    |
-    | You can set these values in your .env file.
-    |   | Example:
-    |   | OPENAI_API_KEY=your_api_key_here
-    |   | OPENAI_ORGANIZATION=your_organization_id_here
-    */               
-
-    'openai_api_key' => env('OPENAI_API_KEY', null),
-    'openai_organization' => env('OPENAI_ORGANIZATION', null),
-
-    /* 
+    /*
     |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
