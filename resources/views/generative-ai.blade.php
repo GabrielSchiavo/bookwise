@@ -73,7 +73,7 @@
                     <div class="synopsis-wrapper">
                         <div class="synopsis-content">
                             <div class="synopsis-body">
-                                <p id="synopsisText">{{ $synopsisResponse }}</p>
+                                <p id="synopsisText"><x-bladewind::spinner  />Clique em "Gerar" para criar uma sinopse.</p>
                             </div>
                         </div>
                         <div class="btns-container space-between">
@@ -83,7 +83,7 @@
                                         src="{{ Vite::asset('resources/assets/images/icons/icon-stars.svg') }}"
                                         alt="Ícone Estrelas">
                                     <span id="textBtnRegenerate" class="btn-fit-content">
-                                        Regerar
+                                        Gerar
                                     </span>
                             </button>
                             <button id="btnCopy" class="btn btn-tertiary btn-icon-text">

@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show success and reset button
             textBtnRegenerate.innerHTML = "Sucesso!";
             setTimeout(() => {
-                textBtnRegenerate.innerHTML = originalTextBtnRegenerate;
+                textBtnRegenerate.innerHTML = "Regerar";
                 regenerateBtn.disabled = false;
             }, 2000);
         })
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
             synopsisText.innerText = "Erro ao gerar sinopse! Tente novamente mais tarde.";
             textBtnRegenerate.innerHTML = "Erro ao gerar!";
             setTimeout(() => {
-                textBtnRegenerate.innerHTML = originalTextBtnRegenerate;
+                textBtnRegenerate.innerHTML = "Regerar";
                 regenerateBtn.disabled = false;
             }, 2000);
         });

@@ -21,11 +21,11 @@ class GenerativeAiController extends Controller
         }
 
         // Se for acesso normal, mostra a página com a primeira sinopse
-        $synopsisResponse = $this->generateSynopsis($book);
+        // $synopsisResponse = $this->generateSynopsis($book);
 
         return view('generative-ai', [
             'book' => $book,
-            'synopsisResponse' => $synopsisResponse,
+            'initialSynopsis' => null,
         ]);
     }
 
