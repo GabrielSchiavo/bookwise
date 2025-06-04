@@ -11,7 +11,7 @@
     <!-- CSS -->
     @vite(['resources/assets/css/style.css'])
 
-    <title>@yield('tituloGuia')</title>
+    <title>@yield('titleGuide')</title>
 </head>
 
 <body>

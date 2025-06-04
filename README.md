@@ -30,7 +30,10 @@
   - `Edição:` todos os cadastros podem ser editados e atualizados.
   
   - `Exclusão:` cadastros podem ser excluidos.
-
+  
+- **IA Generativa:**
+  - `Sinopse:` utilizando a IA da OpenAI é possível gerar Sinopses dos livros cadastrados.
+  
 - **Visualização:**
   - `Dashboard:` tela inicial em formato Dashboard, onde pode ser visualizado o total de livros e pessoas cadastrados. Também é exibidos quantos livros estão retirados e atrasados juntamente com seus registros.
 
@@ -105,7 +108,16 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
           npm install
           ```
     
-3. Após seguir as etapas anteriores, abra o arquivo `.env.example`, localizado na raiz do projeto e altere as configurações de `DB_CONNECTION` para as configurações do seu Banco de Dados. Após, renomeie o arquivo para `.env`.
+3. Localize o arquivo `.env.example` na raiz e siga as próximas etapas:
+    - Altere o nome do arquivo `.env.example` para `.env`;
+  
+    - Configurar `Banco de Dados`:
+        - No arquivo `.env` encontre as váriaveis `DB_...`. Altere seus valores para as suas respectivas configurações de Banco de Dados.
+  
+    - Configurar `API OpenAI`:
+        - No arquivo `.env` encontre a váriavel `OPENAI_API_KEY`. Altere seu valor para a sua respectiva API key da OpenAI. As API keys da OpenAI podem ser geradas aqui: https://platform.openai.com/api-keys
+
+        - No arquivo `.env` encontre a váriavel `OPENAI_ORGANIZATION`. Altere seu valor para o seu respectivo Organization ID da OpenAI. O Organization ID da OpenAI pode ser encontrado aqui: https://platform.openai.com/settings/organization/general
    
 4. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Laravel:
    

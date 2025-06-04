@@ -1,9 +1,11 @@
 <?php
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LiteraryGenreController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\BookLoanController;
+use App\Http\Controllers\GenerativeAiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +33,9 @@ Route::post('/acervo/cadastro', [BookController::class, 'saveData']);
 
 Route::get('/acervo/{id}/editar', [BookController::class, 'edit']);
 Route::delete('/acervo/{id}/excluir', [BookController::class, 'delete']);
+
+// IA
+Route::get('/acervo/{id}/ia/sinopse', [GenerativeAiController::class, 'getSynopsis']);
 
 
 // Pessoas

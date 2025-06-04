@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('tituloGuia')
+@section('titleGuide')
     BookWise - Pessoas
 @endsection
 

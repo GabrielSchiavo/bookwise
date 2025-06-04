@@ -1,13 +1,10 @@
 // IMPORT JS LIBRARIES
-import jQuery from 'jquery';
+import jQuery from "jquery";
 window.$ = jQuery;
-import 'jquery-mask-plugin';
+import "jquery-mask-plugin";
 
 // IMPORT STATIC ASSETS INTO VITE
-import.meta.glob([
-    '../images/**',
-]);
-
+import.meta.glob(["../images/**"]);
 
 // CHANGE SVG COLOR
 // Obtem os atributos do SVG para poder estilizar a imagem SVG via CSS
@@ -109,28 +106,56 @@ $("#isbn_format_10").click(function () {
 });
 
 // MODAL CONFIRM DELETE
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     const deleteForms = document.querySelectorAll('form[action*="excluir"]');
-    const modalConfirmDelete = document.getElementById('modalConfirmDelete');
-    const btnConfirm = document.getElementById('btnConfirm');
-    const btnCancel = document.getElementById('btnCancel');
+    const modalConfirmDelete = document.getElementById("modalConfirmDelete");
+    const btnConfirm = document.getElementById("btnConfirm");
+    const btnCancel = document.getElementById("btnCancel");
 
-    deleteForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+    deleteForms.forEach((form) => {
+        form.addEventListener("submit", function (e) {
             e.preventDefault(); // Impede o envio imediato
 
             // Mostra o modal
-            modalConfirmDelete.style.display = 'flex';
+            modalConfirmDelete.style.display = "flex";
 
             // Se clicar em "Sim", envia o formulário
-            btnConfirm.onclick = function() {
+            btnConfirm.onclick = function () {
                 form.submit();
             };
 
             // Se clicar em "Cancelar", fecha o modal
-            btnCancel.onclick = function() {
-                modalConfirmDelete.style.display = 'none';
+            btnCancel.onclick = function () {
+                modalConfirmDelete.style.display = "none";
             };
         });
     });
+});
+
+// COPY TEXT TO CLIPBOARD
+document.getElementById("btnCopy").addEventListener("click", function () {
+    // Obter o texto do elemento
+    const textForCopy =
+        document.getElementById("textForCopy").innerText;
+
+    // Usar a API moderna do Clipboard
+    navigator.clipboard
+        .writeText(textForCopy)
+        .then(() => {
+            // Feedback visual - você pode personalizar isso
+            const btnCopy = document.getElementById("btnCopy");
+            const textBtnCopy = document.getElementById("textBtnCopy");
+            const originalText = textBtnCopy.innerHTML;
+
+            // Mudar temporariamente o texto do botão
+            textBtnCopy.innerHTML = `Copiado!`;
+
+            // Voltar ao estado original após 2 segundos
+            setTimeout(() => {
+                textBtnCopy.innerHTML = originalText;
+            }, 2000);
+        })
+        .catch((err) => {
+            console.error("Erro ao copiar texto: ", err);
+        });
 });
