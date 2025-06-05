@@ -36,7 +36,6 @@ Route::delete('/acervo/{id}/excluir', [BookController::class, 'delete']);
 
 // IA
 Route::get('/acervo/{id}/ia/sinopse', [GenerativeAiController::class, 'showSynopsis']);
-    
 
 
 // Pessoas

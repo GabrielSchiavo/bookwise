@@ -160,21 +160,21 @@ document.getElementById("btnCopy").addEventListener("click", function () {
 });
 
 // REGENERATE SYNOPSIS
-document.addEventListener('DOMContentLoaded', function() {
-    const regenerateBtn = document.getElementById('regenerateBtn');
+document.addEventListener("DOMContentLoaded", function () {
+    const regenerateBtn = document.getElementById("regenerateBtn");
     if (!regenerateBtn) return;
 
-    const textBtnRegenerate = document.getElementById('textBtnRegenerate');
-    const bookInfo = document.getElementById('bookInfo');
-    
+    const textBtnRegenerate = document.getElementById("textBtnRegenerate");
+    const bookInfo = document.getElementById("bookInfo");
+
     if (!textBtnRegenerate || !bookInfo) return;
-    
+
     const bookId = bookInfo.dataset.bookId;
     const originalTextBtnRegenerate = textBtnRegenerate.innerHTML;
 
-    const synopsisText = document.getElementById('synopsisText');
+    const synopsisText = document.getElementById("synopsisText");
 
-    regenerateBtn.addEventListener('click', function() {
+    regenerateBtn.addEventListener("click", function () {
         // Disable button and show loading
         regenerateBtn.disabled = true;
         textBtnRegenerate.innerHTML = "Gerando...";
@@ -183,37 +183,66 @@ document.addEventListener('DOMContentLoaded', function() {
         // Make AJAX request
         fetch(`/acervo/${bookId}/ia/sinopse`, {
             headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'Accept': 'application/json'
-            }
+                "X-Requested-With": "XMLHttpRequest",
+                Accept: "application/json",
+            },
+            signal: AbortSignal.timeout(45000), // 45 second timeout
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Update synopsis
-            if (synopsisText && data.synopsis) {
-                synopsisText.innerText = data.synopsis;
-            }
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .catch((error) => {
+                if (error.name === "AbortError") {
+                    synopsisText.innerText =
+                        "A requisição demorou muito. Tente novamente.";
+                } else {
+                    synopsisText.innerText =
+                        "Erro ao gerar sinopse! Tente novamente mais tarde.";
+                }
+                // Reset button state
+                textBtnRegenerate.innerHTML = "Erro!";
+                setTimeout(() => {
+                    textBtnRegenerate.innerHTML = "Regerar";
+                    regenerateBtn.disabled = false;
+                }, 2000);
+            })
+            .then((data) => {
+                // Update synopsis
+                if (synopsisText && data.synopsis) {
+                    synopsisText.innerText = data.synopsis;
+                }
 
-            // Show success and reset button
-            textBtnRegenerate.innerHTML = "Sucesso!";
-            setTimeout(() => {
-                textBtnRegenerate.innerHTML = "Regerar";
-                regenerateBtn.disabled = false;
-            }, 2000);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            synopsisText.innerText = "Erro ao gerar sinopse! Tente novamente mais tarde.";
-            textBtnRegenerate.innerHTML = "Erro ao gerar!";
-            setTimeout(() => {
-                textBtnRegenerate.innerHTML = "Regerar";
-                regenerateBtn.disabled = false;
-            }, 2000);
-        });
+                // Show success and reset button
+                textBtnRegenerate.innerHTML = "Sucesso!";
+                setTimeout(() => {
+                    textBtnRegenerate.innerHTML = "Regerar";
+                    regenerateBtn.disabled = false;
+                }, 2000);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                synopsisText.innerText =
+                    "Erro ao gerar sinopse! Tente novamente mais tarde.";
+                textBtnRegenerate.innerHTML = "Erro!";
+                setTimeout(() => {
+                    textBtnRegenerate.innerHTML = "Regerar";
+                    regenerateBtn.disabled = false;
+                }, 2000);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                const errorMsg = error.message.includes("Failed to fetch")
+                    ? "Problema de conexão"
+                    : "Erro no servidor";
+                synopsisText.innerText = `Erro: ${errorMsg}`;
+                textBtnRegenerate.innerHTML = "Erro!";
+                setTimeout(() => {
+                    textBtnRegenerate.innerHTML = "Regerar";
+                    regenerateBtn.disabled = false;
+                }, 2000);
+            });
     });
 });

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use OpenAI\Laravel\Facades\OpenAI;
 use ArdaGnsrn\Ollama\Ollama;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class GenerativeAiController extends Controller
 {
@@ -23,7 +23,11 @@ class GenerativeAiController extends Controller
         // Se for acesso normal, mostra a página com a primeira sinopse
         // $synopsisResponse = $this->generateSynopsis($book);
 
+        $message = $request->session()->get('message');
+        $request->session()->remove('message');
+
         return view('generative-ai', [
+            'message' => $message,
             'book' => $book,
             'initialSynopsis' => null,
         ]);
@@ -31,25 +35,36 @@ class GenerativeAiController extends Controller
 
     protected function generateSynopsis(Book $book)
     {
+        set_time_limit(60); // Define timeout para 60 segundos
+
         $title = $book->title;
         $author = $book->author;
         $volume = $book->volume;
 
-        $prompt = "Forneça-me uma breve sinopse do livro '$title', volume $volume escrito por $author.";
+        $prompt = "Provide a brief synopsis of the book '{$title}', volume {$volume} written by {$author}.";
 
-        $client = Ollama::client(config('ollama.ollama_api_base_url'));
+        try {
+            $client = Ollama::client(config('ollama.api_base_url'));
 
-        $response = $client->chat()->create([
-            'model' => config('ollama.ollama_default_model'),
-            // 'options' => [
-            //     'num_predict' => 200,
-            // ],
-            'messages' => [
-                ['role' => 'system', 'content' => 'You are a book expert assistant.'],
-                ['role' => 'user', 'content' => $prompt],
-            ],
-        ]);
+            $response = $client->chat()->create([
+                'model' => config('ollama.default_model'),
+                'messages' => [
+                    ['role' => 'system', 'content' => 'You are an expert book assistant. Please answer in Portuguese.'],
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+                'options' => [
+                    // 'temperature' => 0.7,
+                    'timeout' => config('ollama.timeout')
+                ]
+            ]);
 
-        return $response->message->content;
+            return $response->message->content;
+        } catch (\Exception $e) {
+            // Handle timeout specifically
+            if (str_contains($e->getMessage(), 'timed out')) {
+                return Redirect::back()->withInput()->withErrors('A geração da sinopse demorou muito. Tente novamente mais tarde.');
+            }
+            return Redirect::back()->withInput()->withErrors("Erro ao gerar sinopse: " . $e->getMessage());
+        }
     }
 }

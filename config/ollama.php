@@ -13,8 +13,10 @@ return [
     |   | Example:
     |   | OLLAMA_API_BASE_URL=http://localhost:11434
     |   | OLLAMA_DEFAULT_MODEL=llama3.2
+    |   | OLLAMA_TIMEOUT=30
     */               
 
-    'ollama_api_base_url' => env('OLLAMA_API_BASE_URL', null),
-    'ollama_default_model' => env('OLLAMA_DEFAULT_MODEL', null),
+    'api_base_url' => env('OLLAMA_API_BASE_URL', null),
+    'default_model' => env('OLLAMA_DEFAULT_MODEL', null),
+    'timeout' => env('OLLAMA_TIMEOUT', 30)
 ];

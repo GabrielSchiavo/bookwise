@@ -73,7 +73,13 @@
                     <div class="synopsis-wrapper">
                         <div class="synopsis-content">
                             <div class="synopsis-body">
-                                <p id="synopsisText">Clique em "Gerar" para criar uma sinopse.</p>
+                                <p id="synopsisText">
+                                    @if($initialSynopsis)
+                                        {!! $initialSynopsis !!}
+                                    @else
+                                    Clique em "Gerar" para criar uma sinopse.
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="btns-container space-between">
