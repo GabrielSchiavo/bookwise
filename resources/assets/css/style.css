@@ -799,7 +799,7 @@ option {
     border: 1px solid;
     border-radius: var(--border-radius-default);
     display: inline-flex;
-    background: transparent;
+    background: var(--base-color);
     cursor: pointer;
 }
 .btn-actions-icon {
@@ -826,7 +826,6 @@ option {
 }
 .btn-action-gradient {
     color: var(--text-color);
-
     border-radius: var(--border-radius-default);
     border: solid 1px transparent;
     background-image: linear-gradient(var(--base-color), var(--base-color)),

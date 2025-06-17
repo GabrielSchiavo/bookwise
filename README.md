@@ -113,14 +113,16 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
     - Utilizando `Docker`:
       - Baixe a imagem oficial do Ollama no Docker Hub. E crie um container.
   
+      - `Ollama com GPU`: para executar o Ollama no Docker utilizando GPU acesse: https://docs.docker.com/desktop/features/gpu/
+  
       - Abra o terminal do Docker no caontainer do Ollama e execute:
   
-        - Para `instalar` um modelo de linguagem:
+        - `Instalar` um modelo de linguagem:
           ```bash
           ollama pull <nomeDoModelo>
           ```
 
-        - Para `excluir` um modelo de linguagem:
+        - `Excluir` um modelo de linguagem:
           ```bash
           ollama rm <nomeDoModelo>
           ```
@@ -128,6 +130,11 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
         - `Listar` modelos de linguagem instalados:
           ```bash
           ollama list
+          ```
+
+        - `Iniciar` modelos de linguagem instalados:
+          ```bash
+          ollama run <nomeDoModelo>
           ```
 
       - Para verificar se o servidor do Ollama está ativo acesse a URL do servidor. URL padrão: http://localhost:11434/

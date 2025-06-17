@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Book;
@@ -13,33 +14,26 @@ class BookLoanController extends Controller
 {
     public function listData(Request $request)
     {
-        if(request()->has('search')) {
-             $bookLoanList = BookLoan::where(function($query) {
+        if (request()->has('search')) {
+            $bookLoanList = BookLoan::where(function ($query) {
                 $query->where('id', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('person', 'ILIKE', '%' . request()->get('search', '') . '%')
-                      ->orWhere('book', 'ILIKE', '%' . request()->get('search', '') . '%');
-
+                    ->orWhere('person', 'ILIKE', '%' . request()->get('search', '') . '%')
+                    ->orWhere('book', 'ILIKE', '%' . request()->get('search', '') . '%');
             })->get()->sortBy('id');
-
         } else {
-             $bookLoanList = BookLoan::all()->sortBy('id');
+            $bookLoanList = BookLoan::all()->sortBy('id');
         }
 
-
-
-
         $dateNow = Carbon::now()->toDateString();
-        $changeStatus = BookLoan::where([
-            ['return_date', '<', $dateNow],
-            ['status', '!=', 'DISPONIVEL'],
-        ])->update([
+        $changeStatus = BookLoan::where(function ($query) use ($dateNow) {
+            $query->where('return_date', '<', $dateNow);
+        })->update([
             'status' => 'ATRASADO',
         ]);
 
-        $getIdLateBooks = BookLoan::where([
-            ['return_date', '<', $dateNow],
-            ['status', '!=', 'DISPONIVEL'],
-        ])->value('book_id');
+        $getIdLateBooks = BookLoan::where(function ($query) use ($dateNow) {
+            $query->where('return_date', '<', $dateNow);
+        })->value('book_id');
         $changeBooksStatus = Book::where('id', '=', $getIdLateBooks)->update([
             'status' => 'ATRASADO',
         ]);
@@ -78,7 +72,7 @@ class BookLoanController extends Controller
             'bookLoan' => $bookLoan,
             'personsList' => $personsList,
             'booksList' => $booksList,
-            
+
             'selectedBook' => $selectedBook,
         ]);
     }
@@ -116,14 +110,14 @@ class BookLoanController extends Controller
         if ($validator->fails()) {
             return Redirect::back()->withInput()->withErrors($validator);
         }
-        
+
         $getBookName = $request->book;
         $getPersonName = $request->person;
 
         $bookId = Book::where('title', '=', $getBookName)->value('id');
         $personId = Person::where('name_last_name', '=', $getPersonName)->value('id');
- 
-        if($request->status != null) {
+
+        if ($request->status != null) {
             $changeBookStatus = Book::where('id', '=', $bookId)->update([
                 'status' => $request->status,
             ]);
@@ -151,7 +145,7 @@ class BookLoanController extends Controller
                 ]);
                 $request->$updateStatusBookLoan;
             }
-            
+
             $request->$changeBookStatus;
             $request->session()->put('message', 'Retirada de <span class="text-bold">ID ' . $bookLoan->id . '</span> atualizada com sucesso!');
         } else {

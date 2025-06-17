@@ -17,8 +17,7 @@ class DashboardController extends Controller
         $personsCount = $personsList->count();
 
         $loanBooksList = BookLoan::where(function ($query) {
-            $query->where('status', '=', 'RETIRADO')
-                ->orWhere('status', '=', 'RENOVADO');
+            $query->where('status', '=', 'RETIRADO')->orWhere('status', '=', 'RENOVADO');
         });
 
         if (request()->has('search')) {
