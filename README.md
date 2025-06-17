@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-    BookWise visa o controle e cadastro de livros, empréstimos, gêneros literários e pessoas de uma biblioteca.
+    BookWise é uma aplicação web para controle e cadastro de livros, empréstimos, gêneros literários e pessoas de uma biblioteca.
 </p>
 
 ## :hammer: Funcionalidades
