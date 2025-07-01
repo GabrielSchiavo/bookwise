@@ -44,7 +44,7 @@
                         <input class="input-area phoneMask" type="tel" id="phone" name="phone" value="{{isset($person) ? $person->phone : old('phone')}}" placeholder="(__) _____-____">
                     </div>
                     <div class="input-container">
-                        <label class="input-label" for="email" class="form-label" tabindex="0">Email <span class="form-require">*</span></label>
+                        <label class="input-label" for="email" class="form-label" tabindex="0">E-mail <span class="form-require">*</span></label>
                         <input class="input-area" type="email" id="email" name="email" value="{{isset($person) ? $person->email : old('email')}}" placeholder="exemplo@email.com">
                     </div>
                     

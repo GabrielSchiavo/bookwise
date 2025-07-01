@@ -123,7 +123,7 @@
                                                 alt="Ícone Lixeira">
                                         </button>
                                         <a class="btn-actions btn-action-gradient"
-                                            href="{{ url("/acervo/{$book->id}/ia/sinopse") }}" title="BlurbAI"
+                                            href="{{ url("/acervo/{$book->id}/ia/sinopse") }}" title="SinopseAI"
                                             aria-label="ia" tabindex="0">
                                             <span class="spacing-btn-action-gradient">
                                                 <img id="svg-change-color" class="svg-color svg-icon-size-small"

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('titleGuide')
-    BookWise - BlurbAI
+    BookWise - SinopseAI
 @endsection
 
 @section('optionSideMenu03')
@@ -30,11 +30,11 @@
         <div class="data-content overflow-hidden">
             <div class="head">
                 <div class="head-with-btn">
-                    <h3 tabindex="0">BlurbAI</h3>
+                    <h3 tabindex="0">SinopseAI</h3>
                     <a class="btn btn-tertiary btn-icon-text" href="/acervo" title="Voltar para Acervo">
                         <img id="svg-change-color" class="svg-color svg-icon-size-small"
                             src="{{ Vite::asset('resources/assets/images/icons/icon-arrow-left.svg') }}" alt="Ícone Voltar">
-                        <span id="textBtnCopy" class="btn-fit-content">
+                        <span class="btn-fit-content">
                             Voltar para Acervo
                         </span>
                     </a>

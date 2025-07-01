@@ -18,40 +18,40 @@
 
 ## :hammer: Funcionalidades
 - **Cadastro:**
-  - `Cadastro de Gêneros Literários:` cadastro de nome de Gêneros Literários.
+  - `Cadastro de Gêneros Literários:` Cadastro de nome de Gêneros Literários.
   
-  - `Cadastro de Livros:` cadastro com Genêro Literário, ISBN, Título, Série, Volume, Autor, Editora, Ano e Imagem da Capa.
+  - `Cadastro de Livros:` Cadastro com Genêro Literário, ISBN, Título, Série, Volume, Autor, Editora, Ano e Imagem da Capa.
   
-  - `Cadastro de Pessoas:` cadastro com Nome e Sobrenome, Telefone e Email.
+  - `Cadastro de Pessoas:` Cadastro com Nome e Sobrenome, Telefone e E-mail.
   
-  - `Cadastro de Retiradas/Devoluções:` cadastro com Data de Retirada, Data de Devolução, Livro, Pessoa e Status.
+  - `Cadastro de Retiradas/Devoluções:` Cadastro com Data de Retirada, Data de Devolução, Livro, Pessoa e Status.
   
 - **Manutenção de Cadastros:**
-  - `Edição:` todos os cadastros podem ser editados e atualizados.
+  - `Edição:` Todos os cadastros podem ser editados e atualizados.
   
-  - `Exclusão:` cadastros podem ser excluidos.
+  - `Exclusão:` Cadastros podem ser excluídos.
   
-- **IA Generativa - BlurbAI:**
-  - `BlurbAI:` utilizando o Ollama para executar e interagir com grandes modelos de linguagem foi criado a BlurbAI uma IA com a função de gerar breves sinopses dos livros a partir dos seus Títulos, Volumes e Autores.
+- **IA Generativa - SinopseAI:**
+  - `SinopseAI:` Utilizando o Ollama para executar e interagir com grandes modelos de linguagem, foi criada a SinopseAI uma IA com a função de gerar breves sinopses dos livros a partir dos seus Títulos, Volumes e Autores.
   
 - **Visualização:**
-  - `Dashboard:` tela inicial em formato Dashboard, onde pode ser visualizado o total de livros e pessoas cadastrados. Também é exibidos quantos livros estão retirados e atrasados juntamente com seus registros.
+  - `Dashboard:` Tela inicial em formato Dashboard, onde pode ser visualizado o total de livros e pessoas cadastradas. Também são exibidos quantos livros estão retirados e atrasados juntamente com seus registros.
 
-  - `Pesquisa:` é posivel pesquisar por algum registro específico presente nas tabelas.
+  - `Pesquisa:` É possível pesquisar por algum registro específico presente nas tabelas.
 
-  - `Modo Escuro:` visualização da interface no Tema Escuro ou Tema Claro.
+  - `Modo Escuro:` Visualização da interface no Tema Escuro ou Tema Claro.
   
-  - `Dispositivos Móveis:` interface otimizada para utilização em dispositivos nóveis.
+  - `Dispositivos Móveis:` Interface otimizada para utilização em dispositivos móveis.
 
 - **Organização:**
-  - `Registros:` todos os cadastros são organizados em tabelas.
+  - `Registros:` Todos os cadastros são organizados em tabelas.
   
-  - `Status:` os livros e retiradas são organizados por status:
+  - `Status:` Os livros e retiradas são organizados por status:
     - **1 - Retirado:** Um book obtém o status `Retirado` quando um cadastro de retirada é criado para este book.
   
-    - **2 - Renovado:** Um book retirado pode ser renovado. Para renovar um book o cadastro da retirada deve ser atualizado com o status `Renovado`.
+    - **2 - Renovado:** Um book retirado pode ser renovado. Para renovar um livro o cadastro da retirada deve ser atualizado com o status `Renovado`.
   
-    - **3 - Devolvido/Disponível:** Quando um novo book é cadastrado ou não está retirado ele é marcado automaticamento com o status `Disponível`. Já quendo um book retirado é devolvido o cadastro da retirada deve ser atualizada como o status `Devolvido` ou excluída para o book retirado estar disponível para retirada novamente.
+    - **3 - Devolvido/Disponível:** Quando um novo book é cadastrado ou não está retirado, ele é marcado automaticamente com o status `Disponível`. Já quando um livro retirado é devolvido, o cadastro da retirada deve ser atualizado como o status `Devolvido` ou excluído para o livro retirado estar disponível novamente.
   
     - **4 - Atrasado:** Livros com Datas de Devolução anterios a data do dia atual é marcado automaticamente com status `Atrasado`.
   
@@ -86,13 +86,13 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 2. `Baixar e atualizar dependências:` Na raiz do projeto abra um terminal e execute:
    
     - Pacotes PHP:
-      - Atualiza e intalla pacotes para versão mais recente:
+      - Instala e atualiza pacotes para versão mais recente:
 
           ```bash
           composer update
           ```
 
-      - Instala pacotes respeitaremos a versão fornecida:
+      - Instala os pacotes respeitando a versão fornecida:
   
           ```bash
           composer install
@@ -104,18 +104,18 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
           npm update
           ```
 
-      - Instala pacotes respeitaremos a versão fornecida:
+      - Instala os pacotes respeitando a versão fornecida:
           ```bash
           npm install
           ```
     
 3. Instalar `Ollama`:
     - Utilizando `Docker`:
-      - Baixe a imagem oficial do Ollama no Docker Hub. E crie um container.
+      - Baixe a imagem oficial do Ollama no Docker Hub. E crie um contêiner.
   
       - `Ollama com GPU`: para executar o Ollama no Docker utilizando GPU acesse: https://docs.docker.com/desktop/features/gpu/
   
-      - Abra o terminal do Docker no caontainer do Ollama e execute:
+      - Abra o terminal do Docker no contêiner do Ollama e execute:
   
         - `Instalar` um modelo de linguagem:
           ```bash
@@ -137,22 +137,22 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
           ollama run <nomeDoModelo>
           ```
 
-      - Para verificar se o servidor do Ollama está ativo acesse a URL do servidor. URL padrão: http://localhost:11434/
+      - Para verificar se o servidor do Ollama está ativo, acesse a URL do servidor. URL padrão: http://localhost:11434/
   
-    - Documentação oficial do Olamma: https://github.com/ollama/ollama
+    - Documentação oficial do Ollama: https://github.com/ollama/ollama
   
 4. Localize o arquivo `.env.example` na raiz e siga as próximas etapas:
     - Altere o nome do arquivo `.env.example` para `.env`;
   
     - Configurar `Banco de Dados`:
-        - No arquivo `.env` encontre as váriaveis `DB_...`. Altere seus valores para as suas respectivas configurações de Banco de Dados.
+        - No arquivo `.env` encontre as variáveis  `DB_...`. Altere seus valores para as suas respectivas configurações de Banco de Dados.
   
     - Configurar `Ollama`:
-        - No arquivo `.env` é possivel encontrar as variáveis `OLLAMA_...` com suas definições padrões. Caso esteja usando configurações para o Ollama diferentes das padrões altere as variáveis `OLLAMA_...` e altere seus valores para as suas respectivas configurações.
+        - No arquivo `.env` é possível encontrar as variáveis `OLLAMA_...` com suas definições padrões. Caso esteja usando configurações para o Ollama diferentes dos padrões, altere as variáveis `OLLAMA_...` e altere seus valores para as suas respectivas configurações.
    
-5. Depois abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Laravel:
+5. Depois, abra um terminal na raiz do projeto e execute os seguintes comandos para configurar o Laravel:
    
-   - Gera o valor para a variável `APP_KEY` no arquivo `.env`, necessária para execusão do Laravel:
+   - Gera o valor para a variável `APP_KEY` no arquivo `.env`, necessária para execução do Laravel:
   
       ```bash
       php artisan key:generate
@@ -166,7 +166,7 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
 
 6. Ainda na raiz do projeto execute os seguintes comandos para configurar o Banco de Dados:
    
-   - Cria as tebelas e os relacionamentos executando as migrations:
+   - Cria as tabelas e os relacionamentos, executando as migrações:
   
       ```bash
       php artisan migrate
@@ -178,15 +178,15 @@ Após baixar o projeto, deve verificar se possui os seguintes requisitos:
       php artisan storage:link
       ```
 
-7. Agora você deve compilar os assets do projeto. Exixtem duas maneiras para compilar os assets:
+7. Agora, você deve compilar os assets do projeto. Existem duas maneiras para compilar os assets:
    
-   - `Compilar:` compila e agrupa os ativos os deixando prontos para implantação em produção (`não` atualiza os ativos automaticamnete):
+   - `Compilar:` compila e agrupa os ativos, os deixando prontos para implantação em produção (`não` atualiza os ativos automaticamente):
   
       ```bash
       npm run build
       ```
   
-   - `Atualizar em tempo real:` executa o servidor de desenvolvimento local do `Vite`, onde detectará automaticamente as alterações nos arquivos dos ativos e as refletirá instantaneamente em qualquer janela aberta do navegador:
+   - `Atualizar em tempo real:` executa o servidor de desenvolvimento local do `Vite`, que detectará automaticamente as alterações nos arquivos dos ativos e as refletirá instantaneamente em qualquer janela aberta do navegador:
   
       ```bash
       npm run dev

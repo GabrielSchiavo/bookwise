@@ -41,7 +41,7 @@ active
                     <th tabindex="0">ID</th>
                     <th tabindex="0">Nome</th>
                     <th tabindex="0">Telefone</th>
-                    <th tabindex="0">Email</th>
+                    <th tabindex="0">E-mail</th>
                     <th class="th-end" tabindex="0">Ações</th>
                 </tr>
             </thead>
