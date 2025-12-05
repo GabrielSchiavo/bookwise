@@ -168,10 +168,12 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
 
 8. `Executar o projeto:`
   - **Desenvolvimento:**
+    Em um terminal inicie o Vite:
     ```bash
       npm run dev
     ```
 
+    Em outro terminal inicie o servidor de desenvolvimento do Laravel:
     ```bash
       php artisan serve
     ```

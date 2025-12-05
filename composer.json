@@ -1,18 +1,19 @@
 {
-    "name": "bookwise/bookwise",
     "type": "project",
+    "name": "bookwise/bookwise",
     "description": "BookWise - Library Management",
     "keywords": ["framework", "laravel", "bookwise"],
+    "version": "2.7.9",
     "license": "MIT",
     "require": {
-        "php": "^8.4.0",
+        "php": "^8.5.0",
         "ardagnsrn/ollama-php": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel-lang/common": "^6.7",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.7",
-        "sweetalert2/laravel": "^0.1.0"
+        "sweetalert2/laravel": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
