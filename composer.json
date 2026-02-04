@@ -3,25 +3,25 @@
     "name": "bookwise/bookwise",
     "description": "BookWise - Library Management",
     "keywords": ["framework", "laravel", "bookwise"],
-    "version": "2.7.9",
+    "version": "2.7.10",
     "license": "MIT",
     "require": {
         "php": "^8.5.0",
-        "ardagnsrn/ollama-php": "^1.0",
-        "guzzlehttp/guzzle": "^7.2",
-        "laravel-lang/common": "^6.7",
-        "laravel/framework": "^12.0",
-        "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.7",
-        "sweetalert2/laravel": "^1.0"
+        "ardagnsrn/ollama-php": "^1.0.5",
+        "guzzlehttp/guzzle": "^7.10",
+        "laravel-lang/common": "^6.7.2",
+        "laravel/framework": "^12.49",
+        "laravel/sanctum": "^4.3",
+        "laravel/tinker": "^2.11",
+        "sweetalert2/laravel": "^1.3.2"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^8.7",
-        "phpunit/phpunit": "^12.0",
-        "spatie/laravel-ignition": "^2.0"
+        "fakerphp/faker": "^1.24.1",
+        "laravel/sail": "^1.52.0",
+        "mockery/mockery": "^1.6.12",
+        "nunomaduro/collision": "^8.8.3",
+        "phpunit/phpunit": "^12.5.8",
+        "spatie/laravel-ignition": "^2.10"
     },
     "autoload": {
         "psr-4": {
