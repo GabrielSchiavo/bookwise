@@ -3,7 +3,7 @@
     "name": "bookwise/bookwise",
     "description": "BookWise - Library Management",
     "keywords": ["framework", "laravel", "bookwise"],
-    "version": "2.7.10",
+    "version": "2.7.11",
     "license": "MIT",
     "require": {
         "php": "^8.5.0",
