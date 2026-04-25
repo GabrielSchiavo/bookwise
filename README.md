@@ -79,6 +79,7 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
 
 -   **PHP** >= 8.4.5
 -   **Composer** >= 2.8.6
+-   **PNPM** >= 10
 -   **Node.js** >= 22.17.0
 -   **Docker**
 -   **Docker Compose**
@@ -107,12 +108,16 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
   - Pacotes JS:
     - Instalar e atualizar pacotes:
       ```bash
-        npm update
+        pnpm update
+      ```
+    - `OU` Escolher quais pacotes atualizar:
+      ```bash
+        pnpm up -i
       ```
 
     - Instalar pacotes respeitando a versão fornecida:
       ```bash
-        npm install
+        pnpm install
       ```
 
 3. `Configurar Banco de Dados e Ollama:` execute o comando abaixo e aguarde o Ollama concluir a instalação do modelo de IA
@@ -163,14 +168,14 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
 
 7. `Compilar os ativos:`
     ```bash
-      npm run build
+      pnpm build
     ```
 
 8. `Executar o projeto:`
   - **Desenvolvimento:**
     Em um terminal inicie o Vite:
     ```bash
-      npm run dev
+      pnpm dev
     ```
 
     Em outro terminal inicie o servidor de desenvolvimento do Laravel:
@@ -180,7 +185,7 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
 
   - **Produção:**
     ```bash
-      npm run build
+      pnpm build
     ```
 
     -   No arquivo `.env` garanta que as variáveis **APP_ENV** e **APP_DEBUG** estejam idênticas as seguintes:
@@ -193,8 +198,8 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
 
 ## ⚡ Scripts Disponíveis
 
-- `npm run dev` - Executa o servidor em modo de desenvolvimento com hot reload
-- `npm run build` - Compila os ativos do projeto
+- `pnpm dev` - Executa o servidor em modo de desenvolvimento com hot reload
+- `pnpm build` - Compila os ativos do projeto
 - `php artisan migrate` - Executa as migrações do Banco de Dados
 - `php artisan serve` - Inicia o projeto
 
