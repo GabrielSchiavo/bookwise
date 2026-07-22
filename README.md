@@ -95,6 +95,11 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
 
 2. `Instalar e atualizar dependências:`
   - Pacotes PHP:
+    - Verificar vulnerabilidades nos pacotes:
+      ```bash
+        composer audit
+      ```
+
     - Instalar e atualizar pacotes:
       ```bash
         composer update
@@ -108,11 +113,7 @@ BookWise é uma aplicação web para controle e cadastro de livros, empréstimos
   - Pacotes JS:
     - Instalar e atualizar pacotes:
       ```bash
-        pnpm update
-      ```
-    - `OU` Escolher quais pacotes atualizar:
-      ```bash
-        pnpm up -i
+        pnpm update:interactive
       ```
 
     - Instalar pacotes respeitando a versão fornecida:
